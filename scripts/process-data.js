@@ -440,6 +440,26 @@ function main() {
     };
   }
 
+  // --- Per-org array for client-side filtering ---
+  const orgs = enriched.map(o => {
+    const rec = {
+      ein: o.ein,
+      nm: o.name,
+      ct: o.city,
+      nt: o.ntee_code ? o.ntee_code.charAt(0).toUpperCase() : null,
+      sub: o.subseccd,
+      yr: o.latest?.tax_prd_yr ?? null,
+      ft: o.latest?.formtype ?? null,
+      rev: o.latest?.totrevenue ?? null,
+      exp: o.latest?.totfuncexpns ?? null,
+      ast: o.latest?.totassetsend ?? null,
+      lib: o.latest?.totliabend ?? null,
+      net: o.latest?.totnetassetend ?? null,
+      comp: o.latest?.compnsatncurrofcr ?? null,
+    };
+    return rec;
+  });
+
   // --- Assemble output ---
   const output = {
     last_updated: new Date().toISOString(),
@@ -456,6 +476,7 @@ function main() {
     financial_health: financialHealth,
     top_orgs: topOrgs,
     benchmarks,
+    orgs,
   };
 
   mkdirSync('src/data', { recursive: true });

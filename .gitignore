@@ -3,3 +3,5 @@ dist/
 raw/
 .vercel/
 *.log
+
+.vercel

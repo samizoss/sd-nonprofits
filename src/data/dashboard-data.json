@@ -112,5 +112,6 @@
     "large": { "avg_expense_ratio": 0.94, "avg_officer_comp": 0.02, "median_assets": 85000000 },
     "medium": { "avg_expense_ratio": 0.91, "avg_officer_comp": 0.05, "median_assets": 2100000 },
     "small": { "avg_expense_ratio": 0.88, "avg_officer_comp": 0.08, "median_assets": 180000 }
-  }
+  },
+  "orgs": []
 }
