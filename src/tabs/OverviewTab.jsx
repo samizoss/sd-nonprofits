@@ -19,21 +19,18 @@ export default function OverviewTab({ data }) {
       {/* Insight cards */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <InsightCard
-          icon="🏦"
           title="National Benchmark"
           value={`~${data.overview.national_nonprofit_gdp_pct}% of GDP`}
           description="Nonprofit sector nationally (BEA)"
           color="blue"
         />
         <InsightCard
-          icon="🌾"
           title="Rural Presence"
           value={formatNumber(data.overview.rural_orgs)}
           description="36% of orgs serve rural communities"
           color="green"
         />
         <InsightCard
-          icon="📊"
           title="Revenue Concentration"
           value={`Top 10 = ${data.overview.top10_pct}%`}
           description="High concentration in largest orgs"
@@ -44,8 +41,8 @@ export default function OverviewTab({ data }) {
       {/* Charts */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Organizations by Type */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Organizations by Type</h3>
+        <div className="bg-white rounded-lg p-6 border border-slate-200">
+          <h3 className="font-semibold text-slate-900 mb-4">Organizations by Type</h3>
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={ccodeSix} layout="vertical" margin={{ left: 0, right: 16, top: 4, bottom: 4 }}>
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={formatNumber} />
@@ -55,16 +52,17 @@ export default function OverviewTab({ data }) {
                 {ccodeSix.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={entry.priority ? '#3b82f6' : '#94a3b8'}
+                    fill={entry.priority ? '#1b4965' : '#94a3b8'}
                   />
                 ))}
               </Bar>
             </BarChart>
           </ResponsiveContainer>
+          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
           {/* Legend */}
-          <div className="flex gap-4 mt-3 text-sm text-gray-600">
+          <div className="flex gap-4 mt-3 text-sm text-slate-600">
             <div className="flex items-center gap-1.5">
-              <div className="w-3 h-3 rounded-sm bg-blue-500"></div>
+              <div className="w-3 h-3 rounded-sm bg-[#1b4965]"></div>
               <span>Priority</span>
             </div>
             <div className="flex items-center gap-1.5">
@@ -75,8 +73,8 @@ export default function OverviewTab({ data }) {
         </div>
 
         {/* Data Freshness */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Data Freshness</h3>
+        <div className="bg-white rounded-lg p-6 border border-slate-200">
+          <h3 className="font-semibold text-slate-900 mb-4">Data Freshness</h3>
           <ResponsiveContainer width="100%" height={280}>
             <PieChart>
               <Pie
@@ -93,8 +91,9 @@ export default function OverviewTab({ data }) {
               <Tooltip formatter={(value) => formatNumber(value)} />
             </PieChart>
           </ResponsiveContainer>
+          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
           {/* Legend */}
-          <div className="grid grid-cols-2 gap-1.5 mt-2 text-sm text-gray-600">
+          <div className="grid grid-cols-2 gap-1.5 mt-2 text-sm text-slate-600">
             {data.by_freshness.map((entry, index) => (
               <div key={index} className="flex items-center gap-1.5">
                 <div className="w-3 h-3 rounded-sm flex-shrink-0" style={{ backgroundColor: entry.color }}></div>
@@ -106,7 +105,7 @@ export default function OverviewTab({ data }) {
       </div>
 
       {/* Data quality note */}
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
+      <div className="bg-white border border-slate-200 border-l-4 border-l-[#c17817] rounded-lg p-4 text-sm text-slate-700">
         <strong>Data Quality Note:</strong> {formatNumber(data.overview.no_financials)} organizations (80%) have no
         detailed financial data because they file Form 990-N (e-Postcard).
       </div>

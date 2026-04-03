@@ -21,17 +21,17 @@ export default function EconomicTab({ data }) {
       {/* Two cards: concentration + revenue by tier */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Revenue Concentration */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Revenue Concentration</h3>
+        <div className="bg-white rounded-lg p-6 border border-slate-200">
+          <h3 className="font-semibold text-slate-900 mb-4">Revenue Concentration</h3>
           <div className="space-y-3">
             {data.concentration.map((row, index) => {
               const barWidth = Math.min(row.pct_of_orgs * 3, 100);
               return (
                 <div key={index} className="flex items-center gap-3">
-                  <span className="w-16 text-sm text-gray-500 font-medium flex-shrink-0">{row.threshold}</span>
-                  <div className="flex-1 bg-gray-100 rounded-full h-6 relative">
+                  <span className="w-16 text-sm text-slate-600 font-medium flex-shrink-0">{row.threshold}</span>
+                  <div className="flex-1 bg-slate-100 rounded-full h-6 relative">
                     <div
-                      className="bg-blue-500 h-6 rounded-full flex items-center px-2"
+                      className="bg-[#1b4965] h-6 rounded-full flex items-center px-2"
                       style={{ width: `${barWidth}%`, minWidth: '2.5rem' }}
                     >
                       <span className="text-xs text-white font-medium whitespace-nowrap">
@@ -39,30 +39,31 @@ export default function EconomicTab({ data }) {
                       </span>
                     </div>
                   </div>
-                  <span className="w-20 text-sm text-gray-600 text-right flex-shrink-0">
+                  <span className="w-20 text-sm text-slate-600 text-right flex-shrink-0">
                     {row.pct_of_orgs}% of orgs
                   </span>
                 </div>
               );
             })}
           </div>
-          <div className="mt-4 bg-blue-50 border border-blue-100 rounded-lg p-3 text-sm text-blue-800">
+          <div className="mt-4 bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm text-slate-700">
             Just 5 organizations generate 50% of all nonprofit revenue in South Dakota.
           </div>
         </div>
 
         {/* Revenue by Organization Size */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Revenue by Organization Size</h3>
+        <div className="bg-white rounded-lg p-6 border border-slate-200">
+          <h3 className="font-semibold text-slate-900 mb-4">Revenue by Organization Size</h3>
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={data.by_revenue_tier} margin={{ left: 0, right: 8, top: 4, bottom: 4 }}>
               <XAxis dataKey="tier" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={formatNumber} />
               <Tooltip formatter={(value) => formatNumber(value)} />
-              <Bar dataKey="count" fill="#8b5cf6" />
+              <Bar dataKey="count" fill="#c17817" />
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-sm text-slate-600 mt-2">
             The largest organizations (revenue $10M+) drive the vast majority of sector revenue despite representing
             less than 2% of all organizations.
           </p>
@@ -70,12 +71,12 @@ export default function EconomicTab({ data }) {
       </div>
 
       {/* Advocacy talking points */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white">
+      <div className="bg-[#1b4965] rounded-lg p-6 text-white">
         <h3 className="font-semibold text-lg mb-4">Advocacy Talking Points</h3>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
             <h4 className="font-semibold mb-2">For Policymakers</h4>
-            <ul className="space-y-1.5 text-sm text-blue-100">
+            <ul className="space-y-1.5 text-sm text-slate-300">
               <li>Nonprofits are among the largest employers and service providers across South Dakota</li>
               <li>Over 8,500 registered nonprofits operating in 383 communities statewide</li>
               <li>36% of organizations serve rural communities with limited alternative providers</li>
@@ -84,8 +85,8 @@ export default function EconomicTab({ data }) {
           </div>
           <div>
             <h4 className="font-semibold mb-2">For Funders</h4>
-            <ul className="space-y-1.5 text-sm text-blue-100">
-              <li>Capacity building in mid-size organizations ($1M–$10M) offers highest leverage</li>
+            <ul className="space-y-1.5 text-sm text-slate-300">
+              <li>Capacity building in mid-size organizations ($1M-$10M) offers highest leverage</li>
               <li>153 organizations identified as capacity-building ready</li>
               <li>High revenue concentration creates systemic risk — diversifying the base strengthens resilience</li>
               <li>435 organizations show signs of financial stress and may benefit from targeted support</li>
