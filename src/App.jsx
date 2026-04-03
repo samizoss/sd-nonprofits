@@ -10,13 +10,13 @@ import BenchmarksTab from './tabs/BenchmarksTab';
 import ProspectsTab from './tabs/ProspectsTab';
 
 const tabs = [
-  { id: 'overview', label: 'Overview', icon: '📊' },
-  { id: 'economic', label: 'Economic Impact', icon: '💰' },
-  { id: 'sectors', label: 'Sectors', icon: '🏛️' },
-  { id: 'geography', label: 'Geography', icon: '🗺️' },
-  { id: 'health', label: 'Financial Health', icon: '❤️' },
-  { id: 'benchmarks', label: 'Benchmarks', icon: '📈' },
-  { id: 'prospects', label: 'Prospects', icon: '🎯' },
+  { id: 'overview', label: 'Overview' },
+  { id: 'economic', label: 'Economic Impact' },
+  { id: 'sectors', label: 'Sectors' },
+  { id: 'geography', label: 'Geography' },
+  { id: 'health', label: 'Financial Health' },
+  { id: 'benchmarks', label: 'Benchmarks' },
+  { id: 'prospects', label: 'Prospects' },
 ];
 
 const tabComponents = {
@@ -37,47 +37,65 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+    <div className="min-h-screen bg-slate-50">
+      {/* Teal accent bar */}
+      <div className="h-1 bg-[#1b4965]"></div>
+
+      {/* Header */}
+      <div className="bg-white border-b border-slate-200 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-8 py-5">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">South Dakota Nonprofit Landscape</h1>
-              <p className="text-gray-500 mt-1">Comprehensive sector analysis • Data from ProPublica Nonprofit Explorer</p>
+              <h1 className="text-2xl font-bold text-slate-900">South Dakota Nonprofit Landscape</h1>
+              <p className="text-slate-500 text-sm mt-1">Comprehensive sector analysis from IRS Form 990 filings</p>
             </div>
-            <div className="text-right text-sm text-gray-400">
-              <p>Last updated: {lastUpdated}</p>
+            <div className="text-right text-xs text-slate-400">
+              <p>Updated {lastUpdated}</p>
               <p>{formatNumber(data.overview.total_orgs)} organizations</p>
             </div>
           </div>
-          <div className="flex gap-1 mt-6 overflow-x-auto">
+
+          {/* Tab navigation — underline style */}
+          <nav className="flex gap-6 mt-5 -mb-px overflow-x-auto">
             {tabs.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-colors ${
+                className={`pb-3 text-sm font-medium whitespace-nowrap transition-colors border-b-2 ${
                   activeTab === tab.id
-                    ? 'bg-blue-100 text-blue-700'
-                    : 'text-gray-500 hover:bg-gray-100'
+                    ? 'border-[#1b4965] text-[#1b4965]'
+                    : 'border-transparent text-slate-400 hover:text-slate-600 hover:border-slate-300'
                 }`}
               >
-                <span className="mr-2">{tab.icon}</span>{tab.label}
+                {tab.label}
               </button>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
 
+      {/* Tab Content */}
       <div className="max-w-7xl mx-auto px-8 py-8">
         <ActiveTabComponent data={data} />
       </div>
 
-      <div className="border-t border-gray-200 bg-white mt-8">
-        <div className="max-w-7xl mx-auto px-8 py-6 text-center text-sm text-gray-400">
-          <p>Data source: {data.data_source}</p>
-          <p className="mt-1">Most recent filings: 2023-2024 • {formatNumber(data.overview.with_financials)} orgs with detailed financial data</p>
+      {/* Footer */}
+      <footer className="border-t border-slate-200 bg-white mt-12">
+        <div className="max-w-7xl mx-auto px-8 py-8">
+          <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-slate-400">
+            <div>
+              <p className="font-medium text-slate-500">Data Source</p>
+              <p className="mt-1">ProPublica Nonprofit Explorer API — IRS Exempt Organizations Business Master File and Form 990 filings</p>
+              <p className="mt-1">{formatNumber(data.overview.with_financials)} organizations with detailed financial data from 2023–2024 filings</p>
+            </div>
+            <div className="md:text-right">
+              <p className="font-medium text-slate-500">Methodology</p>
+              <p className="mt-1">Revenue and asset figures from most recent available filing.</p>
+              <p>Organizations filing 990-N (under $50K revenue) excluded from financial analysis.</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
