@@ -12,6 +12,20 @@ const COMMUNITY_OPTIONS = [
   { value: 'Rural (<2.5K)', label: 'Rural (<2.5K)' },
 ];
 
+const SUBSECTION_OPTIONS = [
+  { value: 'all', label: 'All 501(c) Types' },
+  { value: '3', label: '501(c)(3) Charitable' },
+  { value: '4', label: '501(c)(4) Social Welfare' },
+  { value: '5', label: '501(c)(5) Labor/Ag' },
+  { value: '6', label: '501(c)(6) Business Leagues' },
+  { value: '7', label: '501(c)(7) Social Clubs' },
+  { value: '8', label: '501(c)(8) Fraternal' },
+  { value: '10', label: '501(c)(10) Fraternal Domestic' },
+  { value: '12', label: '501(c)(12) Insurance/Co-op' },
+  { value: '13', label: '501(c)(13) Cemetery' },
+  { value: '19', label: '501(c)(19) Veterans' },
+];
+
 const SECTOR_OPTIONS = [
   { value: 'all', label: 'All Sectors' },
   { value: 'Arts & Culture', label: 'Arts & Culture' },
@@ -47,6 +61,7 @@ export default function FilterBar({ filters, setFilters, disabled, orgCount, tot
     filters.excludeHealth,
     filters.community !== 'all',
     filters.sector !== 'all',
+    filters.subsection !== 'all',
   ].filter(Boolean).length;
 
   const update = (key, value) => setFilters(prev => ({ ...prev, [key]: value }));
@@ -81,6 +96,12 @@ export default function FilterBar({ filters, setFilters, disabled, orgCount, tot
         value={filters.community}
         onChange={v => update('community', v)}
         options={COMMUNITY_OPTIONS}
+        disabled={disabled}
+      />
+      <SelectFilter
+        value={filters.subsection}
+        onChange={v => update('subsection', v)}
+        options={SUBSECTION_OPTIONS}
         disabled={disabled}
       />
       <SelectFilter

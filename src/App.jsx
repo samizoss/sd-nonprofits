@@ -37,6 +37,7 @@ export default function App() {
     freshness: 'all',
     excludeHealth: false,
     community: 'all',
+    subsection: 'all',
     sector: 'all',
   });
 
@@ -62,6 +63,12 @@ export default function App() {
     // Apply community filter
     if (filters.community !== 'all') {
       orgs = orgs.filter(o => communitySize(o.ct) === filters.community);
+    }
+
+    // Apply subsection code filter
+    if (filters.subsection !== 'all') {
+      const sub = Number(filters.subsection);
+      orgs = orgs.filter(o => o.sub === sub);
     }
 
     // Apply sector filter
