@@ -36,6 +36,8 @@ export default function App() {
   const [filters, setFilters] = useState({
     freshness: 'all',
     excludeHealth: false,
+    excludeCongregations: false,
+    excludeFoundations: false,
     community: 'all',
     subsection: 'all',
     sector: 'all',
@@ -58,6 +60,16 @@ export default function App() {
     // Apply health system exclusion
     if (filters.excludeHealth) {
       orgs = orgs.filter(o => !('EFGH'.includes(o.nt) && o.rev > 50000000));
+    }
+
+    // Apply congregation exclusion (NTEE X + revenue under $250K or no filings)
+    if (filters.excludeCongregations) {
+      orgs = orgs.filter(o => !(o.nt === 'X' && (o.rev == null || o.rev < 250000)));
+    }
+
+    // Apply private foundation exclusion (formtype 2 = 990-PF)
+    if (filters.excludeFoundations) {
+      orgs = orgs.filter(o => o.ft !== 2);
     }
 
     // Apply community filter

@@ -59,6 +59,8 @@ export default function FilterBar({ filters, setFilters, disabled, orgCount, tot
   const activeCount = [
     filters.freshness !== 'all',
     filters.excludeHealth,
+    filters.excludeCongregations,
+    filters.excludeFoundations,
     filters.community !== 'all',
     filters.sector !== 'all',
     filters.subsection !== 'all',
@@ -75,48 +77,73 @@ export default function FilterBar({ filters, setFilters, disabled, orgCount, tot
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <SelectFilter
-        value={filters.freshness}
-        onChange={v => update('freshness', v)}
-        options={FRESHNESS_OPTIONS}
-        disabled={disabled}
-      />
-      <label className="flex items-center gap-1.5 text-sm text-slate-600 cursor-pointer select-none">
-        <input
-          type="checkbox"
-          checked={filters.excludeHealth}
-          onChange={e => update('excludeHealth', e.target.checked)}
+    <div className="space-y-2">
+      <div className="flex flex-wrap items-center gap-3">
+        <SelectFilter
+          value={filters.freshness}
+          onChange={v => update('freshness', v)}
+          options={FRESHNESS_OPTIONS}
           disabled={disabled}
-          className="rounded border-slate-300 text-[#1b4965] focus:ring-[#1b4965] disabled:opacity-40"
         />
-        Exclude large health systems
-      </label>
-      <SelectFilter
-        value={filters.community}
-        onChange={v => update('community', v)}
-        options={COMMUNITY_OPTIONS}
-        disabled={disabled}
-      />
-      <SelectFilter
-        value={filters.subsection}
-        onChange={v => update('subsection', v)}
-        options={SUBSECTION_OPTIONS}
-        disabled={disabled}
-      />
-      <SelectFilter
-        value={filters.sector}
-        onChange={v => update('sector', v)}
-        options={SECTOR_OPTIONS}
-        disabled={disabled}
-      />
-      <span className="ml-auto text-xs text-slate-400">
-        {activeCount > 0 ? (
-          <>{orgCount.toLocaleString()} of {totalCount.toLocaleString()} orgs shown</>
-        ) : (
-          <>{orgCount.toLocaleString()} organizations</>
-        )}
-      </span>
+        <SelectFilter
+          value={filters.subsection}
+          onChange={v => update('subsection', v)}
+          options={SUBSECTION_OPTIONS}
+          disabled={disabled}
+        />
+        <SelectFilter
+          value={filters.sector}
+          onChange={v => update('sector', v)}
+          options={SECTOR_OPTIONS}
+          disabled={disabled}
+        />
+        <SelectFilter
+          value={filters.community}
+          onChange={v => update('community', v)}
+          options={COMMUNITY_OPTIONS}
+          disabled={disabled}
+        />
+        <span className="ml-auto text-xs text-slate-400">
+          {activeCount > 0 ? (
+            <>{orgCount.toLocaleString()} of {totalCount.toLocaleString()} orgs shown</>
+          ) : (
+            <>{orgCount.toLocaleString()} organizations</>
+          )}
+        </span>
+      </div>
+      <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+        <span className="text-xs font-medium uppercase tracking-wide text-slate-400">Exclude:</span>
+        <label className="flex items-center gap-1.5 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={filters.excludeHealth}
+            onChange={e => update('excludeHealth', e.target.checked)}
+            disabled={disabled}
+            className="rounded border-slate-300 text-[#1b4965] focus:ring-[#1b4965] disabled:opacity-40"
+          />
+          Large health systems
+        </label>
+        <label className="flex items-center gap-1.5 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={filters.excludeCongregations}
+            onChange={e => update('excludeCongregations', e.target.checked)}
+            disabled={disabled}
+            className="rounded border-slate-300 text-[#1b4965] focus:ring-[#1b4965] disabled:opacity-40"
+          />
+          Small congregations
+        </label>
+        <label className="flex items-center gap-1.5 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={filters.excludeFoundations}
+            onChange={e => update('excludeFoundations', e.target.checked)}
+            disabled={disabled}
+            className="rounded border-slate-300 text-[#1b4965] focus:ring-[#1b4965] disabled:opacity-40"
+          />
+          Private foundations
+        </label>
+      </div>
     </div>
   );
 }
