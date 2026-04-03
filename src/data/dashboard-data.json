@@ -1,0 +1,116 @@
+{
+  "last_updated": "2026-04-03T00:00:00Z",
+  "data_source": "ProPublica Nonprofit Explorer API",
+  "overview": {
+    "total_orgs": 8571,
+    "priority_orgs": 7453,
+    "with_financials": 1693,
+    "no_financials": 6878,
+    "total_revenue": 15969158552,
+    "total_assets": 27998785142,
+    "total_net_assets": 18500000000,
+    "cities": 383,
+    "national_nonprofit_gdp_pct": 5.4,
+    "nonprofit_employment_pct": null,
+    "nonprofit_wages": null,
+    "top10_pct": 65.2,
+    "top50_pct": 85,
+    "rural_orgs": 3082,
+    "capacity_building_ready": 153,
+    "financial_stress": 435
+  },
+  "by_ccode": [
+    { "code": "501(c)(3)", "label": "Charitable", "count": 6175, "revenue": 14023684661, "priority": true },
+    { "code": "501(c)(4)", "label": "Social Welfare", "count": 563, "revenue": 595612818, "priority": true },
+    { "code": "501(c)(6)", "label": "Business Leagues", "count": 379, "revenue": 136831512, "priority": true },
+    { "code": "501(c)(19)", "label": "Veterans", "count": 336, "revenue": 4707020, "priority": true },
+    { "code": "501(c)(8)", "label": "Fraternal", "count": 306, "revenue": 3319101, "priority": false },
+    { "code": "501(c)(7)", "label": "Social Clubs", "count": 150, "revenue": 35603868, "priority": false },
+    { "code": "501(c)(5)", "label": "Labor/Ag", "count": 147, "revenue": 29066083, "priority": false },
+    { "code": "501(c)(10)", "label": "Fraternal Domestic", "count": 135, "revenue": 2534997, "priority": false },
+    { "code": "501(c)(13)", "label": "Cemetery", "count": 87, "revenue": 2082643, "priority": false },
+    { "code": "501(c)(12)", "label": "Insurance/Co-op", "count": 78, "revenue": 1079550880, "priority": false }
+  ],
+  "by_ntee": [
+    { "category": "Health Care", "count": 892, "revenue": 12500000000, "pct_revenue": 78.3 },
+    { "category": "Human Services", "count": 1456, "revenue": 890000000, "pct_revenue": 5.6 },
+    { "category": "Education", "count": 1203, "revenue": 650000000, "pct_revenue": 4.1 },
+    { "category": "Religion-Related", "count": 1891, "revenue": 320000000, "pct_revenue": 2.0 },
+    { "category": "Philanthropy", "count": 234, "revenue": 450000000, "pct_revenue": 2.8 },
+    { "category": "Arts & Culture", "count": 312, "revenue": 85000000, "pct_revenue": 0.5 },
+    { "category": "Youth Development", "count": 289, "revenue": 45000000, "pct_revenue": 0.3 },
+    { "category": "Community Improvement", "count": 198, "revenue": 120000000, "pct_revenue": 0.8 },
+    { "category": "Recreation & Sports", "count": 387, "revenue": 35000000, "pct_revenue": 0.2 },
+    { "category": "Unknown", "count": 1709, "revenue": 874158552, "pct_revenue": 5.5 }
+  ],
+  "by_community": [
+    { "size": "Urban (50K+)", "count": 2557, "revenue": 12096913617, "pct_orgs": 29.8, "pct_revenue": 75.7 },
+    { "size": "Mid-Size (10-50K)", "count": 1673, "revenue": 2098543856, "pct_orgs": 19.5, "pct_revenue": 13.1 },
+    { "size": "Small Town (2.5-10K)", "count": 1259, "revenue": 892456789, "pct_orgs": 14.7, "pct_revenue": 5.6 },
+    { "size": "Rural (<2.5K)", "count": 3082, "revenue": 881244290, "pct_orgs": 36.0, "pct_revenue": 5.5 }
+  ],
+  "by_city": [
+    { "city": "Sioux Falls", "count": 1669, "revenue": 10461571820, "community": "Urban" },
+    { "city": "Rapid City", "count": 888, "revenue": 1635341797, "community": "Urban" },
+    { "city": "Aberdeen", "count": 282, "revenue": 357710594, "community": "Mid-Size" },
+    { "city": "Pierre", "count": 260, "revenue": 387806036, "community": "Mid-Size" },
+    { "city": "Brookings", "count": 260, "revenue": 128928107, "community": "Mid-Size" },
+    { "city": "Mitchell", "count": 215, "revenue": 249784843, "community": "Mid-Size" },
+    { "city": "Watertown", "count": 214, "revenue": 232423933, "community": "Mid-Size" },
+    { "city": "Yankton", "count": 192, "revenue": 230789288, "community": "Mid-Size" },
+    { "city": "Spearfish", "count": 173, "revenue": 32248266, "community": "Mid-Size" },
+    { "city": "Huron", "count": 143, "revenue": 137100840, "community": "Mid-Size" }
+  ],
+  "by_freshness": [
+    { "status": "Current (2023-24)", "count": 1539, "color": "#22c55e" },
+    { "status": "Recent (2021-22)", "count": 78, "color": "#84cc16" },
+    { "status": "Older (2018-20)", "count": 76, "color": "#eab308" },
+    { "status": "No Filing Data", "count": 6878, "color": "#e5e7eb" }
+  ],
+  "by_revenue_tier": [
+    { "tier": "$10M+", "count": 124, "total_revenue": 14200000000 },
+    { "tier": "$1M-$10M", "count": 383, "total_revenue": 1200000000 },
+    { "tier": "$250K-$1M", "count": 561, "total_revenue": 280000000 },
+    { "tier": "$100K-$250K", "count": 312, "total_revenue": 50000000 },
+    { "tier": "$50K-$100K", "count": 279, "total_revenue": 20000000 },
+    { "tier": "Under $50K", "count": 34, "total_revenue": 1000000 }
+  ],
+  "by_size_category": [
+    { "category": "Large (990, $10M+)", "count": 124, "avg_revenue": 114500000, "avg_assets": 180000000 },
+    { "category": "Medium (990, $1M-$10M)", "count": 383, "avg_revenue": 3100000, "avg_assets": 4200000 },
+    { "category": "Established (990, <$1M)", "count": 802, "avg_revenue": 320000, "avg_assets": 890000 },
+    { "category": "Small (990-EZ)", "count": 262, "avg_revenue": 145000, "avg_assets": 210000 },
+    { "category": "Private Foundation", "count": 122, "avg_revenue": 2800000, "avg_assets": 12000000 }
+  ],
+  "concentration": [
+    { "threshold": "25%", "orgs_needed": 2, "pct_of_orgs": 0.1 },
+    { "threshold": "50%", "orgs_needed": 5, "pct_of_orgs": 0.3 },
+    { "threshold": "75%", "orgs_needed": 18, "pct_of_orgs": 1.1 },
+    { "threshold": "90%", "orgs_needed": 72, "pct_of_orgs": 4.3 },
+    { "threshold": "95%", "orgs_needed": 156, "pct_of_orgs": 9.2 },
+    { "threshold": "99%", "orgs_needed": 498, "pct_of_orgs": 29.4 }
+  ],
+  "financial_health": [
+    { "status": "Healthy", "count": 1258, "revenue": 14800000000, "color": "#22c55e" },
+    { "status": "Expenses > Revenue", "count": 312, "revenue": 890000000, "color": "#f97316" },
+    { "status": "High Debt", "count": 45, "revenue": 120000000, "color": "#ef4444" },
+    { "status": "Negative Net Assets", "count": 78, "revenue": 159158552, "color": "#dc2626" }
+  ],
+  "top_orgs": [
+    { "name": "Sanford", "city": "Sioux Falls", "type": "Health Care", "revenue": 5738655914, "assets": 3759919108 },
+    { "name": "Avera McKennan", "city": "Sioux Falls", "type": "Health Care", "revenue": 1488868703, "assets": 1411648717 },
+    { "name": "Good Samaritan Society", "city": "Sioux Falls", "type": "Senior Care", "revenue": 953277804, "assets": 1105454446 },
+    { "name": "Monument Health", "city": "Rapid City", "type": "Health Care", "revenue": 912569914, "assets": 1355082505 },
+    { "name": "East River Electric", "city": "Madison", "type": "Cooperative", "revenue": 356938059, "assets": 910292262 },
+    { "name": "Avera Health Plans", "city": "Sioux Falls", "type": "Insurance", "revenue": 342342227, "assets": 94133862 },
+    { "name": "Avera Health", "city": "Sioux Falls", "type": "Health Care", "revenue": 285338511, "assets": 1738162649 },
+    { "name": "Augustana University", "city": "Sioux Falls", "type": "Education", "revenue": 127863339, "assets": 354207088 },
+    { "name": "Great Plains Tribal Leaders", "city": "Rapid City", "type": "Health Care", "revenue": 108656374, "assets": 127366298 },
+    { "name": "Delta Dental of SD", "city": "Pierre", "type": "Insurance", "revenue": 103041227, "assets": 45726829 }
+  ],
+  "benchmarks": {
+    "large": { "avg_expense_ratio": 0.94, "avg_officer_comp": 0.02, "median_assets": 85000000 },
+    "medium": { "avg_expense_ratio": 0.91, "avg_officer_comp": 0.05, "median_assets": 2100000 },
+    "small": { "avg_expense_ratio": 0.88, "avg_officer_comp": 0.08, "median_assets": 180000 }
+  }
+}
