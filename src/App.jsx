@@ -9,7 +9,7 @@ import SectorsTab from './tabs/SectorsTab';
 import GeographyTab from './tabs/GeographyTab';
 import HealthTab from './tabs/HealthTab';
 import BenchmarksTab from './tabs/BenchmarksTab';
-import ProspectsTab from './tabs/ProspectsTab';
+import DirectoryTab from './tabs/DirectoryTab';
 
 const tabs = [
   { id: 'overview', label: 'Overview' },
@@ -18,7 +18,7 @@ const tabs = [
   { id: 'geography', label: 'Geography' },
   { id: 'health', label: 'Financial Health' },
   { id: 'benchmarks', label: 'Benchmarks' },
-  { id: 'prospects', label: 'Prospects' },
+  { id: 'directory', label: 'Directory' },
 ];
 
 const tabComponents = {
@@ -28,7 +28,7 @@ const tabComponents = {
   geography: GeographyTab,
   health: HealthTab,
   benchmarks: BenchmarksTab,
-  prospects: ProspectsTab,
+  directory: DirectoryTab,
 };
 
 export default function App() {

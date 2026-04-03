@@ -51,19 +51,19 @@ export default function SectorsTab({ data }) {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="bg-white border border-slate-200 border-l-4 border-l-[#b91c1c] rounded-lg p-4">
             <p className="text-sm font-medium text-slate-900 mb-1">Health Care Dominance<InfoTip text="Includes NTEE codes E (Health), F (Mental Health), G (Disease/Disorders), and H (Medical Research). Revenue dominated by hospital systems." /></p>
-            <p className="text-2xl font-bold text-slate-900">78.3%</p>
+            <p className="text-2xl font-bold text-slate-900">{(data.by_ntee.find(n => n.category === 'Health Care')?.pct_revenue || 0).toFixed(1)}%</p>
             <p className="text-sm text-slate-600 mt-1">of total sector revenue</p>
             <p className="text-xs text-slate-400 mt-2">Driven by large systems like Sanford & Avera</p>
           </div>
           <div className="bg-white border border-slate-200 border-l-4 border-l-[#1b4965] rounded-lg p-4">
             <p className="text-sm font-medium text-slate-900 mb-1">Religion-Related<InfoTip text="NTEE code X. Most are small congregations filing 990-N (under $50K). Revenue figures only reflect those filing 990 or 990-EZ." /></p>
-            <p className="text-2xl font-bold text-slate-900">1,891</p>
+            <p className="text-2xl font-bold text-slate-900">{formatNumber(data.by_ntee.find(n => n.category === 'Religion-Related')?.count || 0)}</p>
             <p className="text-sm text-slate-600 mt-1">organizations (most by count)</p>
             <p className="text-xs text-slate-400 mt-2">Predominantly small congregations</p>
           </div>
           <div className="bg-white border border-slate-200 border-l-4 border-l-[#2d8659] rounded-lg p-4">
             <p className="text-sm font-medium text-slate-900 mb-1">Human Services<InfoTip text="Includes NTEE codes I through P covering crime/legal, employment, food/agriculture, housing, public safety, recreation, youth development, and multipurpose human services." /></p>
-            <p className="text-2xl font-bold text-slate-900">1,456</p>
+            <p className="text-2xl font-bold text-slate-900">{formatNumber(data.by_ntee.find(n => n.category === 'Human Services')?.count || 0)}</p>
             <p className="text-sm text-slate-600 mt-1">organizations</p>
             <p className="text-xs text-slate-400 mt-2">Critical for social safety net</p>
           </div>
@@ -81,7 +81,7 @@ export default function SectorsTab({ data }) {
                 <th className="py-3 px-4 font-medium">Description</th>
                 <th className="py-3 px-4 font-medium">Count</th>
                 <th className="py-3 px-4 font-medium">Revenue</th>
-                <th className="py-3 px-4 font-medium">Priority</th>
+                <th className="py-3 px-4 font-medium">Classification</th>
               </tr>
             </thead>
             <tbody>
@@ -93,7 +93,7 @@ export default function SectorsTab({ data }) {
                   <td className="py-3 px-4 text-slate-900">{formatCurrency(row.revenue)}</td>
                   <td className="py-3 px-4">
                     {row.priority ? (
-                      <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-[#1b4965]/10 text-[#1b4965]">Priority</span>
+                      <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-[#1b4965]/10 text-[#1b4965]">Core Type</span>
                     ) : (
                       <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">Other</span>
                     )}

@@ -73,24 +73,24 @@ export default function EconomicTab({ data }) {
 
       {/* Advocacy talking points */}
       <div className="bg-[#1b4965] rounded-lg p-6 text-white">
-        <h3 className="font-semibold text-lg mb-4">Advocacy Talking Points</h3>
+        <h3 className="font-semibold text-lg mb-4">Key Findings</h3>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            <h4 className="font-semibold mb-2">For Policymakers</h4>
+            <h4 className="font-semibold mb-2">Economic Role</h4>
             <ul className="space-y-1.5 text-sm text-slate-300">
               <li>Nonprofits are among the largest employers and service providers across South Dakota</li>
-              <li>Over 8,500 registered nonprofits operating in 383 communities statewide</li>
+              <li>Over {formatNumber(data.overview.total_orgs)} registered nonprofits operating in {formatNumber(data.overview.cities)} communities statewide</li>
               <li>36% of organizations serve rural communities with limited alternative providers</li>
               <li>Sector holds {formatCurrency(data.overview.total_assets)} in total assets — a permanent community endowment</li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-2">For Funders</h4>
+            <h4 className="font-semibold mb-2">Capacity & Resilience</h4>
             <ul className="space-y-1.5 text-sm text-slate-300">
               <li>Capacity building in mid-size organizations ($1M-$10M) offers highest leverage</li>
-              <li>153 organizations identified as capacity-building ready</li>
+              <li>{formatNumber(data.overview.capacity_building_ready)} organizations identified as capacity-building ready</li>
               <li>High revenue concentration creates systemic risk — diversifying the base strengthens resilience</li>
-              <li>435 organizations show signs of financial stress and may benefit from targeted support</li>
+              <li>{formatNumber(data.overview.financial_stress)} organizations show signs of financial stress and may benefit from targeted support</li>
             </ul>
           </div>
         </div>

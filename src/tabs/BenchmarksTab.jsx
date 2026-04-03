@@ -16,7 +16,7 @@ export default function BenchmarksTab({ data }) {
     <div className="space-y-6">
       <SectionHeader
         title="Benchmarks by Size"
-        subtitle="How does your organization compare to peers?"
+        subtitle="Comparative benchmarks across South Dakota nonprofits by size"
         info="Benchmarks computed from Form 990 filers grouped by revenue size. Averages and medians help organizations compare their financial ratios to peers."
       />
 
@@ -79,21 +79,21 @@ export default function BenchmarksTab({ data }) {
         <h3 className="font-semibold text-slate-900 mb-4">How to Use This Data</h3>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            <p className="font-medium text-slate-700 mb-2">For Board Reports</p>
+            <p className="font-medium text-slate-700 mb-2">Understanding These Benchmarks</p>
             <ul className="space-y-1 text-sm text-slate-700">
-              <li>Compare your expense ratio to peers in the same size tier</li>
-              <li>Benchmark officer compensation against typical ranges</li>
-              <li>Track asset growth relative to average for your category</li>
-              <li>Use revenue averages to contextualize your position</li>
+              <li>Compare expense ratios across size tiers</li>
+              <li>Officer compensation varies significantly by organization size</li>
+              <li>Asset levels reflect organizational maturity and capacity</li>
+              <li>Revenue averages provide context for organizational scale</li>
             </ul>
           </div>
           <div>
-            <p className="font-medium text-slate-700 mb-2">For Strategic Planning</p>
+            <p className="font-medium text-slate-700 mb-2">Applications</p>
             <ul className="space-y-1 text-sm text-slate-700">
-              <li>Identify size tier transitions as milestones</li>
-              <li>Set realistic revenue targets based on peer averages</li>
-              <li>Assess capacity relative to others in your category</li>
-              <li>Use benchmarks to justify budget and staffing decisions</li>
+              <li>Size tier transitions mark organizational growth milestones</li>
+              <li>Peer averages inform realistic growth expectations</li>
+              <li>Capacity varies significantly within each size tier</li>
+              <li>Benchmarks provide context for budget and staffing levels</li>
             </ul>
           </div>
         </div>

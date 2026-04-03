@@ -12,7 +12,7 @@ export default function OverviewTab({ data }) {
       {/* Stat cards */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard title="Total Organizations" value={formatNumber(data.overview.total_orgs)} info="Count of all tax-exempt organizations registered in South Dakota in the IRS Business Master File, including those filing Form 990, 990-EZ, 990-PF, and 990-N." />
-        <StatCard title="Priority Orgs" value={formatNumber(data.overview.priority_orgs)} subtitle="c3, c4, c6, c19" info="Organizations classified under 501(c)(3) charitable, 501(c)(4) social welfare, 501(c)(6) business leagues, or 501(c)(19) veterans' organizations — the types most relevant to nonprofit sector analysis." />
+        <StatCard title="Core Nonprofit Types" value={formatNumber(data.overview.priority_orgs)} subtitle="c3, c4, c6, c19" info="Organizations classified under 501(c)(3) charitable, 501(c)(4) social welfare, 501(c)(6) business leagues, or 501(c)(19) veterans' organizations — the types most relevant to nonprofit sector analysis." />
         <StatCard title="Total Revenue" value={formatCurrency(data.overview.total_revenue)} info="Sum of total revenue (Form 990 Part I, Line 12) from each organization's most recent filing. Only includes organizations with available 990/990-EZ/990-PF data." />
         <StatCard title="Total Assets" value={formatCurrency(data.overview.total_assets)} info="Sum of total assets at end of year (Form 990 Part X, Line 16) from each organization's most recent filing." />
       </div>
@@ -29,7 +29,7 @@ export default function OverviewTab({ data }) {
         <InsightCard
           title="Rural Presence"
           value={formatNumber(data.overview.rural_orgs)}
-          description="36% of orgs serve rural communities"
+          description={`${Math.round(data.overview.rural_orgs / data.overview.total_orgs * 100)}% of orgs serve rural communities`}
           color="green"
           info="Organizations located in communities with population under 2,500 based on Census population estimates. City classification uses a lookup table of South Dakota municipalities."
         />
@@ -67,7 +67,7 @@ export default function OverviewTab({ data }) {
           <div className="flex gap-4 mt-3 text-sm text-slate-600">
             <div className="flex items-center gap-1.5">
               <div className="w-3 h-3 rounded-sm bg-[#1b4965]"></div>
-              <span>Priority</span>
+              <span>Core Type</span>
             </div>
             <div className="flex items-center gap-1.5">
               <div className="w-3 h-3 rounded-sm bg-slate-400"></div>
@@ -110,7 +110,7 @@ export default function OverviewTab({ data }) {
 
       {/* Data quality note */}
       <div className="bg-white border border-slate-200 border-l-4 border-l-[#c17817] rounded-lg p-4 text-sm text-slate-700">
-        <strong>Data Quality Note:</strong> {formatNumber(data.overview.no_financials)} organizations (80%) have no
+        <strong>Data Quality Note:</strong> {formatNumber(data.overview.no_financials)} organizations ({Math.round(data.overview.no_financials / data.overview.total_orgs * 100)}%) have no
         detailed financial data because they file Form 990-N (e-Postcard).
       </div>
     </div>

@@ -4,6 +4,14 @@ import InfoTip from '../components/InfoTip';
 import { formatNumber, formatCurrency } from '../utils/format';
 
 export default function HealthTab({ data }) {
+  const expensesExceedCount = data.financial_health.find(h => h.status === 'Expenses > Revenue')?.count || 0;
+  const negativeNetCount = data.financial_health.find(h => h.status === 'Negative Net Assets')?.count || 0;
+  const highDebtCount = data.financial_health.find(h => h.status === 'High Debt')?.count || 0;
+  const withFinancials = data.overview.with_financials || 1;
+  const expenseRatioPct = 100 - Math.round((expensesExceedCount / withFinancials) * 100);
+  const positiveNetPct = 100 - Math.round((negativeNetCount / withFinancials) * 100);
+  const lowDebtPct = 100 - Math.round((highDebtCount / withFinancials) * 100);
+
   return (
     <div className="space-y-6">
       <SectionHeader
@@ -60,37 +68,37 @@ export default function HealthTab({ data }) {
             <div>
               <div className="flex justify-between text-sm mb-1">
                 <span className="font-medium text-slate-600">Expense Ratio<InfoTip text="Percentage of organizations where total functional expenses (Form 990 Part IX) do not exceed total revenue (Part I, Line 12)." /></span>
-                <span className="text-slate-400">74%</span>
+                <span className="text-slate-400">{expenseRatioPct}%</span>
               </div>
               <p className="text-xs text-slate-400 mb-1">Orgs spending within revenue</p>
               <div className="bg-slate-100 rounded-full h-3">
-                <div className="bg-[#2d8659] h-3 rounded-full" style={{ width: '74%' }}></div>
+                <div className="bg-[#2d8659] h-3 rounded-full" style={{ width: `${expenseRatioPct}%` }}></div>
               </div>
-              <p className="text-xs text-slate-400 mt-1">74% of orgs have expenses below revenue</p>
+              <p className="text-xs text-slate-400 mt-1">{expenseRatioPct}% of orgs have expenses below revenue</p>
             </div>
             {/* Positive Net Assets */}
             <div>
               <div className="flex justify-between text-sm mb-1">
                 <span className="font-medium text-slate-600">Positive Net Assets<InfoTip text="Percentage of organizations where total net assets (Part X, Line 32) are greater than zero." /></span>
-                <span className="text-slate-400">95%</span>
+                <span className="text-slate-400">{positiveNetPct}%</span>
               </div>
               <p className="text-xs text-slate-400 mb-1">Orgs with positive balance sheet</p>
               <div className="bg-slate-100 rounded-full h-3">
-                <div className="bg-[#2d8659] h-3 rounded-full" style={{ width: '95%' }}></div>
+                <div className="bg-[#2d8659] h-3 rounded-full" style={{ width: `${positiveNetPct}%` }}></div>
               </div>
-              <p className="text-xs text-slate-400 mt-1">95% of orgs report positive net assets</p>
+              <p className="text-xs text-slate-400 mt-1">{positiveNetPct}% of orgs report positive net assets</p>
             </div>
             {/* Low Debt Burden */}
             <div>
               <div className="flex justify-between text-sm mb-1">
                 <span className="font-medium text-slate-600">Low Debt Burden<InfoTip text="Percentage of organizations where total liabilities (Part X, Line 26) are less than 80% of total assets." /></span>
-                <span className="text-slate-400">87%</span>
+                <span className="text-slate-400">{lowDebtPct}%</span>
               </div>
               <p className="text-xs text-slate-400 mb-1">Orgs with manageable liabilities</p>
               <div className="bg-slate-100 rounded-full h-3">
-                <div className="bg-[#2d8659] h-3 rounded-full" style={{ width: '87%' }}></div>
+                <div className="bg-[#2d8659] h-3 rounded-full" style={{ width: `${lowDebtPct}%` }}></div>
               </div>
-              <p className="text-xs text-slate-400 mt-1">87% of orgs have low debt-to-asset ratios</p>
+              <p className="text-xs text-slate-400 mt-1">{lowDebtPct}% of orgs have low debt-to-asset ratios</p>
             </div>
           </div>
         </div>
@@ -104,15 +112,15 @@ export default function HealthTab({ data }) {
         </p>
         <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
           <div className="bg-white rounded-lg p-4 border border-slate-200">
-            <p className="text-2xl font-bold text-[#b91c1c]">312</p>
+            <p className="text-2xl font-bold text-[#b91c1c]">{formatNumber(data.financial_health.find(h => h.status === 'Expenses > Revenue')?.count || 0)}</p>
             <p className="text-sm text-slate-600 mt-0.5">Expenses &gt; Revenue</p>
           </div>
           <div className="bg-white rounded-lg p-4 border border-slate-200">
-            <p className="text-2xl font-bold text-[#b91c1c]">45</p>
+            <p className="text-2xl font-bold text-[#b91c1c]">{formatNumber(data.financial_health.find(h => h.status === 'High Debt')?.count || 0)}</p>
             <p className="text-sm text-slate-600 mt-0.5">High Debt</p>
           </div>
           <div className="bg-white rounded-lg p-4 border border-slate-200">
-            <p className="text-2xl font-bold text-[#b91c1c]">78</p>
+            <p className="text-2xl font-bold text-[#b91c1c]">{formatNumber(data.financial_health.find(h => h.status === 'Negative Net Assets')?.count || 0)}</p>
             <p className="text-sm text-slate-600 mt-0.5">Negative Net Assets</p>
           </div>
         </div>

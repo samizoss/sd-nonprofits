@@ -59,23 +59,28 @@ export default function GeographyTab({ data }) {
       </div>
 
       {/* Rural Spotlight */}
-      <div className="bg-white border border-slate-200 border-l-4 border-l-[#2d8659] rounded-lg p-6">
-        <h3 className="font-semibold text-slate-900 mb-4">Rural Spotlight</h3>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div>
-            <p className="text-xl font-bold text-slate-900">3,082 rural organizations</p>
-            <p className="text-sm text-slate-600 mt-1">Serving communities under 2,500 people</p>
+      {(() => {
+        const rural = data.by_community.find(c => c.size.includes('Rural'));
+        return rural ? (
+          <div className="bg-white border border-slate-200 border-l-4 border-l-[#2d8659] rounded-lg p-6">
+            <h3 className="font-semibold text-slate-900 mb-4">Rural Spotlight</h3>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div>
+                <p className="text-xl font-bold text-slate-900">{formatNumber(rural.count)} rural organizations</p>
+                <p className="text-sm text-slate-600 mt-1">Serving communities under 2,500 people</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-slate-900">{formatCurrency(rural.revenue)} in revenue</p>
+                <p className="text-sm text-slate-600 mt-1">{(rural.pct_revenue).toFixed(1)}% of total sector revenue</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-slate-900">{formatNumber(data.overview.cities)} cities represented</p>
+                <p className="text-sm text-slate-600 mt-1">Nonprofits in every corner of SD</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-xl font-bold text-slate-900">{formatCurrency(881244290)} in revenue</p>
-            <p className="text-sm text-slate-600 mt-1">5.5% of total sector revenue</p>
-          </div>
-          <div>
-            <p className="text-xl font-bold text-slate-900">383 cities represented</p>
-            <p className="text-sm text-slate-600 mt-1">Nonprofits in every corner of SD</p>
-          </div>
-        </div>
-      </div>
+        ) : null;
+      })()}
     </div>
   );
 }
