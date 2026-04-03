@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import data from './data/dashboard-data.json';
 import { formatNumber } from './utils/format';
+import { aggregateData, nteeCategory, communitySize } from './utils/aggregate';
+import FilterBar from './components/FilterBar';
 import OverviewTab from './tabs/OverviewTab';
 import EconomicTab from './tabs/EconomicTab';
 import SectorsTab from './tabs/SectorsTab';
@@ -31,6 +33,45 @@ const tabComponents = {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [filters, setFilters] = useState({
+    freshness: 'all',
+    excludeHealth: false,
+    community: 'all',
+    sector: 'all',
+  });
+
+  const filtersEnabled = data.orgs && data.orgs.length > 0;
+
+  const filteredData = useMemo(() => {
+    if (!filtersEnabled) return data;
+
+    let orgs = data.orgs;
+
+    // Apply freshness filter
+    if (filters.freshness === '2023') {
+      orgs = orgs.filter(o => o.yr === null || o.yr >= 2023);
+    } else if (filters.freshness === '2022') {
+      orgs = orgs.filter(o => o.yr === null || o.yr >= 2022);
+    }
+
+    // Apply health system exclusion
+    if (filters.excludeHealth) {
+      orgs = orgs.filter(o => !('EFGH'.includes(o.nt) && o.rev > 50000000));
+    }
+
+    // Apply community filter
+    if (filters.community !== 'all') {
+      orgs = orgs.filter(o => communitySize(o.ct) === filters.community);
+    }
+
+    // Apply sector filter
+    if (filters.sector !== 'all') {
+      orgs = orgs.filter(o => nteeCategory(o.nt) === filters.sector);
+    }
+
+    return aggregateData(orgs, data);
+  }, [filters, filtersEnabled]);
+
   const ActiveTabComponent = tabComponents[activeTab];
   const lastUpdated = new Date(data.last_updated).toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric'
@@ -74,9 +115,22 @@ export default function App() {
         </div>
       </div>
 
+      {/* Filter Bar */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-8 py-3">
+          <FilterBar
+            filters={filters}
+            setFilters={setFilters}
+            disabled={!filtersEnabled}
+            orgCount={filteredData.overview.total_orgs}
+            totalCount={data.overview?.total_orgs || data.orgs?.length || 0}
+          />
+        </div>
+      </div>
+
       {/* Tab Content */}
       <div className="max-w-7xl mx-auto px-8 py-8">
-        <ActiveTabComponent data={data} />
+        <ActiveTabComponent data={filteredData} />
       </div>
 
       {/* Footer */}
@@ -86,7 +140,7 @@ export default function App() {
             <div>
               <p className="font-medium text-slate-500">Data Source</p>
               <p className="mt-1">ProPublica Nonprofit Explorer API — IRS Exempt Organizations Business Master File and Form 990 filings</p>
-              <p className="mt-1">{formatNumber(data.overview.with_financials)} organizations with detailed financial data from 2023–2024 filings</p>
+              <p className="mt-1">{formatNumber(filteredData.overview.with_financials)} organizations with detailed financial data from 2023-2024 filings</p>
             </div>
             <div className="md:text-right">
               <p className="font-medium text-slate-500">Methodology</p>
