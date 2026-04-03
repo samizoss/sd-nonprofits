@@ -1,6 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import StatCard from '../components/StatCard';
 import SectionHeader from '../components/SectionHeader';
+import InfoTip from '../components/InfoTip';
 import { formatNumber, formatCurrency } from '../utils/format';
 
 export default function EconomicTab({ data }) {
@@ -13,16 +14,16 @@ export default function EconomicTab({ data }) {
 
       {/* Large stat cards */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <StatCard title="Sector Revenue" value={formatCurrency(data.overview.total_revenue)} large />
-        <StatCard title="National Benchmark" value="~5.4% of GDP" subtitle="Nonprofit sector nationally (BEA)" large />
-        <StatCard title="Total Assets" value={formatCurrency(data.overview.total_assets)} large />
+        <StatCard title="Sector Revenue" value={formatCurrency(data.overview.total_revenue)} large info="Sum of total revenue from most recent Form 990/990-EZ/990-PF filings for all reporting South Dakota nonprofits." />
+        <StatCard title="National Benchmark" value="~5.4% of GDP" subtitle="Nonprofit sector nationally (BEA)" large info="Bureau of Economic Analysis NPISH satellite account. This is a national figure — state-level nonprofit GDP contribution data is not published by BEA." />
+        <StatCard title="Total Assets" value={formatCurrency(data.overview.total_assets)} large info="Sum of total assets at year-end from most recent filings. Includes cash, investments, property, and other assets reported on Form 990 Part X." />
       </div>
 
       {/* Two cards: concentration + revenue by tier */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Revenue Concentration */}
         <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h3 className="font-semibold text-slate-900 mb-4">Revenue Concentration</h3>
+          <h3 className="font-semibold text-slate-900 mb-4">Revenue Concentration<InfoTip text="Shows how many organizations are needed to account for a given percentage of total sector revenue. Organizations are ranked by revenue from largest to smallest." /></h3>
           <div className="space-y-3">
             {data.concentration.map((row, index) => {
               const barWidth = Math.min(row.pct_of_orgs * 3, 100);
@@ -53,7 +54,7 @@ export default function EconomicTab({ data }) {
 
         {/* Revenue by Organization Size */}
         <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h3 className="font-semibold text-slate-900 mb-4">Revenue by Organization Size</h3>
+          <h3 className="font-semibold text-slate-900 mb-4">Revenue by Organization Size<InfoTip text="Count of organizations in each revenue tier based on total revenue from their most recent Form 990 filing." /></h3>
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={data.by_revenue_tier} margin={{ left: 0, right: 8, top: 4, bottom: 4 }}>
               <XAxis dataKey="tier" tick={{ fontSize: 11 }} />

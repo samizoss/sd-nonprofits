@@ -17,18 +17,21 @@ export default function ProspectsTab({ data }) {
           value="500+"
           description="Organizations with high engagement potential based on size, data freshness, and financial health"
           color="blue"
+          info="Organizations scoring highest on a composite index of revenue size, form type, data freshness, priority classification, filing history, and financial health."
         />
         <InsightCard
           title="Capacity Building Ready"
           value={formatNumber(data.overview.capacity_building_ready)}
           description="Organizations ready to grow with targeted support and resources"
           color="green"
+          info="Organizations filing Form 990-EZ with annual revenue of $75,000 or more and healthy financials (expenses within revenue). These are poised for growth with targeted support."
         />
         <InsightCard
           title="Large Institutions"
           value="124"
           description="Major organizations with $10M+ in revenue — anchor members and strategic partners"
           color="purple"
+          info="Organizations reporting total annual revenue of $10 million or more on their most recent Form 990."
         />
       </div>
 

@@ -1,5 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import SectionHeader from '../components/SectionHeader';
+import InfoTip from '../components/InfoTip';
 import { formatNumber, formatCurrency } from '../utils/format';
 
 export default function GeographyTab({ data }) {
@@ -8,6 +9,7 @@ export default function GeographyTab({ data }) {
       <SectionHeader
         title="Geographic Distribution"
         subtitle="Where nonprofits are located across South Dakota"
+        info="Geographic classification based on city of record in IRS filings, mapped to community size tiers using Census population estimates for South Dakota municipalities."
       />
 
       {/* Community Size Cards */}
@@ -29,7 +31,7 @@ export default function GeographyTab({ data }) {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Top 10 Cities by Organization Count */}
         <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h3 className="font-semibold text-slate-900 mb-4">Top 10 Cities by Organization Count</h3>
+          <h3 className="font-semibold text-slate-900 mb-4">Top 10 Cities by Organization Count<InfoTip text="Cities ranked by number of registered nonprofit organizations. Based on city field from IRS Business Master File records." /></h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={data.by_city} layout="vertical" margin={{ left: 0, right: 16, top: 4, bottom: 4 }}>
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={formatNumber} />
@@ -43,7 +45,7 @@ export default function GeographyTab({ data }) {
 
         {/* Top 10 Cities by Revenue */}
         <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h3 className="font-semibold text-slate-900 mb-4">Top 10 Cities by Revenue</h3>
+          <h3 className="font-semibold text-slate-900 mb-4">Top 10 Cities by Revenue<InfoTip text="Cities ranked by sum of total revenue from most recent filings of all organizations in that city." /></h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={data.by_city} layout="vertical" margin={{ left: 0, right: 16, top: 4, bottom: 4 }}>
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={formatCurrency} />

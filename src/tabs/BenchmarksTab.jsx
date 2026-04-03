@@ -1,5 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import SectionHeader from '../components/SectionHeader';
+import InfoTip from '../components/InfoTip';
 import { formatNumber, formatCurrency } from '../utils/format';
 
 function getBenchmarkForCategory(category, benchmarks) {
@@ -16,11 +17,12 @@ export default function BenchmarksTab({ data }) {
       <SectionHeader
         title="Benchmarks by Size"
         subtitle="How does your organization compare to peers?"
+        info="Benchmarks computed from Form 990 filers grouped by revenue size. Averages and medians help organizations compare their financial ratios to peers."
       />
 
       {/* Bar chart by size category */}
       <div className="bg-white rounded-lg p-6 border border-slate-200">
-        <h3 className="font-semibold text-slate-900 mb-4">Organizations by Size Category</h3>
+        <h3 className="font-semibold text-slate-900 mb-4">Organizations by Size Category<InfoTip text="Size categories based on form type and revenue: 990 filers grouped by revenue tier, 990-EZ filers as 'Small', and 990-PF filers as 'Private Foundation'." /></h3>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={data.by_size_category} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>
             <XAxis dataKey="category" tick={{ fontSize: 10 }} />
@@ -45,8 +47,8 @@ export default function BenchmarksTab({ data }) {
                 <th className="text-right py-3 px-4 font-medium text-slate-600">Count</th>
                 <th className="text-right py-3 px-4 font-medium text-slate-600">Avg Revenue</th>
                 <th className="text-right py-3 px-4 font-medium text-slate-600">Avg Assets</th>
-                <th className="text-right py-3 px-4 font-medium text-slate-600">Typical Expense Ratio</th>
-                <th className="text-right py-3 px-4 font-medium text-slate-600">Typical Officer Comp %</th>
+                <th className="text-right py-3 px-4 font-medium text-slate-600">Typical Expense Ratio<InfoTip text="Average of (total functional expenses ÷ total revenue) for organizations in this size category. A ratio under 1.0 means the organization is not spending more than it earns." /></th>
+                <th className="text-right py-3 px-4 font-medium text-slate-600">Typical Officer Comp %<InfoTip text="Average of (officer compensation ÷ total expenses) for organizations in this category. Higher percentages are typical for smaller organizations with fewer staff." /></th>
               </tr>
             </thead>
             <tbody>

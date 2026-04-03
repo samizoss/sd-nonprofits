@@ -1,5 +1,6 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import SectionHeader from '../components/SectionHeader';
+import InfoTip from '../components/InfoTip';
 import { formatNumber, formatCurrency } from '../utils/format';
 
 export default function HealthTab({ data }) {
@@ -8,6 +9,7 @@ export default function HealthTab({ data }) {
       <SectionHeader
         title="Financial Health"
         subtitle="Assessing the fiscal stability of SD nonprofits"
+        info="Financial health indicators computed from Form 990 data. Only includes organizations with available financial filings (990 or 990-EZ)."
       />
 
       {/* Status cards */}
@@ -28,7 +30,7 @@ export default function HealthTab({ data }) {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Health Distribution pie */}
         <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h3 className="font-semibold text-slate-900 mb-4">Health Distribution</h3>
+          <h3 className="font-semibold text-slate-900 mb-4">Health Distribution<InfoTip text="Classification based on: expense-to-revenue ratio, net asset position, and debt-to-asset ratio from most recent filing." /></h3>
           <ResponsiveContainer width="100%" height={220}>
             <PieChart>
               <Pie data={data.financial_health} dataKey="count" nameKey="status" outerRadius={80}>
@@ -52,12 +54,12 @@ export default function HealthTab({ data }) {
 
         {/* Financial Health Indicators */}
         <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h3 className="font-semibold text-slate-900 mb-4">Financial Health Indicators</h3>
+          <h3 className="font-semibold text-slate-900 mb-4">Financial Health Indicators<InfoTip text="Percentage of reporting organizations meeting each health threshold. Based on Form 990 Part I (revenue/expenses) and Part X (assets/liabilities)." /></h3>
           <div className="space-y-5">
             {/* Expense Ratio */}
             <div>
               <div className="flex justify-between text-sm mb-1">
-                <span className="font-medium text-slate-600">Expense Ratio</span>
+                <span className="font-medium text-slate-600">Expense Ratio<InfoTip text="Percentage of organizations where total functional expenses (Form 990 Part IX) do not exceed total revenue (Part I, Line 12)." /></span>
                 <span className="text-slate-400">74%</span>
               </div>
               <p className="text-xs text-slate-400 mb-1">Orgs spending within revenue</p>
@@ -69,7 +71,7 @@ export default function HealthTab({ data }) {
             {/* Positive Net Assets */}
             <div>
               <div className="flex justify-between text-sm mb-1">
-                <span className="font-medium text-slate-600">Positive Net Assets</span>
+                <span className="font-medium text-slate-600">Positive Net Assets<InfoTip text="Percentage of organizations where total net assets (Part X, Line 32) are greater than zero." /></span>
                 <span className="text-slate-400">95%</span>
               </div>
               <p className="text-xs text-slate-400 mb-1">Orgs with positive balance sheet</p>
@@ -81,7 +83,7 @@ export default function HealthTab({ data }) {
             {/* Low Debt Burden */}
             <div>
               <div className="flex justify-between text-sm mb-1">
-                <span className="font-medium text-slate-600">Low Debt Burden</span>
+                <span className="font-medium text-slate-600">Low Debt Burden<InfoTip text="Percentage of organizations where total liabilities (Part X, Line 26) are less than 80% of total assets." /></span>
                 <span className="text-slate-400">87%</span>
               </div>
               <p className="text-xs text-slate-400 mb-1">Orgs with manageable liabilities</p>

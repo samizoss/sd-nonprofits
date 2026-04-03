@@ -1,5 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import SectionHeader from '../components/SectionHeader';
+import InfoTip from '../components/InfoTip';
 import { formatNumber, formatCurrency } from '../utils/format';
 
 export default function SectorsTab({ data }) {
@@ -10,13 +11,14 @@ export default function SectorsTab({ data }) {
       <SectionHeader
         title="Sector Analysis"
         subtitle="Breakdown by organization type and mission area"
+        info="Organizations classified by National Taxonomy of Exempt Entities (NTEE) code assigned by the IRS, and by 501(c) subsection type."
       />
 
       {/* Two horizontal bar charts */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Revenue by NTEE Category */}
         <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h3 className="font-semibold text-slate-900 mb-4">Revenue by NTEE Category</h3>
+          <h3 className="font-semibold text-slate-900 mb-4">Revenue by NTEE Category<InfoTip text="Total revenue by NTEE major category. NTEE codes are mapped to 10 broad categories based on the first character of the assigned code." /></h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={nteeData} layout="vertical" margin={{ left: 0, right: 16, top: 4, bottom: 4 }}>
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={formatCurrency} />
@@ -30,7 +32,7 @@ export default function SectorsTab({ data }) {
 
         {/* Organization Count by Category */}
         <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h3 className="font-semibold text-slate-900 mb-4">Organization Count by Category</h3>
+          <h3 className="font-semibold text-slate-900 mb-4">Organization Count by Category<InfoTip text="Number of registered organizations per NTEE category, regardless of whether they have detailed financial data." /></h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={nteeData} layout="vertical" margin={{ left: 0, right: 16, top: 4, bottom: 4 }}>
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={formatNumber} />
@@ -48,19 +50,19 @@ export default function SectorsTab({ data }) {
         <h3 className="font-semibold text-slate-900 mb-4">Sector Insights</h3>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="bg-white border border-slate-200 border-l-4 border-l-[#b91c1c] rounded-lg p-4">
-            <p className="text-sm font-medium text-slate-900 mb-1">Health Care Dominance</p>
+            <p className="text-sm font-medium text-slate-900 mb-1">Health Care Dominance<InfoTip text="Includes NTEE codes E (Health), F (Mental Health), G (Disease/Disorders), and H (Medical Research). Revenue dominated by hospital systems." /></p>
             <p className="text-2xl font-bold text-slate-900">78.3%</p>
             <p className="text-sm text-slate-600 mt-1">of total sector revenue</p>
             <p className="text-xs text-slate-400 mt-2">Driven by large systems like Sanford & Avera</p>
           </div>
           <div className="bg-white border border-slate-200 border-l-4 border-l-[#1b4965] rounded-lg p-4">
-            <p className="text-sm font-medium text-slate-900 mb-1">Religion-Related</p>
+            <p className="text-sm font-medium text-slate-900 mb-1">Religion-Related<InfoTip text="NTEE code X. Most are small congregations filing 990-N (under $50K). Revenue figures only reflect those filing 990 or 990-EZ." /></p>
             <p className="text-2xl font-bold text-slate-900">1,891</p>
             <p className="text-sm text-slate-600 mt-1">organizations (most by count)</p>
             <p className="text-xs text-slate-400 mt-2">Predominantly small congregations</p>
           </div>
           <div className="bg-white border border-slate-200 border-l-4 border-l-[#2d8659] rounded-lg p-4">
-            <p className="text-sm font-medium text-slate-900 mb-1">Human Services</p>
+            <p className="text-sm font-medium text-slate-900 mb-1">Human Services<InfoTip text="Includes NTEE codes I through P covering crime/legal, employment, food/agriculture, housing, public safety, recreation, youth development, and multipurpose human services." /></p>
             <p className="text-2xl font-bold text-slate-900">1,456</p>
             <p className="text-sm text-slate-600 mt-1">organizations</p>
             <p className="text-xs text-slate-400 mt-2">Critical for social safety net</p>
