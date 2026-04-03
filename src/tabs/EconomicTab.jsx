@@ -1,3 +1,98 @@
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import StatCard from '../components/StatCard';
+import SectionHeader from '../components/SectionHeader';
+import { formatNumber, formatCurrency } from '../utils/format';
+
 export default function EconomicTab({ data }) {
-  return <div className="text-gray-500">Economic Impact tab coming soon...</div>;
+  return (
+    <div className="space-y-6">
+      <SectionHeader
+        title="Economic Impact"
+        subtitle="The nonprofit sector's contribution to South Dakota's economy"
+      />
+
+      {/* Large stat cards */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <StatCard title="Sector Revenue" value={formatCurrency(data.overview.total_revenue)} large />
+        <StatCard title="National Benchmark" value="~5.4% of GDP" subtitle="Nonprofit sector nationally (BEA)" large />
+        <StatCard title="Total Assets" value={formatCurrency(data.overview.total_assets)} large />
+      </div>
+
+      {/* Two cards: concentration + revenue by tier */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* Revenue Concentration */}
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 className="font-semibold text-gray-900 mb-4">Revenue Concentration</h3>
+          <div className="space-y-3">
+            {data.concentration.map((row, index) => {
+              const barWidth = Math.min(row.pct_of_orgs * 3, 100);
+              return (
+                <div key={index} className="flex items-center gap-3">
+                  <span className="w-16 text-sm text-gray-500 font-medium flex-shrink-0">{row.threshold}</span>
+                  <div className="flex-1 bg-gray-100 rounded-full h-6 relative">
+                    <div
+                      className="bg-blue-500 h-6 rounded-full flex items-center px-2"
+                      style={{ width: `${barWidth}%`, minWidth: '2.5rem' }}
+                    >
+                      <span className="text-xs text-white font-medium whitespace-nowrap">
+                        {formatNumber(row.orgs_needed)} orgs
+                      </span>
+                    </div>
+                  </div>
+                  <span className="w-20 text-sm text-gray-600 text-right flex-shrink-0">
+                    {row.pct_of_orgs}% of orgs
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          <div className="mt-4 bg-blue-50 border border-blue-100 rounded-lg p-3 text-sm text-blue-800">
+            Just 5 organizations generate 50% of all nonprofit revenue in South Dakota.
+          </div>
+        </div>
+
+        {/* Revenue by Organization Size */}
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 className="font-semibold text-gray-900 mb-4">Revenue by Organization Size</h3>
+          <ResponsiveContainer width="100%" height={280}>
+            <BarChart data={data.by_revenue_tier} margin={{ left: 0, right: 8, top: 4, bottom: 4 }}>
+              <XAxis dataKey="tier" tick={{ fontSize: 11 }} />
+              <YAxis tick={{ fontSize: 11 }} tickFormatter={formatNumber} />
+              <Tooltip formatter={(value) => formatNumber(value)} />
+              <Bar dataKey="count" fill="#8b5cf6" />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="text-sm text-gray-500 mt-2">
+            The largest organizations (revenue $10M+) drive the vast majority of sector revenue despite representing
+            less than 2% of all organizations.
+          </p>
+        </div>
+      </div>
+
+      {/* Advocacy talking points */}
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white">
+        <h3 className="font-semibold text-lg mb-4">Advocacy Talking Points</h3>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div>
+            <h4 className="font-semibold mb-2">For Policymakers</h4>
+            <ul className="space-y-1.5 text-sm text-blue-100">
+              <li>Nonprofits are among the largest employers and service providers across South Dakota</li>
+              <li>Over 8,500 registered nonprofits operating in 383 communities statewide</li>
+              <li>36% of organizations serve rural communities with limited alternative providers</li>
+              <li>Sector holds {formatCurrency(data.overview.total_assets)} in total assets — a permanent community endowment</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">For Funders</h4>
+            <ul className="space-y-1.5 text-sm text-blue-100">
+              <li>Capacity building in mid-size organizations ($1M–$10M) offers highest leverage</li>
+              <li>153 organizations identified as capacity-building ready</li>
+              <li>High revenue concentration creates systemic risk — diversifying the base strengthens resilience</li>
+              <li>435 organizations show signs of financial stress and may benefit from targeted support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
