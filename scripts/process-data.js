@@ -264,8 +264,8 @@ function main() {
       else freshnessMap['No Filing Data'].count++; // very old treated as no data
     }
   }
-  const byFreshness = Object.entries(freshnessMap).map(([label, data]) => ({
-    label,
+  const byFreshness = Object.entries(freshnessMap).map(([status, data]) => ({
+    status,
     count: data.count,
     color: data.color,
   }));
@@ -349,7 +349,7 @@ function main() {
       idx++;
     }
     concentration.push({
-      pct_of_revenue: pct,
+      threshold: `${pct}%`,
       orgs_needed: idx,
       pct_of_orgs: withFinancials > 0 ? round2(idx / withFinancials * 100) : 0,
     });
@@ -384,9 +384,9 @@ function main() {
     const cat = healthCategory(o.latest);
     if (cat && healthMap[cat] !== undefined) healthMap[cat]++;
   }
-  const financialHealth = Object.entries(healthColors).map(([label, color]) => ({
-    label,
-    count: healthMap[label],
+  const financialHealth = Object.entries(healthColors).map(([status, color]) => ({
+    status,
+    count: healthMap[status],
     color,
   }));
 
@@ -398,7 +398,7 @@ function main() {
     .map(o => ({
       name: o.name,
       city: o.city,
-      ntee_category: nteeCategory(o.ntee_code),
+      type: nteeCategory(o.ntee_code),
       revenue: o.latest.totrevenue,
       assets: o.latest.totassetsend,
     }));
