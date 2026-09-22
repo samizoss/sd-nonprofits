@@ -1,15 +1,17 @@
 import { writeFileSync, mkdirSync } from 'fs';
+import { fetchJson } from './http.js';
 
 const API_BASE = 'https://projects.propublica.org/nonprofits/api/v2';
-const STATE = 'SD';
+const STATE = process.env.STATE || 'SD';
+const SEARCH_CAP = 10000; // ProPublica search returns at most 400 pages x 25
 const DELAY_MS = 500;
 const OUTPUT = 'raw/orgs.json';
 
 async function fetchPage(page) {
   const url = `${API_BASE}/search.json?state%5Bid%5D=${STATE}&page=${page}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status} on page ${page}`);
-  return res.json();
+  const data = await fetchJson(url);
+  if (!data) throw new Error(`No data on page ${page}`);
+  return data;
 }
 
 async function main() {
@@ -20,6 +22,10 @@ async function main() {
   const totalPages = first.num_pages;
   const totalResults = first.total_results;
   console.log(`Total: ${totalResults} orgs across ${totalPages} pages`);
+  if (totalResults >= SEARCH_CAP) {
+    throw new Error(`${STATE} has ${totalResults}+ orgs, which hits ProPublica's ${SEARCH_CAP}-result search cap. ` +
+      `The org list would be incomplete; switch this state to the IRS EO BMF file (eo_${STATE.toLowerCase()}.csv).`);
+  }
 
   const allOrgs = [...first.organizations];
 

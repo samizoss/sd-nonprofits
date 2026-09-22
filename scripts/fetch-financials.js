@@ -1,4 +1,5 @@
 import { writeFileSync, readFileSync, mkdirSync, existsSync } from 'fs';
+import { fetchJson } from './http.js';
 
 const API_BASE = 'https://projects.propublica.org/nonprofits/api/v2';
 const INPUT = 'raw/orgs.json';
@@ -8,9 +9,7 @@ const BATCH_SAVE_EVERY = 100;
 
 async function fetchOrg(ein) {
   const url = `${API_BASE}/organizations/${ein}.json`;
-  const res = await fetch(url);
-  if (!res.ok) return null;
-  return res.json();
+  return fetchJson(url);
 }
 
 async function main() {
