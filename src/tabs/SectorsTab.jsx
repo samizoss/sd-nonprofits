@@ -27,7 +27,7 @@ export default function SectorsTab({ data }) {
               <Bar dataKey="revenue" fill="#1b4965" />
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
         </div>
 
         {/* Organization Count by Category */}
@@ -41,7 +41,7 @@ export default function SectorsTab({ data }) {
               <Bar dataKey="count" fill="#5b8c9e" />
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
         </div>
       </div>
 

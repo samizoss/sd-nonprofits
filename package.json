@@ -10,8 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "fetch:orgs": "node scripts/fetch-orgs.js",
-    "fetch:financials": "node scripts/fetch-financials.js",
+    "fetch": "node scripts/fetch-irs.js && node scripts/build-raw.js",
     "process": "node scripts/process-data.js",
     "pipeline": "node scripts/run-pipeline.js"
   },

@@ -10,8 +10,7 @@ on:
         type: boolean
         default: false
 
-# Lets the bot save the refreshed data. Without this, git push fails (exit 128),
-# which is why the May/June/July 2026 runs never published anything.
+# Lets the bot save the refreshed data back to the repo.
 permissions:
   contents: write
 
@@ -19,10 +18,13 @@ concurrency:
   group: update-data
   cancel-in-progress: false
 
+env:
+  STATES: SD,MN   # every state listed here gets rebuilt; add one in scripts/states.js too
+
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
 
@@ -33,52 +35,34 @@ jobs:
 
       - run: npm ci
 
-      - name: Fetch organizations
-        run: node scripts/fetch-orgs.js
+      # IRS org lists (monthly), IRS 990 financial extracts, Census populations
+      - name: Download IRS and Census source files
+        run: node scripts/fetch-irs.js
 
-      - name: Fetch financial details
-        run: node scripts/fetch-financials.js
+      - name: Build per-state inputs
+        run: node scripts/build-raw.js
 
       - name: Process dashboard data
-        run: node scripts/process-data.js
+        run: |
+          for st in ${STATES//,/ }; do STATE=$st node scripts/process-data.js; done
 
-      # Stops before publishing if org or financials counts fell more than 10%
-      # (e.g. ProPublica outage). The live site keeps last week's data and
-      # GitHub emails you that the run failed.
       - name: Safety check before publishing
         if: ${{ !inputs.skip_guard }}
-        run: |
-          node --input-type=module <<'JS'
-          import { readFileSync } from 'fs';
-          import { execSync } from 'child_process';
-          const FILE = 'src/data/dashboard-data.json';
-          const next = JSON.parse(readFileSync(FILE, 'utf-8'));
-          let prev = null;
-          try { prev = JSON.parse(execSync(`git show HEAD:${FILE}`, { maxBuffer: 256 * 1024 * 1024 }).toString()); } catch {}
-          const problems = [];
-          if (!next.overview?.total_orgs || !next.orgs?.length) problems.push('New data is empty or malformed.');
-          for (const key of ['total_orgs', 'with_financials']) {
-            const before = prev?.overview?.[key], after = next.overview?.[key];
-            if (typeof before !== 'number' || !before) continue;
-            const change = (after - before) / before;
-            console.log(`${key}: ${before} -> ${after} (${(change * 100).toFixed(1)}%)`);
-            if (change < -0.10) problems.push(`${key} dropped ${(-change * 100).toFixed(1)}% (${before} -> ${after})`);
-          }
-          if (problems.length) { console.error('Not publishing:\n - ' + problems.join('\n - ')); process.exit(1); }
-          console.log('Safety check passed.');
-          JS
+        run: node scripts/check-data.js
 
-      - name: Make sure the site still builds
-        run: npm run build
+      - name: Make sure every site still builds
+        run: |
+          for st in ${STATES//,/ }; do VITE_STATE=$st npx vite build --outDir dist-$st; done
 
       # Every run stamps a new "last updated" time, so there is a commit every week.
-      # That keeps the repo active, which stops GitHub from auto-disabling the
-      # schedule after 60 quiet days. Vercel redeploys from this commit.
+      # That keeps the repo active (GitHub disables schedules after 60 quiet days).
+      # Each state's Vercel project redeploys from this commit.
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/dashboard-data.json
+          git add src/data/*.json
           git diff --staged --quiet && { echo "No changes."; exit 0; }
           git commit -m "data: weekly refresh $(date -u +%Y-%m-%d)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push

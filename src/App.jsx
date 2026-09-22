@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import data from './data/dashboard-data.json';
+import data from '@state-data';
 import { formatNumber } from './utils/format';
 import { aggregateData, nteeCategory, communitySize } from './utils/aggregate';
 import FilterBar from './components/FilterBar';
@@ -52,9 +52,9 @@ export default function App() {
 
     // Apply freshness filter
     if (filters.freshness === '2023') {
-      orgs = orgs.filter(o => o.yr === null || o.yr >= 2023);
+      orgs = orgs.filter(o => o.yr == null || o.yr >= 2023);
     } else if (filters.freshness === '2022') {
-      orgs = orgs.filter(o => o.yr === null || o.yr >= 2022);
+      orgs = orgs.filter(o => o.yr == null || o.yr >= 2022);
     }
 
     // Apply health system exclusion
@@ -74,7 +74,7 @@ export default function App() {
 
     // Apply community filter
     if (filters.community !== 'all') {
-      orgs = orgs.filter(o => communitySize(o.ct) === filters.community);
+      orgs = orgs.filter(o => communitySize(o) === filters.community);
     }
 
     // Apply subsection code filter
@@ -92,6 +92,9 @@ export default function App() {
   }, [filters, filtersEnabled]);
 
   const ActiveTabComponent = tabComponents[activeTab];
+  const fmtDate = d => new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const years = [...new Set((data.sources?.extracts || []).map(e => e.year))].sort();
+  const extractYears = years.length ? `${years[0]}\u2013${years[years.length - 1]}` : null;
   const lastUpdated = new Date(data.last_updated).toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric'
   });
@@ -106,7 +109,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-8 py-5">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-2xl font-bold text-slate-900">South Dakota Nonprofit Landscape</h1>
+              <h1 className="text-2xl font-bold text-slate-900">{data.state_name} Nonprofit Landscape</h1>
               <p className="text-slate-500 text-sm mt-1">Comprehensive sector analysis from IRS Form 990 filings</p>
             </div>
             <div className="text-right text-xs text-slate-400">
@@ -157,14 +160,26 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-slate-400">
             <div>
-              <p className="font-medium text-slate-500">Data Source</p>
-              <p className="mt-1">ProPublica Nonprofit Explorer API — IRS Exempt Organizations Business Master File and Form 990 filings</p>
-              <p className="mt-1">{formatNumber(filteredData.overview.with_financials)} organizations with detailed financial data from 2023-2024 filings</p>
+              <p className="font-medium text-slate-500">Data Sources</p>
+              <p className="mt-1">
+                Organizations: <a className="underline" href={data.sources?.bmf?.url}>IRS Exempt Organizations Business Master File</a>
+                {data.sources?.bmf?.last_modified && <> (IRS file dated {fmtDate(data.sources.bmf.last_modified)})</>}
+              </p>
+              <p className="mt-1">
+                Financials: <a className="underline" href="https://www.irs.gov/statistics/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data">IRS SOI annual extracts of Form 990, 990-EZ and 990-PF</a>
+                {extractYears && <> (returns processed {extractYears})</>}
+              </p>
+              <p className="mt-1">
+                Community size: <a className="underline" href={data.sources?.census?.url}>U.S. Census Bureau {data.sources?.census?.vintage} population estimates</a>
+              </p>
+              <p className="mt-1">{formatNumber(filteredData.overview.with_financials)} organizations with financial data; most recent filing year {data.latest_tax_year}.</p>
             </div>
             <div className="md:text-right">
               <p className="font-medium text-slate-500">Methodology</p>
               <p className="mt-1">Revenue and asset figures from most recent available filing.</p>
               <p>Organizations filing 990-N (under $50K revenue) excluded from financial analysis.</p>
+              <p>Filing year is the year an organization's fiscal year ends.</p>
+              <p>Related entities that file separately (e.g., a health system and its group return) are each counted.</p>
             </div>
           </div>
         </div>

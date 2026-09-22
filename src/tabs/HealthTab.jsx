@@ -49,7 +49,7 @@ export default function HealthTab({ data }) {
               <Tooltip formatter={(value) => formatNumber(value)} />
             </PieChart>
           </ResponsiveContainer>
-          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
           <div className="grid grid-cols-2 gap-2 mt-3 text-sm text-slate-600">
             {data.financial_health.map((entry, i) => (
               <div key={i} className="flex items-center gap-1.5">

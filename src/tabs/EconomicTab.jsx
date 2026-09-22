@@ -5,16 +5,23 @@ import InfoTip from '../components/InfoTip';
 import { formatNumber, formatCurrency } from '../utils/format';
 
 export default function EconomicTab({ data }) {
+  // Figures quoted in the copy are computed from the (filtered) data, not hardcoded.
+  const half = (data.concentration || []).find(c => c.threshold === '50%');
+  const halfCount = half ? half.orgs_needed : null;
+  const withFin = data.overview.with_financials || 0;
+  const bigTier = (data.by_revenue_tier || []).find(t => t.tier === '$10M+');
+  const bigPctOrgs = bigTier && withFin > 0 ? (bigTier.count / withFin) * 100 : null;
+  const ruralPct = data.overview.total_orgs > 0 ? Math.round((data.overview.rural_orgs / data.overview.total_orgs) * 100) : 0;
   return (
     <div className="space-y-6">
       <SectionHeader
         title="Economic Impact"
-        subtitle="The nonprofit sector's contribution to South Dakota's economy"
+        subtitle={`The nonprofit sector's contribution to ${data.state_name}'s economy`}
       />
 
       {/* Large stat cards */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <StatCard title="Sector Revenue" value={formatCurrency(data.overview.total_revenue)} large info="Sum of total revenue from most recent Form 990/990-EZ/990-PF filings for all reporting South Dakota nonprofits." />
+        <StatCard title="Sector Revenue" value={formatCurrency(data.overview.total_revenue)} large info={`Sum of total revenue from most recent Form 990/990-EZ/990-PF filings for all reporting ${data.state_name} nonprofits.`} />
         <StatCard title="National Benchmark" value="~5.4% of GDP" subtitle="Nonprofit sector nationally (BEA)" large info="Bureau of Economic Analysis NPISH satellite account. This is a national figure — state-level nonprofit GDP contribution data is not published by BEA." />
         <StatCard title="Total Assets" value={formatCurrency(data.overview.total_assets)} large info="Sum of total assets at year-end from most recent filings. Includes cash, investments, property, and other assets reported on Form 990 Part X." />
       </div>
@@ -48,7 +55,7 @@ export default function EconomicTab({ data }) {
             })}
           </div>
           <div className="mt-4 bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm text-slate-700">
-            Just 5 organizations generate 50% of all nonprofit revenue in South Dakota.
+            {halfCount != null && <>Just {formatNumber(halfCount)} organization{halfCount === 1 ? ' generates' : 's generate'} half of all reported nonprofit revenue in {data.state_name}.</>}
           </div>
         </div>
 
@@ -63,10 +70,10 @@ export default function EconomicTab({ data }) {
               <Bar dataKey="count" fill="#c17817" />
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
           <p className="text-sm text-slate-600 mt-2">
             The largest organizations (revenue $10M+) drive the vast majority of sector revenue despite representing
-            less than 2% of all organizations.
+            {bigPctOrgs != null ? `${bigPctOrgs < 1 ? 'less than 1' : Math.round(bigPctOrgs)}% of organizations with financial data.` : 'a small share of organizations.'}
           </p>
         </div>
       </div>
@@ -78,9 +85,9 @@ export default function EconomicTab({ data }) {
           <div>
             <h4 className="font-semibold mb-2">Economic Role</h4>
             <ul className="space-y-1.5 text-sm text-slate-300">
-              <li>Nonprofits are among the largest employers and service providers across South Dakota</li>
+              <li>Nonprofits are among the largest employers and service providers across {data.state_name}</li>
               <li>Over {formatNumber(data.overview.total_orgs)} registered nonprofits operating in {formatNumber(data.overview.cities)} communities statewide</li>
-              <li>36% of organizations serve rural communities with limited alternative providers</li>
+              <li>{ruralPct}% of organizations are based in rural communities (under 2,500 people), where alternative providers are limited</li>
               <li>Sector holds {formatCurrency(data.overview.total_assets)} in total assets — a permanent community endowment</li>
             </ul>
           </div>
