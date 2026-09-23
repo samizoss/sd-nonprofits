@@ -1,21 +1,8 @@
-// City population lookup (same as server-side)
-const cityPop = {
-  'Sioux Falls': 200000, 'Rapid City': 80000, 'Aberdeen': 28000,
-  'Brookings': 24000, 'Watertown': 22000, 'Mitchell': 16000,
-  'Huron': 14000, 'Pierre': 14000, 'Yankton': 15000,
-  'Spearfish': 13000, 'Vermillion': 12000, 'Brandon': 10000,
-  'Sturgis': 7000, 'Madison': 7000, 'Belle Fourche': 6000,
-  'Hot Springs': 3500, 'Mobridge': 3200, 'Winner': 2900,
-  'Chamberlain': 2600, 'Custer': 2500,
-};
-
-export function communitySize(city) {
-  const pop = cityPop[city?.trim()];
-  if (pop == null) return 'Rural (<2.5K)';
-  if (pop >= 50000) return 'Urban (50K+)';
-  if (pop >= 10000) return 'Mid-Size (10-50K)';
-  if (pop >= 2500) return 'Small Town (2.5-10K)';
-  return 'Rural (<2.5K)';
+// Community tier per org is precomputed in the data pipeline from Census
+// Bureau population estimates (cs: U/M/S/R). Unmatched cities count as rural.
+const TIER_LABELS = { U: 'Urban (50K+)', M: 'Mid-Size (10-50K)', S: 'Small Town (2.5-10K)', R: 'Rural (<2.5K)' };
+export function communitySize(org) {
+  return TIER_LABELS[org?.cs] || TIER_LABELS.R;
 }
 
 const NTEE_MAP = {
@@ -63,12 +50,13 @@ export function aggregateData(orgs, baseData) {
   const citySet = new Set(orgs.map(o => o.ct).filter(Boolean));
   const cities = citySet.size;
 
-  const rural_orgs = orgs.filter(o => communitySize(o.ct) === 'Rural (<2.5K)').length;
+  const rural_orgs = orgs.filter(o => communitySize(o) === 'Rural (<2.5K)').length;
 
-  // Top 10% / 50% revenue concentration
+  // Revenue share of the 10 / 50 largest organizations (the Overview card and its
+  // tooltip say "the 10 largest organizations"; this previously used the top 10%)
   const revsSorted = withFin.map(o => o.rev || 0).sort((a, b) => b - a);
-  const top10Count = Math.max(1, Math.ceil(withFin.length * 0.1));
-  const top50Count = Math.max(1, Math.ceil(withFin.length * 0.5));
+  const top10Count = 10;
+  const top50Count = 50;
   const top10Rev = revsSorted.slice(0, top10Count).reduce((s, v) => s + v, 0);
   const top50Rev = revsSorted.slice(0, top50Count).reduce((s, v) => s + v, 0);
   const top10_pct = total_revenue > 0 ? r2(top10Rev / total_revenue * 100) : 0;
@@ -122,7 +110,7 @@ export function aggregateData(orgs, baseData) {
   // by_community
   const commMap = {};
   for (const o of orgs) {
-    const sz = communitySize(o.ct);
+    const sz = communitySize(o);
     if (!commMap[sz]) commMap[sz] = { count: 0, revenue: 0 };
     commMap[sz].count++;
     if (o.yr != null) commMap[sz].revenue += (o.rev || 0);
@@ -140,13 +128,13 @@ export function aggregateData(orgs, baseData) {
   const cityMap = {};
   for (const o of orgs) {
     const c = o.ct || 'Unknown';
-    if (!cityMap[c]) cityMap[c] = { count: 0, revenue: 0 };
+    if (!cityMap[c]) cityMap[c] = { count: 0, revenue: 0, size: communitySize(o) };
     cityMap[c].count++;
     if (o.yr != null) cityMap[c].revenue += (o.rev || 0);
   }
   const by_city = Object.entries(cityMap)
     .map(([city, v]) => {
-      const sz = communitySize(city);
+      const sz = v.size;
       const label = sz.split(' ')[0]; // "Urban", "Mid-Size", "Small", "Rural"
       return { city, count: v.count, revenue: v.revenue, community: label };
     })
@@ -285,6 +273,10 @@ export function aggregateData(orgs, baseData) {
 
   return {
     last_updated: baseData.last_updated,
+    state: baseData.state,
+    state_name: baseData.state_name,
+    sources: baseData.sources,
+    latest_tax_year: baseData.latest_tax_year,
     data_source: baseData.data_source,
     overview,
     by_ccode,

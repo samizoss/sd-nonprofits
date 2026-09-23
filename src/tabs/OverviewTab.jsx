@@ -11,7 +11,7 @@ export default function OverviewTab({ data }) {
     <div className="space-y-6">
       {/* Stat cards */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard title="Total Organizations" value={formatNumber(data.overview.total_orgs)} info="Count of all tax-exempt organizations registered in South Dakota in the IRS Business Master File, including those filing Form 990, 990-EZ, 990-PF, and 990-N." />
+        <StatCard title="Total Organizations" value={formatNumber(data.overview.total_orgs)} info={`Count of all tax-exempt organizations registered in ${data.state_name} in the IRS Business Master File, including those filing Form 990, 990-EZ, 990-PF, and 990-N.`} />
         <StatCard title="Core Nonprofit Types" value={formatNumber(data.overview.priority_orgs)} subtitle="c3, c4, c6, c19" info="Organizations classified under 501(c)(3) charitable, 501(c)(4) social welfare, 501(c)(6) business leagues, or 501(c)(19) veterans' organizations — the types most relevant to nonprofit sector analysis." />
         <StatCard title="Total Revenue" value={formatCurrency(data.overview.total_revenue)} info="Sum of total revenue (Form 990 Part I, Line 12) from each organization's most recent filing. Only includes organizations with available 990/990-EZ/990-PF data." />
         <StatCard title="Total Assets" value={formatCurrency(data.overview.total_assets)} info="Sum of total assets at end of year (Form 990 Part X, Line 16) from each organization's most recent filing." />
@@ -31,7 +31,7 @@ export default function OverviewTab({ data }) {
           value={formatNumber(data.overview.rural_orgs)}
           description={`${Math.round(data.overview.rural_orgs / data.overview.total_orgs * 100)}% of orgs serve rural communities`}
           color="green"
-          info="Organizations located in communities with population under 2,500 based on Census population estimates. City classification uses a lookup table of South Dakota municipalities."
+          info="Organizations located in communities with population under 2,500 based on Census population estimates. Each organization's city is matched to U.S. Census Bureau population estimates for incorporated places; cities with no match count as rural."
         />
         <InsightCard
           title="Revenue Concentration"
@@ -62,7 +62,7 @@ export default function OverviewTab({ data }) {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
           {/* Legend */}
           <div className="flex gap-4 mt-3 text-sm text-slate-600">
             <div className="flex items-center gap-1.5">
@@ -95,7 +95,7 @@ export default function OverviewTab({ data }) {
               <Tooltip formatter={(value) => formatNumber(value)} />
             </PieChart>
           </ResponsiveContainer>
-          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
           {/* Legend */}
           <div className="grid grid-cols-2 gap-1.5 mt-2 text-sm text-slate-600">
             {data.by_freshness.map((entry, index) => (

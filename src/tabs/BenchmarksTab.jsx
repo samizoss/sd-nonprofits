@@ -16,7 +16,7 @@ export default function BenchmarksTab({ data }) {
     <div className="space-y-6">
       <SectionHeader
         title="Benchmarks by Size"
-        subtitle="Comparative benchmarks across South Dakota nonprofits by size"
+        subtitle={`Comparative benchmarks across ${data.state_name} nonprofits by size`}
         info="Benchmarks computed from Form 990 filers grouped by revenue size. Averages and medians help organizations compare their financial ratios to peers."
       />
 
@@ -31,7 +31,7 @@ export default function BenchmarksTab({ data }) {
             <Bar dataKey="count" fill="#1b4965" />
           </BarChart>
         </ResponsiveContainer>
-        <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+        <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
       </div>
 
       {/* Benchmark table */}

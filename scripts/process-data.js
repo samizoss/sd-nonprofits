@@ -1,8 +1,12 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { STATES } from './states.js';
 
-const ORGS_FILE = 'raw/orgs.json';
-const FINANCIALS_FILE = 'raw/financials.json';
-const OUTPUT = 'src/data/dashboard-data.json';
+// Builds src/data/<st>.json for one state: STATE=MN node scripts/process-data.js
+const STATE = (process.env.STATE || 'SD').toUpperCase();
+if (!STATES[STATE]) throw new Error(`Unknown STATE ${STATE}`);
+const ORGS_FILE = `raw/${STATE.toLowerCase()}/orgs.json`;
+const FINANCIALS_FILE = `raw/${STATE.toLowerCase()}/financials.json`;
+const OUTPUT = `src/data/${STATE.toLowerCase()}.json`;
 
 // --- Mappings ---
 
@@ -36,24 +40,10 @@ function nteeCategory(nteeCode) {
   return 'Unknown';
 }
 
-const cityPopulations = {
-  'Sioux Falls': 200000, 'Rapid City': 80000, 'Aberdeen': 28000,
-  'Brookings': 24000, 'Watertown': 22000, 'Mitchell': 16000,
-  'Huron': 14000, 'Pierre': 14000, 'Yankton': 15000,
-  'Spearfish': 13000, 'Vermillion': 12000, 'Brandon': 10000,
-  'Sturgis': 7000, 'Madison': 7000, 'Belle Fourche': 6000,
-  'Hot Springs': 3500, 'Mobridge': 3200, 'Winner': 2900,
-  'Chamberlain': 2600, 'Custer': 2500,
-};
-
-function communitySize(city) {
-  const pop = cityPopulations[city?.trim()];
-  if (pop == null) return 'Rural (<2.5K)';
-  if (pop >= 50000) return 'Urban (50K+)';
-  if (pop >= 10000) return 'Mid-Size (10-50K)';
-  if (pop >= 2500) return 'Small Town (2.5-10K)';
-  return 'Rural (<2.5K)';
-}
+// Community tier comes from build-raw.js, which matches each org's city to
+// Census Bureau population estimates (U/M/S/R). Unmatched cities count as rural.
+const TIER_LABELS = { U: 'Urban (50K+)', M: 'Mid-Size (10-50K)', S: 'Small Town (2.5-10K)', R: 'Rural (<2.5K)' };
+const communitySize = org => TIER_LABELS[org?.community] || TIER_LABELS.R;
 
 function getLatestFiling(filings) {
   if (!filings || filings.length === 0) return null;
@@ -87,6 +77,7 @@ function main() {
   const financialsData = JSON.parse(readFileSync(FINANCIALS_FILE, 'utf-8'));
 
   const allOrgs = orgsData.organizations;
+  const sources = orgsData.sources;
   const financialsMap = financialsData.organizations; // keyed by EIN
 
   console.log(`Processing ${allOrgs.length} orgs, ${Object.keys(financialsMap).length} with financial details...`);
@@ -97,11 +88,12 @@ function main() {
     const latest = fin ? getLatestFiling(fin.filings) : null;
     return {
       ein: org.ein,
-      name: fin?.name || org.name,
-      city: (fin?.city || org.city || '').trim(),
-      state: fin?.state || org.state,
-      ntee_code: fin?.ntee_code || org.ntee_code,
-      subseccd: fin?.subseccd ?? org.subseccd,
+      name: org.name,
+      city: (org.city || '').trim(),
+      state: org.state,
+      community: org.community,
+      ntee_code: org.ntee_code,
+      subseccd: org.subseccd,
       hasFinancials: !!latest,
       latest,
       filings: fin?.filings || [],
@@ -129,7 +121,7 @@ function main() {
   const top50Pct = totalRevenue > 0 ? round2(top50Rev / totalRevenue * 100) : 0;
 
   // Rural orgs
-  const ruralOrgs = enriched.filter(o => communitySize(o.city) === 'Rural (<2.5K)').length;
+  const ruralOrgs = enriched.filter(o => communitySize(o) === 'Rural (<2.5K)').length;
 
   // Capacity building ready: 990-EZ filers with revenue >= 75000 and healthy
   const capacityBuildingReady = enriched.filter(o => {
@@ -215,7 +207,7 @@ function main() {
   // --- by_community ---
   const communityMap = {};
   for (const o of enriched) {
-    const size = communitySize(o.city);
+    const size = communitySize(o);
     if (!communityMap[size]) communityMap[size] = { count: 0, revenue: 0 };
     communityMap[size].count++;
     if (o.latest?.totrevenue != null) communityMap[size].revenue += o.latest.totrevenue;
@@ -446,6 +438,7 @@ function main() {
       ein: o.ein,
       nm: o.name,
       ct: o.city,
+      cs: o.community,
       nt: o.ntee_code ? o.ntee_code.charAt(0).toUpperCase() : null,
       sub: o.subseccd,
       yr: o.latest?.tax_prd_yr ?? null,
@@ -457,13 +450,19 @@ function main() {
       net: o.latest?.totnetassetend ?? null,
       comp: o.latest?.compnsatncurrofcr ?? null,
     };
+    // Drop empty fields to keep the page small (most orgs file 990-N and have none)
+    for (const k of Object.keys(rec)) if (rec[k] == null) delete rec[k];
     return rec;
   });
 
   // --- Assemble output ---
   const output = {
     last_updated: new Date().toISOString(),
-    data_source: 'ProPublica Nonprofit Explorer API',
+    state: STATE,
+    state_name: STATES[STATE].name,
+    data_source: 'IRS Exempt Organizations Business Master File + IRS SOI Annual Extracts of Form 990/990-EZ/990-PF',
+    sources,
+    latest_tax_year: Math.max(...enriched.filter(o => o.latest).map(o => o.latest.tax_prd_yr)),
     overview,
     by_ccode: byCcode,
     by_ntee: byNtee,
@@ -480,7 +479,7 @@ function main() {
   };
 
   mkdirSync('src/data', { recursive: true });
-  writeFileSync(OUTPUT, JSON.stringify(output, null, 2));
+  writeFileSync(OUTPUT, JSON.stringify(output));
   console.log(`Dashboard data written to ${OUTPUT}`);
   console.log(`  ${totalOrgs} total orgs, ${withFinancials} with financials`);
   console.log(`  ${cities.size} cities, ${byCcode.length} subsection codes, ${byNtee.length} NTEE categories`);

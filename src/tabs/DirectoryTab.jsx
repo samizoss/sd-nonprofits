@@ -66,7 +66,7 @@ export default function DirectoryTab({ data }) {
   if (!hasData) {
     return (
       <div className="space-y-6">
-        <SectionHeader title="Organization Directory" subtitle="Searchable directory of South Dakota nonprofits" />
+        <SectionHeader title="Organization Directory" subtitle={`Searchable directory of ${data.state_name} nonprofits`} />
         <div className="bg-white rounded-lg border border-slate-200 p-8 text-center text-slate-400">
           Directory available when live data is loaded.
         </div>
@@ -78,8 +78,8 @@ export default function DirectoryTab({ data }) {
     <div className="space-y-6">
       <SectionHeader
         title="Organization Directory"
-        subtitle="Searchable directory of South Dakota nonprofits"
-        info="All tax-exempt organizations registered in South Dakota from the IRS Business Master File. Financial data from most recent Form 990/990-EZ/990-PF filing."
+        subtitle={`Searchable directory of ${data.state_name} nonprofits`}
+        info={`All tax-exempt organizations registered in ${data.state_name} from the IRS Business Master File. Financial data from most recent Form 990/990-EZ/990-PF filing.`}
       />
 
       {/* Search + count */}
@@ -153,7 +153,7 @@ export default function DirectoryTab({ data }) {
         )}
       </div>
 
-      <p className="text-xs text-slate-400 italic">Source: ProPublica Nonprofit Explorer, IRS Form 990. Revenue and assets from most recent available filing.</p>
+      <p className="text-xs text-slate-400 italic">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts). Revenue and assets from most recent available filing.</p>
     </div>
   );
 }

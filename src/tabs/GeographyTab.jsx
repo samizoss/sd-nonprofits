@@ -8,8 +8,8 @@ export default function GeographyTab({ data }) {
     <div className="space-y-6">
       <SectionHeader
         title="Geographic Distribution"
-        subtitle="Where nonprofits are located across South Dakota"
-        info="Geographic classification based on city of record in IRS filings, mapped to community size tiers using Census population estimates for South Dakota municipalities."
+        subtitle={`Where nonprofits are located across ${data.state_name}`}
+        info="Geographic classification based on city of record in IRS filings, mapped to community size tiers using Census population estimates for incorporated places."
       />
 
       {/* Community Size Cards */}
@@ -40,7 +40,7 @@ export default function GeographyTab({ data }) {
               <Bar dataKey="count" fill="#5b8c9e" />
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
         </div>
 
         {/* Top 10 Cities by Revenue */}
@@ -54,7 +54,7 @@ export default function GeographyTab({ data }) {
               <Bar dataKey="revenue" fill="#c17817" />
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-xs text-slate-400 italic mt-3">Source: ProPublica Nonprofit Explorer, IRS Form 990</p>
+          <p className="text-xs text-slate-400 italic mt-3">Source: IRS Form 990, 990-EZ and 990-PF filings (SOI annual extracts)</p>
         </div>
       </div>
 
