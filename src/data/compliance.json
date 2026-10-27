@@ -1,0 +1,802 @@
+{
+ "lastVerified": "2026-10-19",
+ "pages": [
+  {
+   "slug": "contribution-vs-exchange",
+   "title": "Contribution or exchange?",
+   "question": "Is this incoming money a gift (ASC 958-605) or payment for something (ASC 606 or other guidance)?",
+   "summary": "Money that comes in is either a gift (a contribution) or payment for something the payer gets back (an exchange). It is an exchange only when the payer itself receives roughly equal value. Benefit to the public, to the funder's mission, or the good feeling of giving does not count as value received.",
+   "askYourPro": [
+    "Does anything in this grant or contract give the funder goods or services of roughly equal value in return?",
+    "Is this a third-party payer arrangement (Medicaid, insurance, vouchers) that should be treated as exchange revenue?",
+    "How should we split payments that are part gift and part purchase, and where does each part go on Form 990 Part VIII?"
+   ],
+   "steps": [
+    {
+     "text": "Does the payer itself receive goods or services of roughly equal value?",
+     "sub": [
+      "Yes: treat it as an exchange (ASC 606 or other revenue guidance).",
+      "No: go to the next question."
+     ]
+    },
+    {
+     "text": "Is the payer paying on behalf of an identified customer who receives the goods or services (for example Medicaid, insurance, or a tuition voucher)?",
+     "sub": [
+      "Yes: treat it as an exchange with a third-party payer.",
+      "No: it is a contribution. Next, decide whether it is conditional."
+     ]
+    }
+   ],
+   "lastVerified": "2026-10-19",
+   "citations": [
+    {
+     "ref": "ASC 958-605-15-5A",
+     "covers": "indicators of contribution vs. exchange; what counts as commensurate value",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-15-6(e)",
+     "covers": "payments from a third party on behalf of an identified customer are not contributions",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-55-1A",
+     "covers": "FASB flowchart: contribution, exchange, or other; then conditional or not",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASU 2018-08",
+     "covers": "the clarifications this file paraphrases",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "sources": [
+    {
+     "id": "asc-958-605",
+     "title": "FASB ASC 958-605, Not-for-Profit Entities: Revenue Recognition",
+     "version": "ASC 958-605, as amended through ASU 2018-08 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/605",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asu-2018-08",
+     "title": "ASU 2018-08, Clarifying the Scope and the Accounting Guidance for Contributions Received and Contributions Made",
+     "version": "ASU 2018-08 (issued June 2018)",
+     "url": "https://storage.fasb.org/ASU_2018-08.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asc-606",
+     "title": "FASB ASC 606, Revenue from Contracts with Customers",
+     "version": "ASC 606",
+     "url": "https://asc.fasb.org/606",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "underReview": null,
+   "html": "<h3>The rule in one line</h3>\n<p>It is an exchange only if the party paying receives value of roughly equal worth in return. Benefit to the public, or to the payer&#39;s mission, does not count as value received.</p>\n<h3>What does NOT count as value to the payer</h3>\n<p>ASU 2018-08 settled these, and they decide most grant questions:</p>\n<ul>\n<li><strong>Public benefit.</strong> A foundation or government agency is not the same as the public. When the public benefits from what the money pays for, the funder has not received that value.</li>\n<li><strong>Mission fulfillment.</strong> Advancing the funder&#39;s own mission is not value received.</li>\n<li><strong>Good feeling.</strong> The donor&#39;s satisfaction from giving is not value received.</li>\n</ul>\n<h3>Indicators in the current standard (958-605-15-5A, as rewritten by ASU 2018-08)</h3>\n<p>ASU 2018-08 replaced the older, longer indicator list. What the standard now says:</p>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Points toward exchange</th>\n<th>Points toward contribution</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Contract penalties for nonperformance go beyond returning the money transferred</td>\n<td>The funder had full discretion over the amount; it wasn&#39;t set by the value of a deliverable</td>\n</tr>\n<tr>\n<td></td>\n<td>The type of funder (foundation, government, corporation) doesn&#39;t matter on its own</td>\n</tr>\n</tbody></table></div>\n<p>Plus the three &quot;not value to the payer&quot; rules above.</p>\n<h3>Practice judgment (not in the current standard; use as supporting evidence only)</h3>\n<ul>\n<li>Both parties described the deal as a purchase of goods or services at a negotiated price.</li>\n<li>The payer owns or directly uses the work product.</li>\n<li>The recipient solicited the money without offering anything of equal value back.</li>\n</ul>\n<p>Older guides and audit memos still cite these from the pre-2018 indicator table. They can support a conclusion, but don&#39;t rest a memo on them alone.</p>\n<h3>Common cases</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Situation</th>\n<th>Usual answer</th>\n<th>Why</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Foundation program grant with reporting requirements</td>\n<td>Contribution</td>\n<td>Reporting is not value to the foundation; the public is the beneficiary</td>\n</tr>\n<tr>\n<td>Government grant to run a public program</td>\n<td>Contribution (often conditional)</td>\n<td>Same reasoning; check for barriers next</td>\n</tr>\n<tr>\n<td>Government contract to deliver services to the agency itself</td>\n<td>Exchange</td>\n<td>The agency receives the services</td>\n</tr>\n<tr>\n<td>Medicaid or insurance reimbursement for client services</td>\n<td>Exchange</td>\n<td>Third-party payer on behalf of an identified customer</td>\n</tr>\n<tr>\n<td>Sponsor payment with tickets, ads, or exclusive rights</td>\n<td>Split: exchange for the benefits, contribution for the rest</td>\n<td>See <a href=\"#guide/sponsorships\">Corporate sponsorships</a></td>\n</tr>\n<tr>\n<td>Gala ticket</td>\n<td>Split: exchange for the meal and event, contribution for the rest</td>\n<td>See <a href=\"#guide/quid-pro-quo-and-events\">Quid pro quo gifts, events, and acknowledgments</a></td>\n</tr>\n<tr>\n<td>Membership dues with real member benefits</td>\n<td>Split, or exchange if benefits roughly equal the dues</td>\n<td>Value the benefits</td>\n</tr>\n</tbody></table></div>\n<h3>Coding notes</h3>\n<ul>\n<li>Exchange revenue goes in program service revenue, fees, or contract revenue lines, not contribution lines. That choice also drives Form 990 Part VIII (contributions on line 1, program service revenue on line 2).</li>\n<li>When you split a payment, record the two pieces separately at the time of receipt. Reconstructing the split at year-end is where errors come from.</li>\n<li>Write down which indicators drove the call. When the auditor asks, the memo is the evidence.</li>\n</ul>\n",
+   "search": "contribution or exchange? is this incoming money a gift (asc 958-605) or payment for something (asc 606 or other guidance)? money that comes in is either a gift (a contribution) or payment for something the payer gets back (an exchange). it is an exchange only when the payer itself receives roughly equal value. benefit to the public, to the funder's mission, or the good feeling of giving does not count as value received. does anything in this grant or contract give the funder goods or services of roughly equal value in return? is this a third-party payer arrangement (medicaid, insurance, vouchers) that should be treated as exchange revenue? how should we split payments that are part gift and part purchase, and where does each part go on form 990 part viii? does the payer itself receive goods or services of roughly equal value? yes: treat it as an exchange (asc 606 or other revenue guidance). no: go to the next question. is the payer paying on behalf of an identified customer who receives the goods or services (for example medicaid, insurance, or a tuition voucher)? yes: treat it as an exchange with a third-party payer. no: it is a contribution. next, decide whether it is conditional. the rule in one line it is an exchange only if the party paying receives value of roughly equal worth in return. benefit to the public, or to the payer s mission, does not count as value received. what does not count as value to the payer asu 2018-08 settled these, and they decide most grant questions: public benefit. a foundation or government agency is not the same as the public. when the public benefits from what the money pays for, the funder has not received that value. mission fulfillment. advancing the funder s own mission is not value received. good feeling. the donor s satisfaction from giving is not value received. indicators in the current standard (958-605-15-5a, as rewritten by asu 2018-08) asu 2018-08 replaced the older, longer indicator list. what the standard now says: points toward exchange points toward contribution contract penalties for nonperformance go beyond returning the money transferred the funder had full discretion over the amount; it wasn t set by the value of a deliverable the type of funder (foundation, government, corporation) doesn t matter on its own plus the three not value to the payer rules above. practice judgment (not in the current standard; use as supporting evidence only) both parties described the deal as a purchase of goods or services at a negotiated price. the payer owns or directly uses the work product. the recipient solicited the money without offering anything of equal value back. older guides and audit memos still cite these from the pre-2018 indicator table. they can support a conclusion, but don t rest a memo on them alone. common cases situation usual answer why foundation program grant with reporting requirements contribution reporting is not value to the foundation; the public is the beneficiary government grant to run a public program contribution (often conditional) same reasoning; check for barriers next government contract to deliver services to the agency itself exchange the agency receives the services medicaid or insurance reimbursement for client services exchange third-party payer on behalf of an identified customer sponsor payment with tickets, ads, or exclusive rights split: exchange for the benefits, contribution for the rest see corporate sponsorships gala ticket split: exchange for the meal and event, contribution for the rest see quid pro quo gifts, events, and acknowledgments membership dues with real member benefits split, or exchange if benefits roughly equal the dues value the benefits coding notes exchange revenue goes in program service revenue, fees, or contract revenue lines, not contribution lines. that choice also drives form 990 part viii (contributions on line 1, program service revenue on line 2). when you split a payment, record the two pieces separately at the time of receipt. reconstructing the split at year-end is where errors come from. write down which indicators drove the call. when the auditor asks, the memo is the evidence."
+  },
+  {
+   "slug": "conditional-vs-unconditional",
+   "title": "Conditional or unconditional?",
+   "question": "When do I record a contribution as revenue?",
+   "summary": "A contribution is conditional only when the agreement has both a barrier the organization must clear and a right for the donor to take the money back (or not pay) if the barrier is not cleared. If either piece is missing, the gift is recorded when it is received or promised.",
+   "askYourPro": [
+    "Does this grant agreement contain a measurable barrier, and does the funder have a right of return or release?",
+    "Should cash we received in advance on this grant sit in a refundable advance (liability) until the barrier is met?",
+    "Which parts of this agreement are conditional and which are unconditional?"
+   ],
+   "steps": [
+    {
+     "text": "Is there a barrier the organization must overcome to be entitled to the money?",
+     "sub": [
+      "No: the contribution is unconditional. Record it now, then check for donor restrictions.",
+      "Yes: go to the next question."
+     ]
+    },
+    {
+     "text": "Does the donor have a right of return, or a right to be released from paying, if the barrier is not met?",
+     "sub": [
+      "No: the contribution is unconditional.",
+      "Yes: the contribution is conditional. Record no revenue yet; cash received is a refundable advance."
+     ]
+    },
+    "When the barrier is substantially met, the contribution becomes unconditional and is recorded as revenue."
+   ],
+   "lastVerified": "2026-10-19",
+   "citations": [
+    {
+     "ref": "ASC 958-605-25-5A",
+     "covers": "a contribution is conditional only if it has BOTH a barrier and a right of return or release",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-25-5D",
+     "covers": "indicators that an agreement contains a barrier",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-25-11",
+     "covers": "conditional promises are recognized when the conditions are substantially met",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-25-5E",
+     "covers": "ambiguous stipulations are presumed conditional",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-25-5C",
+     "covers": "how likely the org is to meet the barrier is not considered",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "sources": [
+    {
+     "id": "asc-958-605",
+     "title": "FASB ASC 958-605, Not-for-Profit Entities: Revenue Recognition",
+     "version": "ASC 958-605, as amended through ASU 2018-08 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/605",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asu-2018-08",
+     "title": "ASU 2018-08, Clarifying the Scope and the Accounting Guidance for Contributions Received and Contributions Made",
+     "version": "ASU 2018-08 (issued June 2018)",
+     "url": "https://storage.fasb.org/ASU_2018-08.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "underReview": null,
+   "html": "<h3>The rule in one line</h3>\n<p>A contribution is conditional only when the agreement has <strong>both</strong> a barrier the organization must overcome <strong>and</strong> a right for the donor to get the money back (or to be released from paying) if the barrier isn&#39;t met. If either piece is missing, it&#39;s unconditional and is recorded when received or promised.</p>\n<h3>Indicators of a barrier (weigh together; none is decisive)</h3>\n<ol>\n<li><strong>A measurable, performance-related target.</strong> Examples: serve 500 households, raise a matching amount, hold a specified number of sessions.</li>\n<li><strong>Limited discretion over how the activity is carried out.</strong> Example: the agreement dictates staffing qualifications or protocols in detail.</li>\n<li><strong>The stipulation is tied to the purpose of the agreement.</strong> Administrative requirements such as routine reporting usually are not barriers.</li>\n</ol>\n<h3>Common cases</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Agreement language</th>\n<th>Barrier?</th>\n<th>Return or release?</th>\n<th>Result</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>&quot;Grant of $100,000 to be paid as costs are incurred; unspent funds revert&quot;</td>\n<td>Yes: incurring qualifying costs</td>\n<td>Yes</td>\n<td>Conditional; recognize as costs are incurred</td>\n</tr>\n<tr>\n<td>&quot;$50,000 if you raise $50,000 in matching gifts by June 30&quot;</td>\n<td>Yes: the match</td>\n<td>Yes: no payment if unmet</td>\n<td>Conditional until the match is raised</td>\n</tr>\n<tr>\n<td>&quot;$25,000 for the literacy program; submit an annual report&quot;</td>\n<td>No: the report is administrative</td>\n<td>Doesn&#39;t matter</td>\n<td>Unconditional, purpose-restricted</td>\n</tr>\n<tr>\n<td>&quot;$10,000; return any amount not used for the program&quot;</td>\n<td>No measurable barrier</td>\n<td>Yes</td>\n<td>Unconditional, restricted. A right of return alone does not make it conditional</td>\n</tr>\n<tr>\n<td>Multi-year pledge with no conditions</td>\n<td>No</td>\n<td>No</td>\n<td>Unconditional; implied time restriction (see <a href=\"#guide/restricted-vs-unrestricted\">With or without donor restrictions?</a>)</td>\n</tr>\n</tbody></table></div>\n<h3>Coding notes</h3>\n<ul>\n<li>Cash received on a conditional grant goes to a refundable advance (liability), not revenue.</li>\n<li>Conditional promises not yet received are not recorded at all; they are disclosed in the notes.</li>\n<li>Partly conditional agreements are common: recognize the unconditional piece now and the conditional piece as each barrier is met.</li>\n<li>If an agreement is ambiguous about whether a stipulation is a barrier, the standard presumes the contribution is conditional (958-605-25-5E).</li>\n<li>How likely the organization is to meet the barrier doesn&#39;t matter. A barrier you will certainly clear is still a barrier (958-605-25-5C).</li>\n<li>Federal cost-reimbursement grants are the classic conditional contribution. They are not exchanges just because they come from government.</li>\n</ul>\n",
+   "search": "conditional or unconditional? when do i record a contribution as revenue? a contribution is conditional only when the agreement has both a barrier the organization must clear and a right for the donor to take the money back (or not pay) if the barrier is not cleared. if either piece is missing, the gift is recorded when it is received or promised. does this grant agreement contain a measurable barrier, and does the funder have a right of return or release? should cash we received in advance on this grant sit in a refundable advance (liability) until the barrier is met? which parts of this agreement are conditional and which are unconditional? is there a barrier the organization must overcome to be entitled to the money? no: the contribution is unconditional. record it now, then check for donor restrictions. yes: go to the next question. does the donor have a right of return, or a right to be released from paying, if the barrier is not met? no: the contribution is unconditional. yes: the contribution is conditional. record no revenue yet; cash received is a refundable advance. when the barrier is substantially met, the contribution becomes unconditional and is recorded as revenue. the rule in one line a contribution is conditional only when the agreement has both a barrier the organization must overcome and a right for the donor to get the money back (or to be released from paying) if the barrier isn t met. if either piece is missing, it s unconditional and is recorded when received or promised. indicators of a barrier (weigh together; none is decisive) a measurable, performance-related target. examples: serve 500 households, raise a matching amount, hold a specified number of sessions. limited discretion over how the activity is carried out. example: the agreement dictates staffing qualifications or protocols in detail. the stipulation is tied to the purpose of the agreement. administrative requirements such as routine reporting usually are not barriers. common cases agreement language barrier? return or release? result grant of $100,000 to be paid as costs are incurred; unspent funds revert yes: incurring qualifying costs yes conditional; recognize as costs are incurred $50,000 if you raise $50,000 in matching gifts by june 30 yes: the match yes: no payment if unmet conditional until the match is raised $25,000 for the literacy program; submit an annual report no: the report is administrative doesn t matter unconditional, purpose-restricted $10,000; return any amount not used for the program no measurable barrier yes unconditional, restricted. a right of return alone does not make it conditional multi-year pledge with no conditions no no unconditional; implied time restriction (see with or without donor restrictions? ) coding notes cash received on a conditional grant goes to a refundable advance (liability), not revenue. conditional promises not yet received are not recorded at all; they are disclosed in the notes. partly conditional agreements are common: recognize the unconditional piece now and the conditional piece as each barrier is met. if an agreement is ambiguous about whether a stipulation is a barrier, the standard presumes the contribution is conditional (958-605-25-5e). how likely the organization is to meet the barrier doesn t matter. a barrier you will certainly clear is still a barrier (958-605-25-5c). federal cost-reimbursement grants are the classic conditional contribution. they are not exchanges just because they come from government."
+  },
+  {
+   "slug": "restricted-vs-unrestricted",
+   "title": "With or without donor restrictions?",
+   "question": "Which net asset class does this contribution go in, and when is the restriction released?",
+   "summary": "Only a donor can restrict a gift, by limiting it to a purpose or time period narrower than the organization's mission. Board-designated money stays \"without donor restrictions.\" Restricted amounts are released when the purpose is met or the time passes.",
+   "askYourPro": [
+    "Has our organization elected the policy to report restricted gifts met in the same period as without donor restrictions?",
+    "Does this appeal or gift agreement create a donor restriction, or is it general support?",
+    "How should we document board-designated funds and their purposes in the financial statements?"
+   ],
+   "steps": [
+    {
+     "text": "Did the donor limit the purpose or timing more narrowly than the organization's mission?",
+     "sub": [
+      "No, and it is not a promise payable in a future period: without donor restrictions.",
+      "No, but it is a promise payable in a future period: with donor restrictions (implied time restriction).",
+      "Yes: go to the next question."
+     ]
+    },
+    {
+     "text": "Is the restriction perpetual, such as endowment corpus?",
+     "sub": [
+      "Yes: with donor restrictions, perpetual. It is never released.",
+      "No: with donor restrictions (purpose and/or time)."
+     ]
+    },
+    {
+     "text": "Was the restriction met in the same period it was received, and has the organization elected the same-period policy?",
+     "sub": [
+      "Yes: it may be reported as without donor restrictions.",
+      "No: release it to without donor restrictions when the purpose is met or the time passes."
+     ]
+    }
+   ],
+   "lastVerified": "2026-10-19",
+   "citations": [
+    {
+     "ref": "ASU 2016-14 / ASC 958-205",
+     "covers": "two classes: with donor restrictions, without donor restrictions; board-designated disclosure",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-45-4A",
+     "covers": "policy option: report restricted gifts whose restrictions are met in the same period as without restrictions",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-45-5",
+     "covers": "implied time restriction on promises payable in future periods",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-205-45-12",
+     "covers": "restriction on long-lived assets expires when the asset is placed in service",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-45-4B",
+     "covers": "separate same-period election for contributions that were initially conditional",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "sources": [
+    {
+     "id": "asc-958-205",
+     "title": "FASB ASC 958-205, Presentation of Financial Statements",
+     "version": "ASC 958-205, as amended by ASU 2016-14 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/205",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asc-958-605",
+     "title": "FASB ASC 958-605, Not-for-Profit Entities: Revenue Recognition",
+     "version": "ASC 958-605, as amended through ASU 2018-08 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/605",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asu-2016-14",
+     "title": "ASU 2016-14, Presentation of Financial Statements of Not-for-Profit Entities",
+     "version": "ASU 2016-14 (issued August 2016)",
+     "url": "https://storage.fasb.org/ASU_2016-14.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asu-2018-08",
+     "title": "ASU 2018-08, Clarifying the Scope and the Accounting Guidance for Contributions Received and Contributions Made",
+     "version": "ASU 2018-08 (issued June 2018)",
+     "url": "https://storage.fasb.org/ASU_2018-08.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "underReview": null,
+   "html": "<h3>The rule in one line</h3>\n<p>Only a donor can restrict a gift. A restriction exists when the donor limits the gift to a purpose or a time period more specific than the organization&#39;s general mission. The board can earmark unrestricted money, but that remains &quot;without donor restrictions&quot; (board-designated).</p>\n<h3>Tests for whether the donor actually restricted it</h3>\n<ul>\n<li><strong>Source documents decide.</strong> Gift agreement, response card, appeal language, online form designation, email from the donor. Keep it with the gift record.</li>\n<li><strong>Appeal language counts.</strong> If the appeal said &quot;give to the new van fund,&quot; gifts responding to it are purpose-restricted even if the donor wrote nothing.</li>\n<li><strong>Mission-level purpose is not a restriction.</strong> &quot;For your programs&quot; or &quot;to support your work&quot; at an org that only does that work is unrestricted.</li>\n<li><strong>Board action never creates a donor restriction.</strong> Board-designated funds (operating reserve, quasi-endowment) stay without donor restrictions and are disclosed by amount and purpose.</li>\n</ul>\n<h3>Release mechanics</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Restriction type</th>\n<th>Released when</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Purpose</td>\n<td>Qualifying expenses are incurred</td>\n</tr>\n<tr>\n<td>Time (explicit date)</td>\n<td>The date passes</td>\n</tr>\n<tr>\n<td>Time (implied, pledge payments)</td>\n<td>The payment is due / received in the period it was meant for</td>\n</tr>\n<tr>\n<td>Long-lived asset purchase</td>\n<td>The asset is placed in service (unless the donor stipulated a longer restriction)</td>\n</tr>\n<tr>\n<td>Perpetual (endowment corpus)</td>\n<td>Never; earnings follow the gift instrument and state UPMIFA law</td>\n</tr>\n</tbody></table></div>\n<h3>Same-period policy option</h3>\n<p>An organization can elect to report restricted gifts whose restriction is met in the same reporting period as &quot;without donor restrictions,&quot; provided it treats investment gains the same way, applies the policy consistently, and discloses it (958-605-45-4A). ASU 2018-08 added a separate version of this election limited to gifts that started out conditional (958-605-45-4B). Note which policy, if any, each client has elected in their client file; it changes how you code every restricted gift.</p>\n<h3>Coding notes</h3>\n<ul>\n<li>Use a fund or class dimension in the GL for each restriction, not separate revenue accounts per fund. Revenue accounts describe the type of income; the fund dimension describes the restriction.</li>\n<li>Release entries are reclassifications between net asset classes, not revenue.</li>\n<li>A gift with both purpose and time restrictions is released only when both are satisfied.</li>\n<li>The CRM&#39;s &quot;designation&quot; field and the GL&#39;s restriction are not automatically the same thing. A CRM designation can be the donor&#39;s soft preference. Map designations to restriction status explicitly (see <a href=\"#guide/gaap-vs-fundraising-counting\">GAAP vs. fundraising counting</a>).</li>\n</ul>\n",
+   "search": "with or without donor restrictions? which net asset class does this contribution go in, and when is the restriction released? only a donor can restrict a gift, by limiting it to a purpose or time period narrower than the organization's mission. board-designated money stays \"without donor restrictions.\" restricted amounts are released when the purpose is met or the time passes. has our organization elected the policy to report restricted gifts met in the same period as without donor restrictions? does this appeal or gift agreement create a donor restriction, or is it general support? how should we document board-designated funds and their purposes in the financial statements? did the donor limit the purpose or timing more narrowly than the organization's mission? no, and it is not a promise payable in a future period: without donor restrictions. no, but it is a promise payable in a future period: with donor restrictions (implied time restriction). yes: go to the next question. is the restriction perpetual, such as endowment corpus? yes: with donor restrictions, perpetual. it is never released. no: with donor restrictions (purpose and/or time). was the restriction met in the same period it was received, and has the organization elected the same-period policy? yes: it may be reported as without donor restrictions. no: release it to without donor restrictions when the purpose is met or the time passes. the rule in one line only a donor can restrict a gift. a restriction exists when the donor limits the gift to a purpose or a time period more specific than the organization s general mission. the board can earmark unrestricted money, but that remains without donor restrictions (board-designated). tests for whether the donor actually restricted it source documents decide. gift agreement, response card, appeal language, online form designation, email from the donor. keep it with the gift record. appeal language counts. if the appeal said give to the new van fund, gifts responding to it are purpose-restricted even if the donor wrote nothing. mission-level purpose is not a restriction. for your programs or to support your work at an org that only does that work is unrestricted. board action never creates a donor restriction. board-designated funds (operating reserve, quasi-endowment) stay without donor restrictions and are disclosed by amount and purpose. release mechanics restriction type released when purpose qualifying expenses are incurred time (explicit date) the date passes time (implied, pledge payments) the payment is due / received in the period it was meant for long-lived asset purchase the asset is placed in service (unless the donor stipulated a longer restriction) perpetual (endowment corpus) never; earnings follow the gift instrument and state upmifa law same-period policy option an organization can elect to report restricted gifts whose restriction is met in the same reporting period as without donor restrictions, provided it treats investment gains the same way, applies the policy consistently, and discloses it (958-605-45-4a). asu 2018-08 added a separate version of this election limited to gifts that started out conditional (958-605-45-4b). note which policy, if any, each client has elected in their client file; it changes how you code every restricted gift. coding notes use a fund or class dimension in the gl for each restriction, not separate revenue accounts per fund. revenue accounts describe the type of income; the fund dimension describes the restriction. release entries are reclassifications between net asset classes, not revenue. a gift with both purpose and time restrictions is released only when both are satisfied. the crm s designation field and the gl s restriction are not automatically the same thing. a crm designation can be the donor s soft preference. map designations to restriction status explicitly (see gaap vs. fundraising counting )."
+  },
+  {
+   "slug": "in-kind-gifts",
+   "title": "In-kind gifts (contributed nonfinancial assets)",
+   "question": "Do I record this noncash gift, at what value, and what IRS paperwork follows it?",
+   "summary": "Donated goods, use of facilities, and qualifying services are recorded at fair value and shown on their own line, apart from cash gifts. General volunteer time is not recorded. Separate IRS rules (Forms 8283 and 8282, Schedule M) apply on their own thresholds.",
+   "askYourPro": [
+    "Do these donated services meet the recognition criteria, and how should we value them?",
+    "What valuation method and inputs should we document for this donated item?",
+    "We are selling an item for which we signed Form 8283 Section B. Do we need to file Form 8282?"
+   ],
+   "steps": [
+    {
+     "text": "Is the gift goods, use of facilities, or services?",
+     "sub": [
+      "Goods or use of facilities: record at fair value on a separate line for contributed nonfinancial assets.",
+      "Services: go to the next question."
+     ]
+    },
+    {
+     "text": "Do the services create or enhance a nonfinancial asset, or require specialized skills, provided by people with those skills, that the organization would otherwise have to buy?",
+     "sub": [
+      "Yes: record at fair value.",
+      "No: do not record. Track volunteer hours for narrative reporting only."
+     ]
+    },
+    "Check whether the donor restricted how the item may be used or sold; if so, record it with donor restrictions.",
+    "If the gift was over $5,000 and the organization signed Form 8283 Section B, flag it: a sale or disposal within 3 years of receipt generally requires Form 8282 within 125 days."
+   ],
+   "lastVerified": "2026-10-19",
+   "citations": [
+    {
+     "ref": "ASU 2020-07; ASC 958-205-45-36; ASC 958-605-45-7A",
+     "covers": "contributed nonfinancial assets presented as a separate line in the statement of activities",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "ASC 958-605-50-1A",
+     "covers": "disclosures by category: use vs. monetize policy, donor restrictions, valuation techniques",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "ASC 958-605-25-19",
+     "covers": "collection items need not be recognized when the collections criteria are met",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605-25-16",
+     "covers": "contributed services are recognized only if they create or enhance nonfinancial assets, or require specialized skills, are provided by people with those skills, and would typically be purchased",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "Form 8282 / 8283 instructions; IRS charities page on noncash contributions",
+     "covers": "3-year disposal reporting; 125-day deadline; who signs Section B",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "Schedule M (Form 990) instructions, tax year 2025, p. 3",
+     "covers": "who must file Schedule M",
+     "label": "Checked against the original text"
+    }
+   ],
+   "sources": [
+    {
+     "id": "asc-958-605",
+     "title": "FASB ASC 958-605, Not-for-Profit Entities: Revenue Recognition",
+     "version": "ASC 958-605, as amended through ASU 2018-08 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/605",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asu-2020-07",
+     "title": "ASU 2020-07, Presentation and Disclosures by Not-for-Profit Entities for Contributed Nonfinancial Assets",
+     "version": "ASU 2020-07 (issued September 2020)",
+     "url": "https://storage.fasb.org/ASU_2020-07.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Checked against the original text"
+    },
+    {
+     "id": "asc-958-205",
+     "title": "FASB ASC 958-205, Presentation of Financial Statements",
+     "version": "ASC 958-205, as amended by ASU 2016-14 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/205",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "form-8282-8283",
+     "title": "Forms 8282 (Donee Information Return) and 8283 (Noncash Charitable Contributions) and instructions",
+     "version": "Form 8282 and instructions (revision recorded by watcher)",
+     "url": "https://www.irs.gov/pub/irs-pdf/f8282.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Checked against the original text"
+    },
+    {
+     "id": "form-990-schedule-m",
+     "title": "Schedule M (Form 990), Noncash Contributions, and instructions",
+     "version": "Schedule M (Form 990) and instructions, tax year 2025",
+     "url": "https://www.irs.gov/pub/irs-pdf/f990sm.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Checked against the original text"
+    },
+    {
+     "id": "pub-561",
+     "title": "IRS Publication 561, Determining the Value of Donated Property",
+     "version": "IRS Pub. 561 (revision recorded by watcher on first run)",
+     "url": "https://www.irs.gov/pub/irs-pdf/p561.pdf",
+     "lastVerified": "2026-10-19",
+     "label": null
+    },
+    {
+     "id": "pub-1771",
+     "title": "IRS Publication 1771, Charitable Contributions: Substantiation and Disclosure Requirements",
+     "version": "IRS Pub. 1771 (Rev. 11-2023), Catalog No. 20054Q",
+     "url": "https://www.irs.gov/pub/irs-pdf/p1771.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Checked against the original text"
+    }
+   ],
+   "underReview": null,
+   "html": "<h3>The rule in one line</h3>\n<p>Record donated goods, use of facilities, and qualifying services at fair value when received, show them on their own line apart from cash gifts, and disclose them by category. Exception: contributed collection items (art, historical treasures) that meet the collections criteria in 958-605-25-19 need not be recognized; that matters for museums and historical societies. The IRS side (Forms 8283 and 8282, Schedule M) runs on separate thresholds.</p>\n<h3>Valuation</h3>\n<ul>\n<li>Use fair value at the date of the gift. The organization values the gift for its books; that is independent of what the donor claims.</li>\n<li>The organization should not state a dollar value on the donor&#39;s acknowledgment for noncash gifts. Describe the item; valuation is the donor&#39;s job (see Pub. 1771 and Pub. 561).</li>\n<li>A donor&#39;s appraisal can inform your fair value but doesn&#39;t bind you.</li>\n<li>Document the valuation technique and inputs; ASU 2020-07 requires disclosing them.</li>\n</ul>\n<h3>Disclosure checklist (ASU 2020-07)</h3>\n<p>For each category of contributed nonfinancial assets recognized:</p>\n<ul>\n<li><input disabled=\"\" type=\"checkbox\"> Amount, by category (e.g., food, supplies, professional services, facilities)</li>\n<li><input disabled=\"\" type=\"checkbox\"> Whether the items were used or sold during the period; for items used, which programs or activities used them</li>\n<li><input disabled=\"\" type=\"checkbox\"> The organization&#39;s policy, if any, on selling rather than using donated items</li>\n<li><input disabled=\"\" type=\"checkbox\"> Any donor restrictions attached</li>\n<li><input disabled=\"\" type=\"checkbox\"> Valuation techniques and inputs, and the principal market used if the organization is barred from selling or using the item there</li>\n</ul>\n<h3>IRS paperwork that follows the gift</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Trigger</th>\n<th>Requirement</th>\n<th>Row in volatile-values.md</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Donor&#39;s noncash gift over $5,000</td>\n<td>Org signs Form 8283 Section B (acknowledging receipt, not value)</td>\n<td><a href=\"#guide/key-numbers/form-8283-b\">form-8283-b</a></td>\n</tr>\n<tr>\n<td>Org sells or disposes of that property within 3 years of receiving it</td>\n<td>File Form 8282 within 125 days; send the donor a copy. Not required for items the donor certified at $500 or less, or items consumed or distributed for charitable purposes</td>\n<td><a href=\"#guide/key-numbers/form-8282\">form-8282</a></td>\n</tr>\n<tr>\n<td>Aggregate noncash gifts above the threshold, or any art, historical treasures, or conservation contributions</td>\n<td>File Schedule M with Form 990</td>\n<td><a href=\"#guide/key-numbers/sched-m\">sched-m</a></td>\n</tr>\n<tr>\n<td>Noncash gift of $250+</td>\n<td>Written acknowledgment describing the property (no value)</td>\n<td><a href=\"#guide/key-numbers/cwa-threshold\">cwa-threshold</a></td>\n</tr>\n</tbody></table></div>\n<h3>Coding notes</h3>\n<ul>\n<li>Use separate revenue accounts for contributed nonfinancial assets so the statement of activities line comes straight from the GL.</li>\n<li>Offset to the matching expense (if consumed) or asset (if held) at the same fair value.</li>\n<li>Keep a disposal log for items received with a signed Form 8283 Section B; the 3-year clock is easy to miss.</li>\n<li>Services from an affiliate&#39;s personnel that directly benefit the organization follow a separate rule; ask your accountant if an affiliated organization lends you staff.</li>\n<li>Volunteer hours that don&#39;t meet the services test can still appear in narrative reporting and grant match documentation; they just don&#39;t hit the GL.</li>\n</ul>\n",
+   "search": "in-kind gifts (contributed nonfinancial assets) do i record this noncash gift, at what value, and what irs paperwork follows it? donated goods, use of facilities, and qualifying services are recorded at fair value and shown on their own line, apart from cash gifts. general volunteer time is not recorded. separate irs rules (forms 8283 and 8282, schedule m) apply on their own thresholds. do these donated services meet the recognition criteria, and how should we value them? what valuation method and inputs should we document for this donated item? we are selling an item for which we signed form 8283 section b. do we need to file form 8282? is the gift goods, use of facilities, or services? goods or use of facilities: record at fair value on a separate line for contributed nonfinancial assets. services: go to the next question. do the services create or enhance a nonfinancial asset, or require specialized skills, provided by people with those skills, that the organization would otherwise have to buy? yes: record at fair value. no: do not record. track volunteer hours for narrative reporting only. check whether the donor restricted how the item may be used or sold; if so, record it with donor restrictions. if the gift was over $5,000 and the organization signed form 8283 section b, flag it: a sale or disposal within 3 years of receipt generally requires form 8282 within 125 days. the rule in one line record donated goods, use of facilities, and qualifying services at fair value when received, show them on their own line apart from cash gifts, and disclose them by category. exception: contributed collection items (art, historical treasures) that meet the collections criteria in 958-605-25-19 need not be recognized; that matters for museums and historical societies. the irs side (forms 8283 and 8282, schedule m) runs on separate thresholds. valuation use fair value at the date of the gift. the organization values the gift for its books; that is independent of what the donor claims. the organization should not state a dollar value on the donor s acknowledgment for noncash gifts. describe the item; valuation is the donor s job (see pub. 1771 and pub. 561). a donor s appraisal can inform your fair value but doesn t bind you. document the valuation technique and inputs; asu 2020-07 requires disclosing them. disclosure checklist (asu 2020-07) for each category of contributed nonfinancial assets recognized: amount, by category (e.g., food, supplies, professional services, facilities) whether the items were used or sold during the period; for items used, which programs or activities used them the organization s policy, if any, on selling rather than using donated items any donor restrictions attached valuation techniques and inputs, and the principal market used if the organization is barred from selling or using the item there irs paperwork that follows the gift trigger requirement row in volatile-values.md donor s noncash gift over $5,000 org signs form 8283 section b (acknowledging receipt, not value) form-8283-b org sells or disposes of that property within 3 years of receiving it file form 8282 within 125 days; send the donor a copy. not required for items the donor certified at $500 or less, or items consumed or distributed for charitable purposes form-8282 aggregate noncash gifts above the threshold, or any art, historical treasures, or conservation contributions file schedule m with form 990 sched-m noncash gift of $250+ written acknowledgment describing the property (no value) cwa-threshold coding notes use separate revenue accounts for contributed nonfinancial assets so the statement of activities line comes straight from the gl. offset to the matching expense (if consumed) or asset (if held) at the same fair value. keep a disposal log for items received with a signed form 8283 section b; the 3-year clock is easy to miss. services from an affiliate s personnel that directly benefit the organization follow a separate rule; ask your accountant if an affiliated organization lends you staff. volunteer hours that don t meet the services test can still appear in narrative reporting and grant match documentation; they just don t hit the gl."
+  },
+  {
+   "slug": "quid-pro-quo-and-events",
+   "title": "Quid pro quo gifts, events, and acknowledgments",
+   "question": "How much of this payment is a gift, and what must the receipt say?",
+   "summary": "When a donor gets something back, only the amount above the fair market value of what they received is a gift. For payments over $75, the charity must tell the donor that in writing, unless the benefit is small enough to ignore under the IRS safe harbors. Receipts for gifts of $250 or more must say whether anything was provided in return.",
+   "askYourPro": [
+    "What is a defensible fair market value for the benefits at our event (meal, entertainment, auction items)?",
+    "Do our token gifts or membership benefits qualify as insubstantial under the IRS safe harbors?",
+    "Does our receipt and disclosure language meet the IRS requirements?",
+    "How should event revenue and expenses be reported on Form 990 Part VIII?"
+   ],
+   "steps": [
+    {
+     "text": "Did the donor receive goods or services?",
+     "sub": [
+      "No: the full amount is a gift. A gift of $250 or more needs a written acknowledgment.",
+      "Yes: go to the next question."
+     ]
+    },
+    {
+     "text": "Is the benefit insubstantial under a safe harbor (token items, the 2% test, or the membership exception), and was the payment part of a campaign that told donors the deductible amount?",
+     "sub": [
+      "Yes: treat the full amount as a gift.",
+      "No: go to the next question."
+     ]
+    },
+    "Was the only benefit an intangible religious benefit? If so, it is a full gift and the acknowledgment says so.",
+    "Otherwise, split the payment: fair market value of the benefit is exchange revenue; the rest is a contribution.",
+    "If the payment was over $75, give the donor a written disclosure with the deductible amount and a good-faith estimate of the benefit's value."
+   ],
+   "lastVerified": "2026-10-19",
+   "citations": [
+    {
+     "ref": "IRC 170(f)(8)",
+     "covers": "donor needs a contemporaneous written acknowledgment for any single gift of $250+",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "IRC 6115",
+     "covers": "charity must give a written disclosure when a payment over $75 is partly a gift and partly for goods/services",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "IRC 6714",
+     "covers": "penalty $10 per contribution, capped at $5,000 per event or mailing; reasonable-cause exception",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "Rev. Proc. 90-12 (as amplified and modified) + annual inflation Rev. Proc.",
+     "covers": "token-item and 2% safe harbors for insubstantial benefits",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "Rev. Proc. 2025-32, sec. 4.33",
+     "covers": "2026 amounts for the safe harbors: $13.90 / $69.50 / $139",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "IRS Pub. 1771 (Rev. 11-2023), PDF pp. 3-6 and 9",
+     "covers": "$250 acknowledgment and its required contents, over-$75 disclosure, safe-harbor conditions, membership exception, $10 / $5,000 penalty",
+     "label": "Checked against the original text"
+    }
+   ],
+   "sources": [
+    {
+     "id": "irc-170f8",
+     "title": "IRC 170(f)(8), contemporaneous written acknowledgment for gifts of $250+",
+     "version": "26 U.S.C. 170(f)(8)",
+     "url": "https://www.law.cornell.edu/uscode/text/26/170",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "irc-6115",
+     "title": "IRC 6115, disclosure for quid pro quo contributions over $75",
+     "version": "26 U.S.C. 6115",
+     "url": "https://www.law.cornell.edu/uscode/text/26/6115",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "irc-6714",
+     "title": "IRC 6714, penalty for failing the quid pro quo disclosure",
+     "version": "26 U.S.C. 6714",
+     "url": "https://www.law.cornell.edu/uscode/text/26/6714",
+     "lastVerified": "2026-10-19",
+     "label": "Checked against the original text"
+    },
+    {
+     "id": "rev-proc-90-12",
+     "title": "Rev. Proc. 90-12 (as amplified by 92-49, modified by 92-102): insubstantial-benefit safe harbors",
+     "version": "Rev. Proc. 90-12, 1990-1 C.B. 471; Rev. Proc. 92-49; Rev. Proc. 92-102",
+     "url": "https://www.irs.gov/charities-non-profits/substantiating-charitable-contributions",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "rev-proc-2025-32",
+     "title": "Rev. Proc. 2025-32, inflation-adjusted items for tax year 2026",
+     "version": "Rev. Proc. 2025-32, sec. 4.33 (revised Oct. 17, 2025)",
+     "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Checked against the original text"
+    },
+    {
+     "id": "pub-1771",
+     "title": "IRS Publication 1771, Charitable Contributions: Substantiation and Disclosure Requirements",
+     "version": "IRS Pub. 1771 (Rev. 11-2023), Catalog No. 20054Q",
+     "url": "https://www.irs.gov/pub/irs-pdf/p1771.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Checked against the original text"
+    },
+    {
+     "id": "asc-958-605",
+     "title": "FASB ASC 958-605, Not-for-Profit Entities: Revenue Recognition",
+     "version": "ASC 958-605, as amended through ASU 2018-08 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/605",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asc-606",
+     "title": "FASB ASC 606, Revenue from Contracts with Customers",
+     "version": "ASC 606",
+     "url": "https://asc.fasb.org/606",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "underReview": null,
+   "html": "<h3>The rule in one line</h3>\n<p>When a donor gets something back, only the amount above the fair market value of what they received is a gift. If the payment is over $75, the charity must tell the donor that in writing, unless the benefit is small enough to ignore under the IRS safe harbors.</p>\n<h3>Safe harbors for ignoring a benefit</h3>\n<p>Use the current year&#39;s figures in <a href=\"#guide/key-numbers\">Key numbers</a> (rows <a href=\"#guide/key-numbers/low-cost-article\">low-cost-article</a>, <a href=\"#guide/key-numbers/token-min-payment\">token-min-payment</a>, <a href=\"#guide/key-numbers/two-percent-cap\">two-percent-cap</a>, <a href=\"#guide/key-numbers/membership-exception\">membership-exception</a>).</p>\n<p><strong>Both of the first two safe harbors only apply when</strong> the payment is made as part of a fundraising campaign <strong>and</strong> the charity tells the donor how much of the payment is deductible (Pub. 1771, PDF p. 6; Rev. Proc. 90-12 sec. 3). Without that statement, value the benefit.</p>\n<ol>\n<li><strong>Token items.</strong> The donor pays at least the minimum, receives only items bearing the org&#39;s name or logo (mug, calendar, tote), and the org&#39;s total cost for those items is within the low-cost article ceiling. Measured by the charity&#39;s cost, not the item&#39;s retail value.</li>\n<li><strong>2% test.</strong> The fair market value of everything the donor receives is no more than 2% of the payment and no more than the annual dollar cap.</li>\n<li><strong>Free, unordered items</strong> mailed with a solicitation fall within the low-cost article rules (Rev. Proc. 92-49).</li>\n<li><strong>Membership-benefits exception.</strong> An annual payment of $75 or less that buys only recurring member privileges (free or discounted admission, gift-shop or parking discounts, member-only events within the low-cost limits) is treated as insubstantial. Membership dues at that level don&#39;t need to be split (Pub. 1771, PDF p. 6).</li>\n</ol>\n<p>Rev. Proc. 90-12 states that benefits in cash or cash equivalents are never insubstantial (text read via the Tax Notes reproduction; not yet checked against the IRS copy). Treat gift cards as valued benefits.</p>\n<h3>What the $250+ acknowledgment must say (Pub. 1771, PDF pp. 3-5)</h3>\n<ul>\n<li>Name of the organization and the amount of cash, or a description (not the value) of noncash property.</li>\n<li><strong>A statement of whether the organization provided any goods or services in return.</strong> This is the element receipts most often miss. &quot;No goods or services were provided&quot; is enough when true.</li>\n<li>If goods or services were provided: a description and good-faith estimate of their value, or a statement that only intangible religious benefits were provided.</li>\n<li>It must reach the donor by the earlier of the date they file their return or the return&#39;s due date (with extensions).</li>\n</ul>\n<h3>What the written disclosure must say (payments over $75)</h3>\n<ul>\n<li>The deductible amount is limited to what the donor paid in excess of the value of the goods or services received.</li>\n<li>A good-faith estimate of that value.</li>\n<li>It can be combined with the $250 acknowledgment in one letter.</li>\n</ul>\n<h3>Event coding</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Item</th>\n<th>Treatment</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Gala ticket</td>\n<td>Split at the ticket&#39;s fair value of the benefits (meal, entertainment): exchange revenue for the benefit, contribution for the rest</td>\n</tr>\n<tr>\n<td>Auction item purchase</td>\n<td>Buyer&#39;s payment above the item&#39;s fair value is a contribution; up to fair value is exchange revenue. Donated auction item is an in-kind gift recorded when received</td>\n</tr>\n<tr>\n<td>Sponsorship of the event</td>\n<td>See <a href=\"#guide/sponsorships\">Corporate sponsorships</a></td>\n</tr>\n<tr>\n<td>Raffle ticket</td>\n<td>Not a contribution at all; gaming rules apply</td>\n</tr>\n<tr>\n<td>Donor declines the benefit at purchase</td>\n<td>If declined in advance and the org documents it, the full amount can be a gift. Not attending, without declining, doesn&#39;t count</td>\n</tr>\n</tbody></table></div>\n<p>Fair value is what the benefit would cost in a normal market (a comparable dinner at a comparable venue), not what the org paid. A donated venue doesn&#39;t make the dinner worth $0.</p>\n<h3>Coding notes</h3>\n<ul>\n<li>Book the exchange and contribution portions to separate accounts at receipt. Most CRMs support a &quot;non-deductible&quot; or &quot;benefit value&quot; field on the gift; map it to the exchange account in the GL integration.</li>\n<li>On Form 990, the contribution portion of event payments goes on Part VIII line 1c (and is shown again in parentheses on line 8a); the exchange portion goes on line 8a, with direct benefit costs on line 8b. Keep event expenses tagged to the event; indirect fundraising costs go in Part IX column (D), not line 8b. If donors receive only items of nominal value, the whole amount is reported as contributions and nothing goes on line 8 (Instructions for Form 990, TY2025, PDF pp. 38 and 41).</li>\n<li>Keep the fair-value estimate memo for each event with the event&#39;s records.</li>\n</ul>\n",
+   "search": "quid pro quo gifts, events, and acknowledgments how much of this payment is a gift, and what must the receipt say? when a donor gets something back, only the amount above the fair market value of what they received is a gift. for payments over $75, the charity must tell the donor that in writing, unless the benefit is small enough to ignore under the irs safe harbors. receipts for gifts of $250 or more must say whether anything was provided in return. what is a defensible fair market value for the benefits at our event (meal, entertainment, auction items)? do our token gifts or membership benefits qualify as insubstantial under the irs safe harbors? does our receipt and disclosure language meet the irs requirements? how should event revenue and expenses be reported on form 990 part viii? did the donor receive goods or services? no: the full amount is a gift. a gift of $250 or more needs a written acknowledgment. yes: go to the next question. is the benefit insubstantial under a safe harbor (token items, the 2% test, or the membership exception), and was the payment part of a campaign that told donors the deductible amount? yes: treat the full amount as a gift. no: go to the next question. was the only benefit an intangible religious benefit? if so, it is a full gift and the acknowledgment says so. otherwise, split the payment: fair market value of the benefit is exchange revenue; the rest is a contribution. if the payment was over $75, give the donor a written disclosure with the deductible amount and a good-faith estimate of the benefit's value. the rule in one line when a donor gets something back, only the amount above the fair market value of what they received is a gift. if the payment is over $75, the charity must tell the donor that in writing, unless the benefit is small enough to ignore under the irs safe harbors. safe harbors for ignoring a benefit use the current year s figures in key numbers (rows low-cost-article , token-min-payment , two-percent-cap , membership-exception ). both of the first two safe harbors only apply when the payment is made as part of a fundraising campaign and the charity tells the donor how much of the payment is deductible (pub. 1771, pdf p. 6; rev. proc. 90-12 sec. 3). without that statement, value the benefit. token items. the donor pays at least the minimum, receives only items bearing the org s name or logo (mug, calendar, tote), and the org s total cost for those items is within the low-cost article ceiling. measured by the charity s cost, not the item s retail value. 2% test. the fair market value of everything the donor receives is no more than 2% of the payment and no more than the annual dollar cap. free, unordered items mailed with a solicitation fall within the low-cost article rules (rev. proc. 92-49). membership-benefits exception. an annual payment of $75 or less that buys only recurring member privileges (free or discounted admission, gift-shop or parking discounts, member-only events within the low-cost limits) is treated as insubstantial. membership dues at that level don t need to be split (pub. 1771, pdf p. 6). rev. proc. 90-12 states that benefits in cash or cash equivalents are never insubstantial (text read via the tax notes reproduction; not yet checked against the irs copy). treat gift cards as valued benefits. what the $250+ acknowledgment must say (pub. 1771, pdf pp. 3-5) name of the organization and the amount of cash, or a description (not the value) of noncash property. a statement of whether the organization provided any goods or services in return. this is the element receipts most often miss. no goods or services were provided is enough when true. if goods or services were provided: a description and good-faith estimate of their value, or a statement that only intangible religious benefits were provided. it must reach the donor by the earlier of the date they file their return or the return s due date (with extensions). what the written disclosure must say (payments over $75) the deductible amount is limited to what the donor paid in excess of the value of the goods or services received. a good-faith estimate of that value. it can be combined with the $250 acknowledgment in one letter. event coding item treatment gala ticket split at the ticket s fair value of the benefits (meal, entertainment): exchange revenue for the benefit, contribution for the rest auction item purchase buyer s payment above the item s fair value is a contribution; up to fair value is exchange revenue. donated auction item is an in-kind gift recorded when received sponsorship of the event see corporate sponsorships raffle ticket not a contribution at all; gaming rules apply donor declines the benefit at purchase if declined in advance and the org documents it, the full amount can be a gift. not attending, without declining, doesn t count fair value is what the benefit would cost in a normal market (a comparable dinner at a comparable venue), not what the org paid. a donated venue doesn t make the dinner worth $0. coding notes book the exchange and contribution portions to separate accounts at receipt. most crms support a non-deductible or benefit value field on the gift; map it to the exchange account in the gl integration. on form 990, the contribution portion of event payments goes on part viii line 1c (and is shown again in parentheses on line 8a); the exchange portion goes on line 8a, with direct benefit costs on line 8b. keep event expenses tagged to the event; indirect fundraising costs go in part ix column (d), not line 8b. if donors receive only items of nominal value, the whole amount is reported as contributions and nothing goes on line 8 (instructions for form 990, ty2025, pdf pp. 38 and 41). keep the fair-value estimate memo for each event with the event s records."
+  },
+  {
+   "slug": "sponsorships",
+   "title": "Corporate sponsorships",
+   "question": "Is this sponsor payment a gift, a qualified sponsorship payment, or taxable advertising income, and how do I book it?",
+   "summary": "A business can be thanked by name and logo without its payment becoming taxable income. Once the sponsor gets advertising, an exclusive-provider deal, or other benefits worth more than 2% of the payment, the value of those benefits is treated differently for tax purposes and as exchange revenue in the books.",
+   "askYourPro": [
+    "Does any language in our sponsor materials count as advertising rather than acknowledgment?",
+    "What is the fair market value of the benefits in each sponsorship tier?",
+    "If part of a payment is not a qualified sponsorship payment, is it unrelated business income for us?",
+    "Does this agreement create an exclusive-provider arrangement?"
+   ],
+   "steps": [
+    {
+     "text": "What does the sponsor receive?",
+     "sub": [
+      "Only name, logo, and neutral acknowledgment: a qualified sponsorship payment, not unrelated business income.",
+      "Other benefits: go to the next question."
+     ]
+    },
+    {
+     "text": "Are all benefits together worth 2% of the payment or less?",
+     "sub": [
+      "Yes: the benefits are disregarded; the payment is a qualified sponsorship payment.",
+      "No: the sponsor received a substantial return benefit. Go to the next question."
+     ]
+    },
+    {
+     "text": "Can the organization establish the fair market value of those benefits?",
+     "sub": [
+      "Yes: the amount above that value is a qualified sponsorship payment; the benefit value may be unrelated business income unless an exception applies.",
+      "No: no portion of the payment qualifies."
+     ]
+    },
+    "Payments that depend on attendance or ratings, and ads in the organization's periodicals, never qualify."
+   ],
+   "lastVerified": "2026-10-19",
+   "citations": [
+    {
+     "ref": "IRC 513(i)",
+     "covers": "qualified sponsorship payments are excluded from unrelated business income",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "Treas. Reg. 1.513-4(c)(1)",
+     "covers": "definition: payment by a business with no arrangement or expectation of a substantial return benefit",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "Treas. Reg. 1.513-4(c)(2)(ii)",
+     "covers": "benefits worth 2% of the payment or less are disregarded",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "Treas. Reg. 1.513-4(d)(1)",
+     "covers": "if there IS a substantial return benefit, only the excess over its FMV qualifies, and only if the org can establish that FMV",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "Treas. Reg. 1.513-4(c)(2)(vi)(A) and (B)",
+     "covers": "exclusive sponsor is acknowledgment; exclusive provider is a substantial return benefit",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "Treas. Reg. 1.513-4(e)(2)",
+     "covers": "payments contingent on attendance, ratings, or public exposure are never qualified sponsorship payments",
+     "label": "Checked against the original text"
+    },
+    {
+     "ref": "Treas. Reg. 1.513-4(b)",
+     "covers": "periodical advertising and qualified convention/trade-show activity are outside the safe harbor",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "sources": [
+    {
+     "id": "irc-513i",
+     "title": "IRC 513(i) and Treas. Reg. 1.513-4, qualified sponsorship payments",
+     "version": "26 U.S.C. 513(i); 26 CFR 1.513-4 (final regs 2002)",
+     "url": "https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR5d3ce1ba0b3b2db/section-1.513-4",
+     "lastVerified": "2026-10-19",
+     "label": "Checked against the original text"
+    },
+    {
+     "id": "pub-598",
+     "title": "IRS Publication 598, Tax on Unrelated Business Income of Exempt Organizations",
+     "version": "IRS Pub. 598 (revision recorded by watcher)",
+     "url": "https://www.irs.gov/pub/irs-pdf/p598.pdf",
+     "lastVerified": "2026-10-19",
+     "label": null
+    },
+    {
+     "id": "asc-958-605",
+     "title": "FASB ASC 958-605, Not-for-Profit Entities: Revenue Recognition",
+     "version": "ASC 958-605, as amended through ASU 2018-08 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/605",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asc-606",
+     "title": "FASB ASC 606, Revenue from Contracts with Customers",
+     "version": "ASC 606",
+     "url": "https://asc.fasb.org/606",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "underReview": null,
+   "html": "<p>Sponsorships need two separate answers: one for the IRS (is any of this taxable unrelated business income?) and one for GAAP (how much is contribution vs. exchange revenue?). They usually line up, but they are different tests.</p>\n<h3>The rule in one line</h3>\n<p>A business can be thanked by name and logo without the payment becoming taxable. Once the business receives advertising, exclusivity as a provider, or other benefits worth more than 2% of the payment, the value of those benefits stops being a qualified sponsorship payment.</p>\n<h3>Acknowledgment vs. advertising</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Allowed (acknowledgment)</th>\n<th>Turns it into advertising</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Sponsor name, logo, slogan that doesn&#39;t compare or praise</td>\n<td>Qualitative or comparative descriptions (&quot;the best coffee in town&quot;)</td>\n</tr>\n<tr>\n<td>Address, phone, website</td>\n<td>Price information or discounts</td>\n</tr>\n<tr>\n<td>Value-neutral list of product lines</td>\n<td>Endorsements</td>\n</tr>\n<tr>\n<td>Display or distribution of the sponsor&#39;s products at the event</td>\n<td>Inducements to buy, sell, or use the products</td>\n</tr>\n<tr>\n<td>Exclusive <em>sponsor</em> of the event</td>\n<td>Exclusive <em>provider</em> arrangement (only their product may be sold or used)</td>\n</tr>\n</tbody></table></div>\n<p>Two things are never qualified sponsorship payments, whatever the sponsor receives:</p>\n<ul>\n<li><strong>Contingent payments.</strong> A payment whose amount depends on attendance, broadcast ratings, or other measures of public exposure. (A payment can depend on the event actually happening.)</li>\n<li><strong>Periodical ads and trade shows.</strong> Payments for ads in the organization&#39;s magazines or newsletters, and qualified convention or trade-show activity, fall under other rules.</li>\n</ul>\n<p>A payment that is not a qualified sponsorship payment is not automatically taxable. It is unrelated business income only if the activity is a regularly carried on trade or business; a one-time event often isn&#39;t. Run that question with the tax preparer.</p>\n<h3>GAAP side</h3>\n<ul>\n<li><strong>Benefits with real value</strong> (tickets, tables, booth space, hospitality, advertising): that portion is an exchange, recognized under ASC 606 when the benefit is delivered.</li>\n<li><strong>The remainder</strong> is a contribution, and may be restricted if the sponsor tied it to a specific program.</li>\n<li>Acknowledgment alone (name and logo) is generally not treated as commensurate value, so a pure name-and-logo sponsorship is usually entirely a contribution.</li>\n</ul>\n<h3>Sponsorship packet checklist</h3>\n<ul>\n<li><input disabled=\"\" type=\"checkbox\"> List every benefit in each sponsorship tier with an estimated fair value</li>\n<li><input disabled=\"\" type=\"checkbox\"> Check each tier&#39;s benefits against the 2% test</li>\n<li><input disabled=\"\" type=\"checkbox\"> Review the sponsor-facing copy for advertising language before it&#39;s printed</li>\n<li><input disabled=\"\" type=\"checkbox\"> Confirm no exclusive-provider language in the agreement unless the tax preparer has signed off</li>\n<li><input disabled=\"\" type=\"checkbox\"> Record the exchange and contribution portions separately at receipt</li>\n</ul>\n",
+   "search": "corporate sponsorships is this sponsor payment a gift, a qualified sponsorship payment, or taxable advertising income, and how do i book it? a business can be thanked by name and logo without its payment becoming taxable income. once the sponsor gets advertising, an exclusive-provider deal, or other benefits worth more than 2% of the payment, the value of those benefits is treated differently for tax purposes and as exchange revenue in the books. does any language in our sponsor materials count as advertising rather than acknowledgment? what is the fair market value of the benefits in each sponsorship tier? if part of a payment is not a qualified sponsorship payment, is it unrelated business income for us? does this agreement create an exclusive-provider arrangement? what does the sponsor receive? only name, logo, and neutral acknowledgment: a qualified sponsorship payment, not unrelated business income. other benefits: go to the next question. are all benefits together worth 2% of the payment or less? yes: the benefits are disregarded; the payment is a qualified sponsorship payment. no: the sponsor received a substantial return benefit. go to the next question. can the organization establish the fair market value of those benefits? yes: the amount above that value is a qualified sponsorship payment; the benefit value may be unrelated business income unless an exception applies. no: no portion of the payment qualifies. payments that depend on attendance or ratings, and ads in the organization's periodicals, never qualify. sponsorships need two separate answers: one for the irs (is any of this taxable unrelated business income?) and one for gaap (how much is contribution vs. exchange revenue?). they usually line up, but they are different tests. the rule in one line a business can be thanked by name and logo without the payment becoming taxable. once the business receives advertising, exclusivity as a provider, or other benefits worth more than 2% of the payment, the value of those benefits stops being a qualified sponsorship payment. acknowledgment vs. advertising allowed (acknowledgment) turns it into advertising sponsor name, logo, slogan that doesn t compare or praise qualitative or comparative descriptions ( the best coffee in town ) address, phone, website price information or discounts value-neutral list of product lines endorsements display or distribution of the sponsor s products at the event inducements to buy, sell, or use the products exclusive sponsor of the event exclusive provider arrangement (only their product may be sold or used) two things are never qualified sponsorship payments, whatever the sponsor receives: contingent payments. a payment whose amount depends on attendance, broadcast ratings, or other measures of public exposure. (a payment can depend on the event actually happening.) periodical ads and trade shows. payments for ads in the organization s magazines or newsletters, and qualified convention or trade-show activity, fall under other rules. a payment that is not a qualified sponsorship payment is not automatically taxable. it is unrelated business income only if the activity is a regularly carried on trade or business; a one-time event often isn t. run that question with the tax preparer. gaap side benefits with real value (tickets, tables, booth space, hospitality, advertising): that portion is an exchange, recognized under asc 606 when the benefit is delivered. the remainder is a contribution, and may be restricted if the sponsor tied it to a specific program. acknowledgment alone (name and logo) is generally not treated as commensurate value, so a pure name-and-logo sponsorship is usually entirely a contribution. sponsorship packet checklist list every benefit in each sponsorship tier with an estimated fair value check each tier s benefits against the 2% test review the sponsor-facing copy for advertising language before it s printed confirm no exclusive-provider language in the agreement unless the tax preparer has signed off record the exchange and contribution portions separately at receipt"
+  },
+  {
+   "slug": "gaap-vs-fundraising-counting",
+   "title": "GAAP vs. fundraising counting",
+   "question": "Why doesn't \"raised\" in the CRM match \"contribution revenue\" in the financials, and which rule does each field follow?",
+   "summary": "Accounting rules (GAAP) and fundraising counting rules measure different things, so \"raised\" in a CRM rarely matches contribution revenue in the financial statements. Both are legitimate. Every report should say which rule it follows, and the two should be reconciled regularly.",
+   "askYourPro": [
+    "Does our gift counting policy align with CASE standards, and where do we intentionally depart from them?",
+    "How should our CRM designations map to donor-restriction status in the general ledger?",
+    "What reconciliation between CRM totals and GL revenue will our auditor expect?"
+   ],
+   "steps": [
+    "Decide which rule each report follows: GAAP for financial statements, a written counting policy for fundraising reports.",
+    "Keep separate fields for the GAAP amount and the counting amount on each gift.",
+    "Map each CRM designation to a donor-restriction status explicitly.",
+    "Reconcile CRM totals to GL contribution revenue monthly, by reason (pledge timing, conditions, soft credits, benefit value, in-kind)."
+   ],
+   "lastVerified": "2026-10-19",
+   "citations": [
+    {
+     "ref": "CASE Global Reporting Standards, 1st ed. (2021), 2024 update",
+     "covers": "counting categories (Funds Received, New Funds Committed), pledge and deferred-gift counting, campaign counting",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "ref": "ASC 958-605",
+     "covers": "GAAP recognition: unconditional promises at present value; conditional promises not recognized",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "sources": [
+    {
+     "id": "asc-958-605",
+     "title": "FASB ASC 958-605, Not-for-Profit Entities: Revenue Recognition",
+     "version": "ASC 958-605, as amended through ASU 2018-08 and ASU 2020-07",
+     "url": "https://asc.fasb.org/958/605",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "case-grs",
+     "title": "CASE Global Reporting Standards (fundraising counting)",
+     "version": "CASE Global Reporting Standards, 1st ed. (March 2021), 2024 update",
+     "url": "https://www.case.org/case-global-reporting-standards-schools",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    },
+    {
+     "id": "asu-2018-08",
+     "title": "ASU 2018-08, Clarifying the Scope and the Accounting Guidance for Contributions Received and Contributions Made",
+     "version": "ASU 2018-08 (issued June 2018)",
+     "url": "https://storage.fasb.org/ASU_2018-08.pdf",
+     "lastVerified": "2026-10-19",
+     "label": "Summarized from professional sources"
+    }
+   ],
+   "underReview": null,
+   "html": "<h3>The rule in one line</h3>\n<p>GAAP answers &quot;what does the organization have a right to, and when?&quot; Fundraising counting answers &quot;what did fundraisers secure, and who gets credit?&quot; Both are legitimate; they just measure different things. Every CRM field and every report should state which rule it follows.</p>\n<h3>Where the two diverge</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Item</th>\n<th>GAAP (ledger)</th>\n<th>Fundraising counting (CRM, campaign reports)</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Unconditional multi-year pledge</td>\n<td>Full amount recognized when promised, discounted to present value, less an allowance</td>\n<td>Counted at face value when documented. CASE&#39;s 2024 update removed the five-year cap, so New Funds Committed now includes the full documented pledge</td>\n</tr>\n<tr>\n<td>Conditional pledge or grant</td>\n<td>Not recognized until barriers are met</td>\n<td>Often counted when committed, depending on the organization&#39;s counting policy</td>\n</tr>\n<tr>\n<td>Revocable bequest intention</td>\n<td>Not recognized</td>\n<td>CASE counts documented bequest intentions in New Funds Committed; they reach Funds Received only when realized</td>\n</tr>\n<tr>\n<td>Irrevocable deferred gifts (e.g., charitable remainder trusts)</td>\n<td>Recognized under split-interest guidance at present value</td>\n<td>Counted under specific CASE rules, often at face and present value</td>\n</tr>\n<tr>\n<td>Soft credits (spouse, DAF advisor, board member who solicited)</td>\n<td>Not a concept; one donor of record</td>\n<td>Credit to multiple people for recognition and reporting</td>\n</tr>\n<tr>\n<td>Gala ticket</td>\n<td>Split into exchange and contribution</td>\n<td>Often counted in full as &quot;event revenue raised&quot;</td>\n</tr>\n<tr>\n<td>Matching gift from an employer</td>\n<td>Contribution from the employer</td>\n<td>Often soft-credited to the employee</td>\n</tr>\n<tr>\n<td>In-kind gifts</td>\n<td>Recognized at fair value per the in-kind rules</td>\n<td>Counting policies vary; many organizations exclude them from cash goals</td>\n</tr>\n</tbody></table></div>\n<h3>How to keep both straight in a system</h3>\n<ol>\n<li><strong>Two fields, not one.</strong> Keep &quot;GAAP amount&quot; and &quot;counting amount&quot; separate on the gift record, or derive one from the other with documented rules. Never let a report silently mix them.</li>\n<li><strong>Name the rule on every report.</strong> &quot;Raised (CASE counting)&quot; and &quot;Contribution revenue (GAAP)&quot; are different report titles, and both are defensible.</li>\n<li><strong>Reconcile monthly.</strong> A one-page reconciliation from CRM &quot;raised&quot; to GL contribution revenue, by reason code (pledge timing, conditional, soft credit, benefit value, in-kind), catches coding errors early and is the document auditors ask for.</li>\n<li><strong>Write a counting policy.</strong> If the organization has no written counting policy, borrow CASE&#39;s as the starting point and note where you depart from it.</li>\n<li><strong>Designation is not restriction.</strong> A CRM designation can be a soft preference. Map each designation to a GAAP restriction status explicitly (see <a href=\"#guide/restricted-vs-unrestricted\">With or without donor restrictions?</a>).</li>\n</ol>\n",
+   "search": "gaap vs. fundraising counting why doesn't \"raised\" in the crm match \"contribution revenue\" in the financials, and which rule does each field follow? accounting rules (gaap) and fundraising counting rules measure different things, so \"raised\" in a crm rarely matches contribution revenue in the financial statements. both are legitimate. every report should say which rule it follows, and the two should be reconciled regularly. does our gift counting policy align with case standards, and where do we intentionally depart from them? how should our crm designations map to donor-restriction status in the general ledger? what reconciliation between crm totals and gl revenue will our auditor expect? decide which rule each report follows: gaap for financial statements, a written counting policy for fundraising reports. keep separate fields for the gaap amount and the counting amount on each gift. map each crm designation to a donor-restriction status explicitly. reconcile crm totals to gl contribution revenue monthly, by reason (pledge timing, conditions, soft credits, benefit value, in-kind). the rule in one line gaap answers what does the organization have a right to, and when? fundraising counting answers what did fundraisers secure, and who gets credit? both are legitimate; they just measure different things. every crm field and every report should state which rule it follows. where the two diverge item gaap (ledger) fundraising counting (crm, campaign reports) unconditional multi-year pledge full amount recognized when promised, discounted to present value, less an allowance counted at face value when documented. case s 2024 update removed the five-year cap, so new funds committed now includes the full documented pledge conditional pledge or grant not recognized until barriers are met often counted when committed, depending on the organization s counting policy revocable bequest intention not recognized case counts documented bequest intentions in new funds committed; they reach funds received only when realized irrevocable deferred gifts (e.g., charitable remainder trusts) recognized under split-interest guidance at present value counted under specific case rules, often at face and present value soft credits (spouse, daf advisor, board member who solicited) not a concept; one donor of record credit to multiple people for recognition and reporting gala ticket split into exchange and contribution often counted in full as event revenue raised matching gift from an employer contribution from the employer often soft-credited to the employee in-kind gifts recognized at fair value per the in-kind rules counting policies vary; many organizations exclude them from cash goals how to keep both straight in a system two fields, not one. keep gaap amount and counting amount separate on the gift record, or derive one from the other with documented rules. never let a report silently mix them. name the rule on every report. raised (case counting) and contribution revenue (gaap) are different report titles, and both are defensible. reconcile monthly. a one-page reconciliation from crm raised to gl contribution revenue, by reason code (pledge timing, conditional, soft credit, benefit value, in-kind), catches coding errors early and is the document auditors ask for. write a counting policy. if the organization has no written counting policy, borrow case s as the starting point and note where you depart from it. designation is not restriction. a crm designation can be a soft preference. map each designation to a gaap restriction status explicitly (see with or without donor restrictions? )."
+  }
+ ],
+ "keyNumbers": {
+  "html": "<p>Dollar thresholds and rates that the guide relies on, by year. Some change every year with inflation; others are set in law and change only when Congress acts. Use the column for the year the gift was received.</p>\n<p>The &quot;Verified&quot; column shows how each row was checked: <strong>P</strong> means checked against the original IRS, statute, or regulation text; <strong>S</strong> means summarized from two or more professional sources (accounting or law firms) and not yet checked against the original. Page numbers refer to the PDF pages of the IRS document, not its printed page numbers.</p>\n<h3>Indexed every year</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Row</th>\n<th>2025</th>\n<th>2026</th>\n<th>Rule it feeds</th>\n<th>Source (stable ID)</th>\n<th>Verified</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a id=\"low-cost-article\"></a>Low-cost article ceiling (cost to the charity)</td>\n<td>$13.60</td>\n<td>$13.90</td>\n<td>Token-item safe harbor; UBIT exclusion for low-cost articles</td>\n<td>Rev. Proc. 2024-40 sec. 2.34 (2025); Rev. Proc. 2025-32 sec. 4.33 (2026)</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"token-min-payment\"></a>Minimum payment for the token-item test</td>\n<td>$68.00</td>\n<td>$69.50</td>\n<td>Donor must give at least this much and receive only logo items within the ceiling</td>\n<td>same</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"two-percent-cap\"></a>Dollar cap on the 2% test</td>\n<td>$136.00</td>\n<td>$139.00</td>\n<td>Benefit is insubstantial if its fair market value is at or below the lesser of 2% of the payment or this amount</td>\n<td>same</td>\n<td>P</td>\n</tr>\n</tbody></table></div>\n<p>2026 figures read directly from Rev. Proc. 2025-32 sec. 4.33 (p. 24); 2025 figures from Rev. Proc. 2024-40 sec. 2.34. Both safe harbors apply only when the payment is part of a fundraising campaign and the charity tells the donor how much is deductible (Pub. 1771).</p>\n<h3>Fixed in statute (do not change unless Congress acts)</h3>\n<p>These are not inflation-indexed. They are listed here because people regularly assume they are.</p>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Row</th>\n<th>Amount</th>\n<th>Rule</th>\n<th>Source</th>\n<th>Verified</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a id=\"cwa-threshold\"></a>Written acknowledgment threshold</td>\n<td>$250 single contribution</td>\n<td>Donor cannot deduct without a contemporaneous written acknowledgment</td>\n<td>IRC 170(f)(8); IRS Pub. 1771 (Rev. 11-2023) p. 3</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"qpq-threshold\"></a>Quid pro quo disclosure threshold</td>\n<td>over $75 payment</td>\n<td>Charity must disclose the deductible portion in writing. The test is the payment, not the deductible amount</td>\n<td>IRC 6115; IRS Pub. 1771 (Rev. 11-2023) p. 3</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"qpq-penalty\"></a>Quid pro quo penalty</td>\n<td>$10 per contribution, max $5,000 per event or mailing; waived for reasonable cause</td>\n<td>Penalty on the charity</td>\n<td>IRC 6714 (text via Tax Notes); IRS Pub. 1771 (Rev. 11-2023) p. 9</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"sponsor-2pct\"></a>Sponsorship disregarded-benefit test</td>\n<td>benefits worth 2% of the payment or less</td>\n<td>Benefits are disregarded and the whole payment can be a qualified sponsorship payment</td>\n<td>Treas. Reg. 1.513-4(c)(2)(ii)</td>\n<td>S</td>\n</tr>\n<tr>\n<td><a id=\"membership-exception\"></a>Membership-benefits exception</td>\n<td>annual payment of $75 or less</td>\n<td>Recurring member privileges (free or discounted admission, gift-shop discounts, parking) are treated as insubstantial</td>\n<td>IRS Pub. 1771 (Rev. 11-2023) p. 6</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"charitable-mileage\"></a>Charitable mileage rate (volunteer driving)</td>\n<td>14 cents per mile</td>\n<td>Donor-side deduction for volunteer driving</td>\n<td>IRC 170(i)</td>\n<td>S</td>\n</tr>\n</tbody></table></div>\n<h3>Reporting thresholds (set in form instructions, can change any year)</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Row</th>\n<th>Amount</th>\n<th>Rule</th>\n<th>Source</th>\n<th>Verified</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a id=\"sched-m\"></a>Schedule M trigger</td>\n<td>more than $25,000 aggregate noncash contributions, or any art, historical treasures, or qualified conservation contributions</td>\n<td>Org must file Schedule M with Form 990</td>\n<td>Schedule M (Form 990) instructions, tax year 2025, p. 3</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"sched-b\"></a>Schedule B thresholds</td>\n<td>General rule: $5,000 or more from one contributor in the year. Special rule: a 501(c)(3) that meets the 33⅓% support test and checks Schedule A Part II line 13, 16a, or 16b reports only contributors above the greater of $5,000 or 2% of Part VIII line 1h</td>\n<td>Contributor listed on Schedule B</td>\n<td>Instructions for Form 990, tax year 2025, p. 12 (Part IV line 2)</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"form-8282\"></a>Form 8282 trigger and deadline</td>\n<td>Org disposes of property listed on a Form 8283 Section B it signed, within 3 years of the date it <strong>received</strong> the property: file within 125 days of disposition and give the donor a copy. Exceptions: items the donor certified at $500 or less, and items consumed or distributed for charitable purposes. If the org only later learns the substantiation rules applied, it has 60 days from then</td>\n<td>Donee information return</td>\n<td>Form 8282 instructions (Rev. October 2021), p. 3</td>\n<td>P</td>\n</tr>\n<tr>\n<td><a id=\"form-8283-b\"></a>Form 8283 Section B</td>\n<td>noncash gifts over $5,000 (per item or group of similar items)</td>\n<td>Org signs the donee acknowledgment</td>\n<td>Form 8283 instructions; IRS charities page</td>\n<td>P</td>\n</tr>\n</tbody></table></div>\n<h3>Donor-side rules from the 2025 tax law (effective tax years beginning after 2025)</h3>\n<p>These change what donors can deduct, so they affect receipt and appeal language, not your ledger coding.</p>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Row</th>\n<th>Rule</th>\n<th>Source</th>\n<th>Verified</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a id=\"nonitemizer\"></a>Non-itemizer deduction</td>\n<td>Up to $1,000 ($2,000 married filing jointly) of cash gifts to public charities; gifts to donor-advised funds and supporting organizations do not qualify; not indexed</td>\n<td>IRC 170(p) as added by Pub. L. 119-21</td>\n<td>S</td>\n</tr>\n<tr>\n<td><a id=\"itemizer-floor\"></a>Itemizer floor</td>\n<td>Only giving above 0.5% of AGI is deductible. Amounts lost to the floor carry forward only in limited cases (when the donor is also carrying forward gifts above the percentage ceiling); treat them as generally lost</td>\n<td>IRC 170 as amended by Pub. L. 119-21</td>\n<td>S</td>\n</tr>\n<tr>\n<td><a id=\"top-bracket-cap\"></a>Top-bracket benefit cap</td>\n<td>Itemized deductions, including charitable, are worth at most 35% for taxpayers in the 37% bracket</td>\n<td>Pub. L. 119-21</td>\n<td>S</td>\n</tr>\n<tr>\n<td><a id=\"corporate-floor\"></a>Corporate floor</td>\n<td>Corporate gifts deductible only above 1% of taxable income; amounts below the floor are permanently disallowed; existing 10% ceiling unchanged</td>\n<td>IRC 170(b)(2)(A) as amended by Pub. L. 119-21</td>\n<td>S</td>\n</tr>\n</tbody></table></div>\n<h3>Federal grants (2 CFR 200, awards on or after Oct. 1, 2024)</h3>\n<div class=\"table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table\"><table>\n<thead>\n<tr>\n<th>Row</th>\n<th>Amount</th>\n<th>Source</th>\n<th>Verified</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a id=\"de-minimis\"></a>De minimis indirect cost rate</td>\n<td>up to 15% of modified total direct costs (was 10%)</td>\n<td>2 CFR 200.414(f)</td>\n<td>S</td>\n</tr>\n<tr>\n<td><a id=\"equipment\"></a>Equipment threshold</td>\n<td>$10,000 per unit (was $5,000)</td>\n<td>2 CFR 200.1, 200.313</td>\n<td>S</td>\n</tr>\n<tr>\n<td><a id=\"mtdc-subaward\"></a>Subaward amount included in MTDC</td>\n<td>first $50,000 of each subaward (was $25,000)</td>\n<td>2 CFR 200.1</td>\n<td>S</td>\n</tr>\n<tr>\n<td><a id=\"single-audit\"></a>Single Audit threshold</td>\n<td>$1,000,000 in federal expenditures (was $750,000)</td>\n<td>2 CFR 200.501</td>\n<td>S</td>\n</tr>\n</tbody></table></div>\n<p>Several institutions report applying the new equipment and MTDC thresholds only once their negotiated rate agreement is renewed. Check the award terms and the client&#39;s rate agreement before assuming the new numbers apply.</p>\n",
+  "search": "dollar thresholds and rates that the guide relies on, by year. some change every year with inflation; others are set in law and change only when congress acts. use the column for the year the gift was received. the verified column shows how each row was checked: p means checked against the original irs, statute, or regulation text; s means summarized from two or more professional sources (accounting or law firms) and not yet checked against the original. page numbers refer to the pdf pages of the irs document, not its printed page numbers. indexed every year row 2025 2026 rule it feeds source (stable id) verified low-cost article ceiling (cost to the charity) $13.60 $13.90 token-item safe harbor; ubit exclusion for low-cost articles rev. proc. 2024-40 sec. 2.34 (2025); rev. proc. 2025-32 sec. 4.33 (2026) p minimum payment for the token-item test $68.00 $69.50 donor must give at least this much and receive only logo items within the ceiling same p dollar cap on the 2% test $136.00 $139.00 benefit is insubstantial if its fair market value is at or below the lesser of 2% of the payment or this amount same p 2026 figures read directly from rev. proc. 2025-32 sec. 4.33 (p. 24); 2025 figures from rev. proc. 2024-40 sec. 2.34. both safe harbors apply only when the payment is part of a fundraising campaign and the charity tells the donor how much is deductible (pub. 1771). fixed in statute (do not change unless congress acts) these are not inflation-indexed. they are listed here because people regularly assume they are. row amount rule source verified written acknowledgment threshold $250 single contribution donor cannot deduct without a contemporaneous written acknowledgment irc 170(f)(8); irs pub. 1771 (rev. 11-2023) p. 3 p quid pro quo disclosure threshold over $75 payment charity must disclose the deductible portion in writing. the test is the payment, not the deductible amount irc 6115; irs pub. 1771 (rev. 11-2023) p. 3 p quid pro quo penalty $10 per contribution, max $5,000 per event or mailing; waived for reasonable cause penalty on the charity irc 6714 (text via tax notes); irs pub. 1771 (rev. 11-2023) p. 9 p sponsorship disregarded-benefit test benefits worth 2% of the payment or less benefits are disregarded and the whole payment can be a qualified sponsorship payment treas. reg. 1.513-4(c)(2)(ii) s membership-benefits exception annual payment of $75 or less recurring member privileges (free or discounted admission, gift-shop discounts, parking) are treated as insubstantial irs pub. 1771 (rev. 11-2023) p. 6 p charitable mileage rate (volunteer driving) 14 cents per mile donor-side deduction for volunteer driving irc 170(i) s reporting thresholds (set in form instructions, can change any year) row amount rule source verified schedule m trigger more than $25,000 aggregate noncash contributions, or any art, historical treasures, or qualified conservation contributions org must file schedule m with form 990 schedule m (form 990) instructions, tax year 2025, p. 3 p schedule b thresholds general rule: $5,000 or more from one contributor in the year. special rule: a 501(c)(3) that meets the 33⅓% support test and checks schedule a part ii line 13, 16a, or 16b reports only contributors above the greater of $5,000 or 2% of part viii line 1h contributor listed on schedule b instructions for form 990, tax year 2025, p. 12 (part iv line 2) p form 8282 trigger and deadline org disposes of property listed on a form 8283 section b it signed, within 3 years of the date it received the property: file within 125 days of disposition and give the donor a copy. exceptions: items the donor certified at $500 or less, and items consumed or distributed for charitable purposes. if the org only later learns the substantiation rules applied, it has 60 days from then donee information return form 8282 instructions (rev. october 2021), p. 3 p form 8283 section b noncash gifts over $5,000 (per item or group of similar items) org signs the donee acknowledgment form 8283 instructions; irs charities page p donor-side rules from the 2025 tax law (effective tax years beginning after 2025) these change what donors can deduct, so they affect receipt and appeal language, not your ledger coding. row rule source verified non-itemizer deduction up to $1,000 ($2,000 married filing jointly) of cash gifts to public charities; gifts to donor-advised funds and supporting organizations do not qualify; not indexed irc 170(p) as added by pub. l. 119-21 s itemizer floor only giving above 0.5% of agi is deductible. amounts lost to the floor carry forward only in limited cases (when the donor is also carrying forward gifts above the percentage ceiling); treat them as generally lost irc 170 as amended by pub. l. 119-21 s top-bracket benefit cap itemized deductions, including charitable, are worth at most 35% for taxpayers in the 37% bracket pub. l. 119-21 s corporate floor corporate gifts deductible only above 1% of taxable income; amounts below the floor are permanently disallowed; existing 10% ceiling unchanged irc 170(b)(2)(a) as amended by pub. l. 119-21 s federal grants (2 cfr 200, awards on or after oct. 1, 2024) row amount source verified de minimis indirect cost rate up to 15% of modified total direct costs (was 10%) 2 cfr 200.414(f) s equipment threshold $10,000 per unit (was $5,000) 2 cfr 200.1, 200.313 s subaward amount included in mtdc first $50,000 of each subaward (was $25,000) 2 cfr 200.1 s single audit threshold $1,000,000 in federal expenditures (was $750,000) 2 cfr 200.501 s several institutions report applying the new equipment and mtdc thresholds only once their negotiated rate agreement is renewed. check the award terms and the client s rate agreement before assuming the new numbers apply."
+ },
+ "changes": {
+  "changelogHtml": "<h3>2026-10-19</h3>\n<ul>\n<li>Repo created: <code>sources.yaml</code> (24 sources), <code>volatile-values.md</code> (2025 and 2026 columns), seven decision files, quarterly watcher with 15 offline tests.</li>\n<li>Verification status at creation: 8 primary, 11 secondary, 5 pending sources.</li>\n<li>Read in primary text and pinned in <code>snapshots/</code>: Rev. Proc. 2025-32 sec. 4.33 (2026 token amounts), Pub. 1771 (Rev. 11-2023), Form 990 instructions (TY2025), Schedule M instructions (TY2025), Form 8282 instructions (Rev. October 2021), Pub. 561 (Rev. December 2025), Pub. 598 (Rev. March 2021), Pub. 4221-PC (Rev. 3-2018).</li>\n<li>Baseline watcher run from the build environment. FASB, CASE, and the legacy UCOA URL refused automated requests (403) there; the first GitHub Actions run will show whether they also refuse GitHub. If they do, they stay on the &quot;check by hand&quot; list each quarter.</li>\n<li>Wayback captures could not be made from the build environment; the watcher retries them automatically on the next run.</li>\n<li>Independent fact-check (separate reviewer, same day) corrected: the Form 8282 three-year clock (runs from receipt, not from signing Form 8283) and its exceptions; the campaign-and-disclosure condition on the token and 2% safe harbors; the missing membership-benefits exception and $250 acknowledgment contents; Treas. Reg. 1.513-4 paragraph numbers; the contribution-vs-exchange indicator table (pre-2018 indicators moved to &quot;practice judgment&quot;); CASE bequest and multi-year pledge counting; 2025 tax-law carryforward and exclusions. Resolved paragraph numbers: 958-605-25-5E, 25-5C, 45-4A, 45-4B, 15-6(e), 25-19.</li>\n<li>Open verification backlog:<ul>\n<li>Read the ASC paragraphs cited as <code>secondary</code> in Basic View and upgrade them (FASB login required).</li>\n<li>Confirm ASC 958-605-25-16 (contributed services criteria).</li>\n<li>Confirm Rev. Proc. 90-12&#39;s cash-equivalent statement against the IRS copy.</li>\n<li>Confirm the current home of the UCOA and the FASB ASU index URL.</li>\n<li>Read the CASE Global Reporting Standards (current edition) before citing specific counting rules in client policy.</li>\n</ul>\n</li>\n</ul>\n",
+  "pinLogs": [
+   {
+    "page": "in-kind-gifts",
+    "title": "In-kind gifts (contributed nonfinancial assets)",
+    "date": "2026-10-27",
+    "change": "Services criteria (958-605-25-16) confirmed; pending removed",
+    "source": "PwC Viewpoint NP 7.5 (quotes 958-605-25-16); The CPA Journal, May 2022"
+   },
+   {
+    "page": "conditional-vs-unconditional",
+    "title": "Conditional or unconditional?",
+    "date": "2026-10-19",
+    "change": "Ambiguity rule confirmed at 25-5E; probability rule (25-5C) added",
+    "source": "Independent review against ASU 2018-08 (FASB PDF)"
+   },
+   {
+    "page": "conditional-vs-unconditional",
+    "title": "Conditional or unconditional?",
+    "date": "2026-10-19",
+    "change": "File created",
+    "source": "ASU 2018-08 via BDO bulletin and PwC Viewpoint (NP 6.6); primary ASC text not yet read here"
+   },
+   {
+    "page": "contribution-vs-exchange",
+    "title": "Contribution or exchange?",
+    "date": "2026-10-19",
+    "change": "Fact-check corrections: indicator table reduced to what 958-605-15-5A now says; superseded indicators moved to \"practice judgment\"; third-party payer citation added",
+    "source": "Independent review against ASU 2018-08 (FASB PDF)"
+   },
+   {
+    "page": "contribution-vs-exchange",
+    "title": "Contribution or exchange?",
+    "date": "2026-10-19",
+    "change": "File created",
+    "source": "ASU 2018-08 via BDO and PwC Viewpoint summaries; primary ASC text not yet read here"
+   },
+   {
+    "page": "sponsorships",
+    "title": "Corporate sponsorships",
+    "date": "2026-10-19",
+    "change": "Fact-check corrections: paragraph numbers fixed to (c)(2)(ii), (d)(1), (c)(2)(vi); contingent-payment and periodical/trade-show exclusions added",
+    "source": "eCFR text of 26 CFR 1.513-4, read 2026-10-19"
+   },
+   {
+    "page": "sponsorships",
+    "title": "Corporate sponsorships",
+    "date": "2026-10-19",
+    "change": "File created",
+    "source": "IRS pages \"Advertising or qualified sponsorship payments?\" and \"Exclusive provider arrangement within qualified sponsorship agreements\"; CapinCrouse and The Tax Adviser summaries of Treas. Reg. 1.513-4. GAAP split is standard practice, not a quoted standard"
+   },
+   {
+    "page": "gaap-vs-fundraising-counting",
+    "title": "GAAP vs. fundraising counting",
+    "date": "2026-10-19",
+    "change": "Bequest and multi-year pledge rows corrected to CASE's own descriptions",
+    "source": "CASE 2024 update page; CASE Standards Spotlight (Jul/Aug 2024)"
+   },
+   {
+    "page": "gaap-vs-fundraising-counting",
+    "title": "GAAP vs. fundraising counting",
+    "date": "2026-10-19",
+    "change": "File created",
+    "source": "CASE pages on the Global Reporting Standards and the 2024 update; PG Calc review of the 1st edition. Specific CASE counting rules not read in the primary text; check the current edition before citing CASE rules in client policy"
+   },
+   {
+    "page": "in-kind-gifts",
+    "title": "In-kind gifts (contributed nonfinancial assets)",
+    "date": "2026-10-19",
+    "change": "Form 8282 clock corrected to date of receipt; exceptions added; collections exception added",
+    "source": "Form 8282 instructions (pinned); independent review"
+   },
+   {
+    "page": "in-kind-gifts",
+    "title": "In-kind gifts (contributed nonfinancial assets)",
+    "date": "2026-10-19",
+    "change": "File created",
+    "source": "ASU 2020-07 (FASB storage PDF, read via search excerpt); Moss Adams and IRS pages on Forms 8282/8283; Schedule M instructions (2024; 2025 draft). ASC 958-605-25-16 services criteria from memory, pending verification"
+   },
+   {
+    "page": "quid-pro-quo-and-events",
+    "title": "Quid pro quo gifts, events, and acknowledgments",
+    "date": "2026-10-19",
+    "change": "Fact-check corrections: campaign-and-disclosure condition on safe harbors, membership exception, acknowledgment content, cash-equivalent sourcing, Form 990 line placement",
+    "source": "Independent review against Pub. 1771 (pinned) and Rev. Proc. 90-12"
+   },
+   {
+    "page": "quid-pro-quo-and-events",
+    "title": "Quid pro quo gifts, events, and acknowledgments",
+    "date": "2026-10-19",
+    "change": "File created",
+    "source": "IRC 6714 text (Tax Notes); Pub. 1771 (Rev. 11-2023) and Rev. Proc. 2025-32 read from IRS PDFs pinned in `snapshots/`; NC Bar summary of 6115"
+   },
+   {
+    "page": "restricted-vs-unrestricted",
+    "title": "With or without donor restrictions?",
+    "date": "2026-10-19",
+    "change": "Same-period election paragraphs confirmed (45-4A, 45-4B); placed-in-service wording corrected",
+    "source": "Independent review against ASU 2018-08 and ASU 2016-14 (FASB PDFs)"
+   },
+   {
+    "page": "restricted-vs-unrestricted",
+    "title": "With or without donor restrictions?",
+    "date": "2026-10-19",
+    "change": "File created",
+    "source": "ASU 2016-14 summaries (Keiter, Warren Averett, GHJ); PwC Viewpoint excerpt of 958-605-45-4; primary ASC text not yet read here"
+   }
+  ],
+  "openFlags": []
+ }
+}

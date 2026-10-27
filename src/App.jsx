@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import data from '@state-data';
 import { formatNumber } from './utils/format';
 import { aggregateData, nteeCategory, communitySize } from './utils/aggregate';
@@ -10,6 +10,9 @@ import GeographyTab from './tabs/GeographyTab';
 import HealthTab from './tabs/HealthTab';
 import BenchmarksTab from './tabs/BenchmarksTab';
 import DirectoryTab from './tabs/DirectoryTab';
+// Loaded only when someone opens the guide, so the dashboard bundle stays the same size.
+const ComplianceTab = lazy(() => import('./compliance/ComplianceTab'));
+import { NOT_ADVICE } from './compliance/config';
 
 const tabs = [
   { id: 'overview', label: 'Overview' },
@@ -19,6 +22,7 @@ const tabs = [
   { id: 'health', label: 'Financial Health' },
   { id: 'benchmarks', label: 'Benchmarks' },
   { id: 'directory', label: 'Directory' },
+  { id: 'guide', label: 'Compliance Guide' },
 ];
 
 const tabComponents = {
@@ -31,8 +35,37 @@ const tabComponents = {
   directory: DirectoryTab,
 };
 
+// The Compliance Guide uses hash links (#guide, #guide/sponsorships) so pages can be shared and printed.
+const readGuideRoute = () => {
+  const h = typeof window === 'undefined' ? '' : window.location.hash;
+  return h === '#guide' || h.startsWith('#guide/') ? h.slice('#guide'.length) : null;
+};
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState('overview');
+  const [guideRoute, setGuideRoute] = useState(readGuideRoute);
+  const [activeTab, setActiveTabState] = useState(() => (readGuideRoute() !== null ? 'guide' : 'overview'));
+
+  useEffect(() => {
+    const onHash = () => {
+      const r = readGuideRoute();
+      setGuideRoute(r);
+      if (r !== null) setActiveTabState('guide');
+    };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  const setActiveTab = id => {
+    if (id === 'guide') {
+      if (readGuideRoute() === null) window.location.hash = 'guide';
+      setActiveTabState('guide');
+    } else {
+      if (readGuideRoute() !== null) history.replaceState(null, '', window.location.pathname + window.location.search);
+      setGuideRoute(null);
+      setActiveTabState(id);
+    }
+  };
+  const isGuide = activeTab === 'guide';
   const [filters, setFilters] = useState({
     freshness: 'all',
     excludeHealth: false,
@@ -105,7 +138,7 @@ export default function App() {
       <div className="h-1 bg-[#1b4965]"></div>
 
       {/* Header */}
-      <div className="bg-white border-b border-slate-200 sticky top-0 z-10">
+      <header className="site-header bg-white border-b border-slate-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-8 py-5">
           <div className="flex justify-between items-start">
             <div>
@@ -119,12 +152,13 @@ export default function App() {
           </div>
 
           {/* Tab navigation — underline style */}
-          <nav className="flex gap-6 mt-5 -mb-px overflow-x-auto">
+          <nav aria-label="Dashboard sections" className="flex gap-6 mt-5 -mb-px overflow-x-auto">
             {tabs.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`pb-3 text-sm font-medium whitespace-nowrap transition-colors border-b-2 ${
+                aria-current={activeTab === tab.id ? 'page' : undefined}
+                className={`pb-3 text-sm font-medium whitespace-nowrap transition-colors border-b-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1b4965] ${
                   activeTab === tab.id
                     ? 'border-[#1b4965] text-[#1b4965]'
                     : 'border-transparent text-slate-400 hover:text-slate-600 hover:border-slate-300'
@@ -135,10 +169,10 @@ export default function App() {
             ))}
           </nav>
         </div>
-      </div>
+      </header>
 
-      {/* Filter Bar */}
-      <div className="bg-white border-b border-slate-200">
+      {/* Filter Bar (dashboard tabs only) */}
+      {!isGuide && <div className="filter-bar bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-8 py-3">
           <FilterBar
             filters={filters}
@@ -148,16 +182,24 @@ export default function App() {
             totalCount={data.overview?.total_orgs || data.orgs?.length || 0}
           />
         </div>
-      </div>
+      </div>}
 
       {/* Tab Content */}
-      <div className="max-w-7xl mx-auto px-8 py-8">
-        <ActiveTabComponent data={filteredData} />
-      </div>
+      <main className="max-w-7xl mx-auto px-8 py-8">
+        {isGuide
+          ? <Suspense fallback={<p className="text-sm text-slate-500">Loading the Compliance Guide…</p>}><ComplianceTab route={guideRoute || ''} stateName={data.state_name} /></Suspense>
+          : <ActiveTabComponent data={filteredData} />}
+      </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white mt-12">
+      <footer className="site-footer border-t border-slate-200 bg-white mt-12">
         <div className="max-w-7xl mx-auto px-8 py-8">
+          {isGuide ? (
+            <div className="text-xs text-slate-500 space-y-1">
+              <p className="font-medium text-slate-600">Compliance Guide</p>
+              <p>{NOT_ADVICE} Confirm with your own accountant or attorney before acting. <a className="underline" href="#guide/terms">Terms of use</a> · <a className="underline" href="#guide/changes">What changed</a></p>
+            </div>
+          ) : (
           <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-slate-400">
             <div>
               <p className="font-medium text-slate-500">Data Sources</p>
@@ -182,6 +224,7 @@ export default function App() {
               <p>Related entities that file separately (e.g., a health system and its group return) are each counted.</p>
             </div>
           </div>
+          )}
         </div>
       </footer>
     </div>

@@ -1,0 +1,296 @@
+# Layer 1: canonical sources. Links only, never copied text.
+#
+# Every source carries three anchors:
+#   stable_id  - the real citation; survives URL changes and names the version relied on
+#   live_url   - convenience link to the current version
+#   pin        - what you relied on, frozen (filled in by the watcher on first run)
+#
+# Fields
+#   kind:      irs_pdf | web | ecfr | asu_feed | book
+#   watch:     annual | asu | occasional | static
+#              (annual = expect a new version every year; asu = changes only via a new FASB ASU;
+#               occasional = revised irregularly; static = effectively frozen)
+#   verified:  primary   - checked against the issuing body's own text
+#              secondary - checked against 2+ independent professional sources (CPA firms, law firms),
+#                          primary text not yet read in this repo
+#              pending   - not yet verified; treat as a lead, not a rule
+#   last_verified: date a human (or Claude, reviewed by a human) last checked the claim
+#   public_domain: true when the document may be stored in snapshots/ (US federal works)
+#
+# The watcher (watcher/watch.py) reads this file. Decision files point here by `id`.
+
+sources:
+
+  # ---------------------------------------------------------------- FASB / GAAP
+  - id: asc-958-605
+    title: "FASB ASC 958-605, Not-for-Profit Entities: Revenue Recognition"
+    kind: web
+    stable_id: "ASC 958-605, as amended through ASU 2018-08 and ASU 2020-07"
+    live_url: "https://asc.fasb.org/958/605"
+    fetch: false   # login-gated; changes arrive via ASUs, which fasb-asu-feed watches
+    watch: asu
+    watch_topics: ["958", "606"]
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: false
+    notes: >
+      Codification is copyrighted and requires a free login (Basic View). Do not store copies.
+      Pin = paragraph number + the ASU that last amended it. ASUs are fixed documents.
+
+  - id: asc-958-205
+    title: "FASB ASC 958-205, Presentation of Financial Statements"
+    kind: web
+    stable_id: "ASC 958-205, as amended by ASU 2016-14 and ASU 2020-07"
+    live_url: "https://asc.fasb.org/958/205"
+    fetch: false   # login-gated; changes arrive via ASUs, which fasb-asu-feed watches
+    watch: asu
+    watch_topics: ["958"]
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: false
+
+  - id: asu-2018-08
+    title: "ASU 2018-08, Clarifying the Scope and the Accounting Guidance for Contributions Received and Contributions Made"
+    kind: web
+    stable_id: "ASU 2018-08 (issued June 2018)"
+    live_url: "https://storage.fasb.org/ASU_2018-08.pdf"
+    watch: static
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: false
+    notes: "Fixed document. Source of the barrier + right-of-return test and the contribution-vs-exchange indicators."
+
+  - id: asu-2016-14
+    title: "ASU 2016-14, Presentation of Financial Statements of Not-for-Profit Entities"
+    kind: web
+    stable_id: "ASU 2016-14 (issued August 2016)"
+    live_url: "https://storage.fasb.org/ASU_2016-14.pdf"
+    watch: static
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: false
+    notes: "Fixed document. Two net asset classes; board-designated disclosure; liquidity disclosure."
+
+  - id: asu-2020-07
+    title: "ASU 2020-07, Presentation and Disclosures by Not-for-Profit Entities for Contributed Nonfinancial Assets"
+    kind: web
+    stable_id: "ASU 2020-07 (issued September 2020)"
+    live_url: "https://storage.fasb.org/ASU_2020-07.pdf"
+    watch: static
+    verified: primary
+    last_verified: 2026-10-19
+    public_domain: false
+    notes: "Fixed document. Presentation/disclosure only; does not change recognition or measurement."
+
+  - id: asc-606
+    title: "FASB ASC 606, Revenue from Contracts with Customers"
+    kind: web
+    stable_id: "ASC 606"
+    live_url: "https://asc.fasb.org/606"
+    fetch: false   # login-gated; changes arrive via ASUs, which fasb-asu-feed watches
+    watch: asu
+    watch_topics: ["606"]
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: false
+    notes: "Governs the exchange portion of sponsorships, event tickets, program fees, contracts."
+
+  - id: fasb-asu-feed
+    title: "FASB: Accounting Standards Updates issued (list page)"
+    kind: asu_feed
+    stable_id: "FASB ASU index"
+    live_url: "https://www.fasb.org/standards/accounting-standards-updates-issued"
+    watch: asu
+    verified: pending
+    last_verified: 2026-10-19
+    public_domain: false
+    notes: >
+      The watcher scrapes ASU numbers (pattern ASU 20YY-NN) from this page and reports any not seen
+      before. URL could not be fetched from the build environment; confirm it on first run. If FASB
+      moves the page, update live_url here. A fetch failure is reported as MANUAL CHECK, never a pass.
+
+  # ---------------------------------------------------------------- IRS
+  - id: irc-170f8
+    title: "IRC 170(f)(8), contemporaneous written acknowledgment for gifts of $250+"
+    kind: web
+    stable_id: "26 U.S.C. 170(f)(8)"
+    live_url: "https://www.law.cornell.edu/uscode/text/26/170"
+    watch: occasional
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: irc-6115
+    title: "IRC 6115, disclosure for quid pro quo contributions over $75"
+    kind: web
+    stable_id: "26 U.S.C. 6115"
+    live_url: "https://www.law.cornell.edu/uscode/text/26/6115"
+    watch: occasional
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: irc-6714
+    title: "IRC 6714, penalty for failing the quid pro quo disclosure"
+    kind: web
+    stable_id: "26 U.S.C. 6714"
+    live_url: "https://www.law.cornell.edu/uscode/text/26/6714"
+    watch: occasional
+    verified: primary
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: irc-513i
+    title: "IRC 513(i) and Treas. Reg. 1.513-4, qualified sponsorship payments"
+    kind: web
+    stable_id: "26 U.S.C. 513(i); 26 CFR 1.513-4 (final regs 2002)"
+    live_url: "https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR5d3ce1ba0b3b2db/section-1.513-4"
+    watch: occasional
+    verified: primary
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: irc-170-obbba
+    title: "IRC 170 as amended by Pub. L. 119-21 (OBBBA): 170(p) non-itemizer deduction, 0.5% AGI floor, corporate 1% floor"
+    kind: web
+    stable_id: "Pub. L. 119-21 (July 4, 2025), effective tax years beginning after 2025"
+    live_url: "https://www.law.cornell.edu/uscode/text/26/170"
+    watch: occasional
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: true
+    notes: "Donor-side rules. Matter for receipt language and donor messaging, not for gift coding."
+
+  - id: pub-1771
+    title: "IRS Publication 1771, Charitable Contributions: Substantiation and Disclosure Requirements"
+    kind: irs_pdf
+    stable_id: "IRS Pub. 1771 (Rev. 11-2023), Catalog No. 20054Q"
+    live_url: "https://www.irs.gov/pub/irs-pdf/p1771.pdf"
+    watch: occasional
+    verified: primary
+    last_verified: 2026-10-19
+    public_domain: true
+    notes: "This URL always serves the newest revision. The watcher reads the 'Rev.' date from the PDF."
+
+  - id: pub-561
+    title: "IRS Publication 561, Determining the Value of Donated Property"
+    kind: irs_pdf
+    stable_id: "IRS Pub. 561 (revision recorded by watcher on first run)"
+    live_url: "https://www.irs.gov/pub/irs-pdf/p561.pdf"
+    watch: occasional
+    verified: pending
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: rev-proc-90-12
+    title: "Rev. Proc. 90-12 (as amplified by 92-49, modified by 92-102): insubstantial-benefit safe harbors"
+    kind: web
+    stable_id: "Rev. Proc. 90-12, 1990-1 C.B. 471; Rev. Proc. 92-49; Rev. Proc. 92-102"
+    live_url: "https://www.irs.gov/charities-non-profits/substantiating-charitable-contributions"
+    watch: static
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: true
+    notes: "Base dollar amounts ($5 / $25 / $50) are indexed annually by a new Rev. Proc. See volatile-values.md."
+
+  - id: rev-proc-2025-32
+    title: "Rev. Proc. 2025-32, inflation-adjusted items for tax year 2026"
+    kind: irs_pdf
+    stable_id: "Rev. Proc. 2025-32, sec. 4.33 (revised Oct. 17, 2025)"
+    live_url: "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+    watch: static
+    verified: primary
+    last_verified: 2026-10-19
+    public_domain: true
+    notes: >
+      Fixed document for 2026. Next year's figures arrive in a new Rev. Proc. (usually October).
+      When it lands, add it as a new source and repoint volatile-values.md; keep this entry.
+
+  - id: form-8282-8283
+    title: "Forms 8282 (Donee Information Return) and 8283 (Noncash Charitable Contributions) and instructions"
+    kind: irs_pdf
+    stable_id: "Form 8282 and instructions (revision recorded by watcher)"
+    live_url: "https://www.irs.gov/pub/irs-pdf/f8282.pdf"
+    watch: occasional
+    verified: primary
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: form-990-instructions
+    title: "Instructions for Form 990, including Schedules B and M"
+    kind: irs_pdf
+    stable_id: "Instructions for Form 990, tax year 2025"
+    live_url: "https://www.irs.gov/pub/irs-pdf/i990.pdf"
+    watch: annual
+    verified: primary
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: form-990-schedule-m
+    title: "Schedule M (Form 990), Noncash Contributions, and instructions"
+    kind: irs_pdf
+    stable_id: "Schedule M (Form 990) and instructions, tax year 2025"
+    live_url: "https://www.irs.gov/pub/irs-pdf/f990sm.pdf"
+    watch: annual
+    verified: primary
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: pub-598
+    title: "IRS Publication 598, Tax on Unrelated Business Income of Exempt Organizations"
+    kind: irs_pdf
+    stable_id: "IRS Pub. 598 (revision recorded by watcher)"
+    live_url: "https://www.irs.gov/pub/irs-pdf/p598.pdf"
+    watch: occasional
+    verified: pending
+    last_verified: 2026-10-19
+    public_domain: true
+
+  - id: pub-4221-pc
+    title: "IRS Publication 4221-PC, Compliance Guide for 501(c)(3) Public Charities"
+    kind: irs_pdf
+    stable_id: "IRS Pub. 4221-PC (revision recorded by watcher)"
+    live_url: "https://www.irs.gov/pub/irs-pdf/p4221pc.pdf"
+    watch: occasional
+    verified: pending
+    last_verified: 2026-10-19
+    public_domain: true
+
+  # ---------------------------------------------------------------- Federal grants
+  - id: 2-cfr-200
+    title: "2 CFR Part 200 (Uniform Guidance), 2024 revision"
+    kind: ecfr
+    stable_id: "2 CFR 200, as revised 89 FR 30046 (Apr. 22, 2024), effective Oct. 1, 2024"
+    live_url: "https://www.ecfr.gov/current/title-2/subtitle-A/chapter-II/part-200"
+    pin_template: "https://www.ecfr.gov/on/{date}/title-2/subtitle-A/chapter-II/part-200"
+    watch: occasional
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: true
+    notes: "eCFR supports point-in-time URLs; the watcher pins with the date of each check."
+
+  # ---------------------------------------------------------------- Practice standards
+  - id: ucoa
+    title: "Unified Chart of Accounts (UCOA), NCCS / California Association of Nonprofits"
+    kind: web
+    stable_id: "UCOA (NCCS), legacy version"
+    live_url: "http://nccs.urban.org/projects/ucoa.cfm"
+    watch: static
+    verified: pending
+    last_verified: 2026-10-19
+    public_domain: false
+    notes: >
+      Current official home could not be confirmed; the legacy NCCS URL may redirect or be dead.
+      If the watcher reports it broken, find the current copy and replace live_url. Take a Wayback
+      capture regardless. Pre-dates ASU 2016-14, so check its net-asset section before adopting.
+
+  - id: case-grs
+    title: "CASE Global Reporting Standards (fundraising counting)"
+    kind: book
+    stable_id: "CASE Global Reporting Standards, 1st ed. (March 2021), 2024 update"
+    live_url: "https://www.case.org/case-global-reporting-standards-schools"
+    watch: occasional
+    verified: secondary
+    last_verified: 2026-10-19
+    public_domain: false
+    notes: "Paid/member resource. Written for education; widely borrowed by other nonprofits for counting rules."

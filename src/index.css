@@ -8,3 +8,37 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Serif 4', Georgia, serif;
 }
+
+/* ---------------------------------------------------------------- Compliance Guide */
+.guide-prose { color: #1e293b; line-height: 1.7; max-width: 48rem; }
+.guide-prose h3 { font-size: 1.25rem; font-weight: 600; color: #0f172a; margin: 2rem 0 0.75rem; }
+.guide-prose h4 { font-size: 1.05rem; font-weight: 600; color: #0f172a; margin: 1.5rem 0 0.5rem; }
+.guide-prose p { margin: 0.75rem 0; }
+.guide-prose ul { list-style: disc; padding-left: 1.5rem; margin: 0.75rem 0; }
+.guide-prose ol { list-style: decimal; padding-left: 1.5rem; margin: 0.75rem 0; }
+.guide-prose li { margin: 0.35rem 0; }
+.guide-prose li:has(> input[type="checkbox"]) { list-style: none; margin-left: -1.5rem; }
+.guide-prose input[type="checkbox"] { margin-right: 0.5rem; accent-color: #1b4965; }
+.guide-prose a { color: #1b4965; text-decoration: underline; text-underline-offset: 2px; }
+.guide-prose a:hover { color: #0f2f42; }
+.guide-prose code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; background: #f1f5f9; padding: 0.1em 0.35em; border-radius: 0.25rem; }
+.guide-prose strong { font-weight: 600; color: #0f172a; }
+.guide-prose .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 0.5rem; background: #fff; max-width: none; }
+.guide-prose table { width: 100%; border-collapse: collapse; font-size: 0.875rem; line-height: 1.5; }
+.guide-prose th { text-align: left; font-weight: 600; color: #334155; background: #f8fafc; padding: 0.6rem 0.75rem; border-bottom: 1px solid #e2e8f0; }
+.guide-prose td { padding: 0.6rem 0.75rem; border-top: 1px solid #f1f5f9; vertical-align: top; }
+.guide-prose tr.row-highlight td { background: #fef9c3; }
+.compliance-guide :focus-visible, .guide-prose a:focus-visible, .table-wrap:focus-visible { outline: 2px solid #1b4965; outline-offset: 2px; border-radius: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+@media print {
+  .site-header, .filter-bar, .guide-nav, .guide-notice, .site-footer, #guide-search { display: none !important; }
+  body, .min-h-screen { background: #fff !important; }
+  main { padding: 0 !important; max-width: none !important; }
+  .compliance-guide .lg\:grid-cols-\[minmax\(0\,1fr\)_20rem\] { display: block !important; }
+  .compliance-guide aside { margin-top: 1.5rem; }
+  .guide-prose .table-wrap { overflow: visible; border: none; }
+  .guide-prose tr { break-inside: avoid; }
+  .compliance-guide a.source-link::after, .guide-prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #475569; word-break: break-all; }
+  .review-banner { border: 2px solid #b45309 !important; }
+}

@@ -1,0 +1,92 @@
+name: Watch compliance sources
+
+on:
+  schedule:
+    # 14:00 UTC on Jan 1, Apr 1, Jul 1, Oct 1
+    - cron: "0 14 1 1,4,7,10 *"
+  workflow_dispatch: {}
+  pull_request:
+    paths:
+      - "compliance/**"
+      - "scripts/build-compliance.js"
+      - "src/compliance/**"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: watch-sources
+  cancel-in-progress: false
+
+jobs:
+  lint:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: compliance
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r watcher/requirements.txt
+      - run: python watcher/watch.py --lint
+      - run: python -m unittest discover -s watcher/tests -v
+
+  site-content:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
+      - name: Generated guide data matches compliance/
+        run: node scripts/build-compliance.js --check
+
+  watch:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: compliance
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r watcher/requirements.txt
+
+      - name: Run watcher
+        run: python watcher/watch.py
+
+      # Committing to main makes Vercel rebuild both state sites, which picks up
+      # any new "under review" flags.
+      - name: Commit state, snapshots, report
+        run: |
+          git config user.name "source-watcher"
+          git config user.email "source-watcher@users.noreply.github.com"
+          git add state/ snapshots/ REPORT.md
+          if git diff --cached --quiet; then
+            echo "No state changes."
+          else
+            git commit -m "compliance: watcher run $(date -u +%Y-%m-%d)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
+
+      - name: Open issue if anything needs a human
+        if: hashFiles('compliance/issue.md') != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create source-watch --color BFD4F2 --description "Flagged by the quarterly source watcher" 2>/dev/null || true
+          gh issue create \
+            --title "Compliance source watch $(date -u +%Y-%m-%d): review flagged sources" \
+            --body-file issue.md \
+            --label source-watch

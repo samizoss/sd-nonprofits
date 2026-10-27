@@ -1,0 +1,302 @@
+{
+  "2-cfr-200": {
+    "final_url": "https://unblock.federalregister.gov",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "https://www.ecfr.gov/on/2026-10-19/title-2/subtitle-A/chapter-II/part-200",
+        "type": "ecfr_point_in_time"
+      }
+    ],
+    "revision": "2024-10-01",
+    "sha256": "ce14bcf76ede7639304458d5a1efb3ab64f0db69f71701de2fafd9354c442db0",
+    "status": 200
+  },
+  "asc-606": {
+    "last_checked": "2026-10-19",
+    "pins": [],
+    "status": "skipped"
+  },
+  "asc-958-205": {
+    "last_checked": "2026-10-19",
+    "pins": [],
+    "status": "skipped"
+  },
+  "asc-958-605": {
+    "last_checked": "2026-10-19",
+    "pins": [],
+    "status": "skipped"
+  },
+  "asu-2016-14": {
+    "final_url": "https://storage.fasb.org/ASU_2016-14.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": null,
+    "sha256": "a35f2fad181161763060275a24c5574ba95e96d25cd944c5b9168cb8d912952f",
+    "status": 200
+  },
+  "asu-2018-08": {
+    "final_url": "https://storage.fasb.org/ASU_2018-08.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": null,
+    "sha256": "c12cf1c3f8214625ff94d474cb6e11db96acd09c70cd9a0ba39f3d00225f5c6a",
+    "status": 200
+  },
+  "asu-2020-07": {
+    "final_url": "https://storage.fasb.org/ASU_2020-07.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": null,
+    "sha256": "aaf2e7e48993509c02fcb7fc32cf55e622831b5c44ef4fa375e0c286bae7f2f6",
+    "status": 200
+  },
+  "case-grs": {
+    "final_url": "https://www.case.org/case-global-reporting-standards-schools",
+    "last_checked": "2026-10-19",
+    "pins": [],
+    "revision": null,
+    "sha256": null,
+    "status": 403
+  },
+  "fasb-asu-feed": {
+    "final_url": "https://www.fasb.org/standards/accounting-standards-updates-issued",
+    "last_checked": "2026-10-19",
+    "pins": [],
+    "revision": null,
+    "sha256": null,
+    "status": 403
+  },
+  "form-8282-8283": {
+    "final_url": "https://www.irs.gov/pub/irs-pdf/f8282.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "snapshots/form-8282-8283/2026-10-19_57f5a212.pdf",
+        "type": "stored_pdf"
+      }
+    ],
+    "revision": "October 2021",
+    "sha256": "57f5a2124f72193eaf75d40f37d4d4304c3ded6cbaf3f4753d9632ba33f14b1c",
+    "status": 200
+  },
+  "form-990-instructions": {
+    "final_url": "https://www.irs.gov/pub/irs-pdf/i990.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "snapshots/form-990-instructions/2026-10-19_ae9f9473.pdf",
+        "type": "stored_pdf"
+      }
+    ],
+    "revision": "2025",
+    "sha256": "ae9f947383cd7393e3359ff7977b4c7665e21496df592a5fd1f8e4efed3acebf",
+    "status": 200
+  },
+  "form-990-schedule-m": {
+    "final_url": "https://www.irs.gov/pub/irs-pdf/f990sm.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "snapshots/form-990-schedule-m/2026-10-19_a8aef801.pdf",
+        "type": "stored_pdf"
+      }
+    ],
+    "revision": "2025",
+    "sha256": "a8aef80137a8812c271b99d893bc5656bf61a1cfaf3a58761ef53376439c48e0",
+    "status": 200
+  },
+  "irc-170-obbba": {
+    "final_url": "https://www.law.cornell.edu/uscode/text/26/170",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": null,
+    "sha256": "db56c6fe39afb5dac87fe1a38dcb6dfc2fb0d4c7d0bf0e1dda3c54e7f996faf4",
+    "status": 200
+  },
+  "irc-170f8": {
+    "final_url": "https://www.law.cornell.edu/uscode/text/26/170",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": null,
+    "sha256": "db56c6fe39afb5dac87fe1a38dcb6dfc2fb0d4c7d0bf0e1dda3c54e7f996faf4",
+    "status": 200
+  },
+  "irc-513i": {
+    "final_url": "https://www.irs.gov/charities-non-profits/advertising-or-qualified-sponsorship-payments",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": "27-Jun-2026",
+    "sha256": "bd8cf13bdc0f09abccedf391b1fd4f8f57b3e10c2a6d6794a4fa824c06ae3347",
+    "status": 200
+  },
+  "irc-6115": {
+    "final_url": "https://www.law.cornell.edu/uscode/text/26/6115",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": null,
+    "sha256": "d94eb22cd71c3f732a25d4c703d6150814fcc9d3d38eac393010d950cbeacc25",
+    "status": 200
+  },
+  "irc-6714": {
+    "final_url": "https://www.law.cornell.edu/uscode/text/26/6714",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": null,
+    "sha256": "28c3156d68734e79441303bf139046e1908b67f4ac80b52b985cc03dfd1ad4f2",
+    "status": 200
+  },
+  "pub-1771": {
+    "final_url": "https://www.irs.gov/pub/irs-pdf/p1771.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "snapshots/pub-1771/2026-10-19_f1a1339c.pdf",
+        "type": "stored_pdf"
+      }
+    ],
+    "revision": "11-2023",
+    "sha256": "f1a1339c9a967cc9f9b05d1a1d00bb5b02c1ca96041dda866ef03fedceecc476",
+    "status": 200
+  },
+  "pub-4221-pc": {
+    "final_url": "https://www.irs.gov/pub/irs-pdf/p4221pc.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "snapshots/pub-4221-pc/2026-10-19_514d1f31.pdf",
+        "type": "stored_pdf"
+      }
+    ],
+    "revision": "3-2018",
+    "sha256": "514d1f3197dc1339eda489700e3697a3eba45f48507dae32191143a8c09e507f",
+    "status": 200
+  },
+  "pub-561": {
+    "final_url": "https://www.irs.gov/pub/irs-pdf/p561.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "snapshots/pub-561/2026-10-19_c51b97c8.pdf",
+        "type": "stored_pdf"
+      }
+    ],
+    "revision": "December 2025",
+    "sha256": "c51b97c8d89b027831c7a9c118c504a253e1cc0b276741dc27d34a9e292045cb",
+    "status": 200
+  },
+  "pub-598": {
+    "final_url": "https://www.irs.gov/pub/irs-pdf/p598.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "snapshots/pub-598/2026-10-19_77643db9.pdf",
+        "type": "stored_pdf"
+      }
+    ],
+    "revision": "March 2021",
+    "sha256": "77643db9318bf04d520377caad491d70b9e0736e4b29de06b7d0980373c3d6f4",
+    "status": 200
+  },
+  "rev-proc-2025-32": {
+    "final_url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "ref": "snapshots/rev-proc-2025-32/2026-10-19_e9ada115.pdf",
+        "type": "stored_pdf"
+      }
+    ],
+    "revision": null,
+    "sha256": "e9ada115fb43a4af5ea326ca91edd40ab0bf29b9be01d2c13d7b8fa96214635b",
+    "status": 200
+  },
+  "rev-proc-90-12": {
+    "final_url": "https://www.irs.gov/charities-non-profits/substantiating-charitable-contributions",
+    "last_checked": "2026-10-19",
+    "pins": [
+      {
+        "date": "2026-10-19",
+        "note": "Wayback capture failed (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))); capture manually",
+        "ref": null,
+        "type": "manual"
+      }
+    ],
+    "revision": "28-Jun-2026",
+    "sha256": "10ea6918ba8390f21ebf56019b725146fb481d18f3edfe15301717d024905670",
+    "status": 200
+  },
+  "ucoa": {
+    "final_url": "http://nccs.urban.org/projects/ucoa.cfm",
+    "last_checked": "2026-10-19",
+    "pins": [],
+    "revision": null,
+    "sha256": null,
+    "status": 403
+  }
+}
