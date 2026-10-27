@@ -4,6 +4,6 @@ export const MAINTAINER = 'the maintainer of this Nonprofit Landscape site';
 
 export const REPO_URL = 'https://github.com/samizoss/sd-nonprofits';
 export const ISSUES_URL = `${REPO_URL}/issues/new?labels=compliance-guide&title=${encodeURIComponent('Compliance Guide: ')}`;
-export const SOURCE_FOLDER_URL = `${REPO_URL}/tree/main/compliance`;
+export const SOURCE_FOLDER_URL = `${REPO_URL}/tree/master/compliance`;
 
 export const NOT_ADVICE = 'General information, not legal or tax advice.';

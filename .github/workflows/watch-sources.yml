@@ -65,7 +65,7 @@ jobs:
       - name: Run watcher
         run: python watcher/watch.py
 
-      # Committing to main makes Vercel rebuild both state sites, which picks up
+      # Committing to the default branch makes Vercel rebuild both state sites, which picks up
       # any new "under review" flags.
       - name: Commit state, snapshots, report
         run: |
